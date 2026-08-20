@@ -65,3 +65,4 @@ def test_benchmark_has_60_valid_judged_queries() -> None:
         "ko-en",
         "no-answer",
     }
+    assert all(query.search_text.isascii() for query in queries if query.category == "ko-en")

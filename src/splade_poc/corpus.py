@@ -22,6 +22,11 @@ class Query:
     category: str
     split: str
     relevance: dict[str, int]
+    retrieval_query: str | None = None
+
+    @property
+    def search_text(self) -> str:
+        return self.retrieval_query or self.query
 
 
 def _title(path: Path, text: str) -> str:
@@ -85,6 +90,7 @@ def load_queries(path: Path, corpus_ids: set[str]) -> list[Query]:
             category=str(row["category"]),
             split=str(row["split"]),
             relevance={str(key): int(value) for key, value in row["relevance"].items()},
+            retrieval_query=(str(row["retrieval_query"]).strip() if row.get("retrieval_query") else None),
         )
         if query.id in seen:
             raise ValueError(f"duplicate query id {query.id} on line {line_number}")

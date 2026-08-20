@@ -2,9 +2,9 @@
 {"id":"q002","query":"How is a five-surface release verified after publication?","category":"semantic","split":"selection","relevance":{"docs/human/qa/q15_release_verification.md":2,"docs/human/release_delivery.md":1}}
 {"id":"q003","query":"maintainer-triggered manual release procedure","category":"exact","split":"selection","relevance":{"docs/human/manual_release.md":2}}
 {"id":"q004","query":"BM25 dense embeddings graph RRF knowledge search pipeline","category":"exact","split":"selection","relevance":{"docs/human/knowledge_search_pipeline.md":2}}
-{"id":"q005","query":"RAG에서 lexical semantic graph 검색 결과를 어떻게 합치나요?","category":"ko-en","split":"selection","relevance":{"docs/human/qa/q05_knowledge_search_rag.md":2,"docs/human/knowledge_search_pipeline.md":1}}
+{"id":"q005","query":"RAG에서 lexical semantic graph 검색 결과를 어떻게 합치나요?","retrieval_query":"how lexical semantic and graph search results are fused in RAG","category":"ko-en","split":"selection","relevance":{"docs/human/qa/q05_knowledge_search_rag.md":2,"docs/human/knowledge_search_pipeline.md":1}}
 {"id":"q006","query":"knowledge note creation indexing refresh lifecycle","category":"semantic","split":"selection","relevance":{"docs/human/knowledge_note_lifecycle.md":2}}
-{"id":"q007","query":"대화 메모리와 workspace knowledge vault의 차이는 무엇인가요?","category":"ko-en","split":"selection","relevance":{"docs/human/qa/q06_memory_vs_vault.md":2}}
+{"id":"q007","query":"대화 메모리와 workspace knowledge vault의 차이는 무엇인가요?","retrieval_query":"difference between conversation memory and workspace knowledge vault","category":"ko-en","split":"selection","relevance":{"docs/human/qa/q06_memory_vs_vault.md":2}}
 {"id":"q008","query":"how the final model prompt is assembled from system context","category":"semantic","split":"selection","relevance":{"docs/human/qa/q01_prompt_assembly.md":2}}
 {"id":"q009","query":"Korean user request normalized into an English retrieval intent","category":"semantic","split":"selection","relevance":{"docs/human/qa/q01_3_english_intent.md":2,"docs/plans/2026/08/13/PLAN_MultilingualRetrievalIntentNormalization_2026-08-13.md":1}}
 {"id":"q010","query":"difference between goal state and todo plan","category":"semantic","split":"selection","relevance":{"docs/human/qa/q01_2_goal_and_todo.md":2}}
@@ -30,7 +30,7 @@
 {"id":"q030","query":"rules for generating public architecture graphics","category":"semantic","split":"selection","relevance":{"docs/PUBLIC_GRAPHICS_GUIDELINES.md":2}}
 {"id":"q031","query":"runtime safety hardening cancellation mutex poison panic","category":"exact","split":"selection","relevance":{"docs/superpowers/specs/2026-08-19-runtime-safety-hardening-design.md":2}}
 {"id":"q032","query":"incremental RAG cache invalidation and changed note embedding","category":"semantic","split":"selection","relevance":{"docs/superpowers/specs/2026-08-19-rag-incremental-cache-hardening-design.md":2}}
-{"id":"q033","query":"다국어 질문을 영어 검색어로 바꾸는 retrieval normalization","category":"ko-en","split":"selection","relevance":{"docs/plans/2026/08/13/PLAN_MultilingualRetrievalIntentNormalization_2026-08-13.md":2,"docs/superpowers/specs/2026-08-13-multilingual-retrieval-intent-design.md":1}}
+{"id":"q033","query":"다국어 질문을 영어 검색어로 바꾸는 retrieval normalization","retrieval_query":"multilingual request normalized into a canonical English retrieval query","category":"ko-en","split":"selection","relevance":{"docs/plans/2026/08/13/PLAN_MultilingualRetrievalIntentNormalization_2026-08-13.md":2,"docs/superpowers/specs/2026-08-13-multilingual-retrieval-intent-design.md":1}}
 {"id":"q034","query":"384 dimensional Snowflake Arctic dense embedding redesign","category":"exact","split":"selection","relevance":{"docs/plans/2026/08/12/DOC_RagEmbeddingRedesign_Explained_KO_2026-08-12.md":2}}
 {"id":"q035","query":"Kubernetes ingress controller Helm chart configuration","category":"no-answer","split":"selection","relevance":{}}
 {"id":"q036","query":"Android Jetpack Compose navigation tutorial","category":"no-answer","split":"selection","relevance":{}}

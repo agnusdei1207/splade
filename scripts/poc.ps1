@@ -16,6 +16,10 @@ $corpusRoot = if ($env:SPLADE_CORPUS_ROOT) {
 }
 $cacheRoot = Join-Path $repoRoot '.cache'
 New-Item -ItemType Directory -Force -Path $cacheRoot | Out-Null
+$corpusGitSha = (& git -C $corpusRoot rev-parse HEAD).Trim()
+if ($LASTEXITCODE -ne 0 -or $corpusGitSha -notmatch '^[0-9a-f]{40}$') {
+    throw "failed to resolve corpus Git SHA from $corpusRoot"
+}
 
 $dockerArgs = @(
     'run', '--rm',
@@ -29,6 +33,7 @@ $dockerArgs = @(
     '--env', 'UV_PROJECT_ENVIRONMENT=/cache/venv',
     '--env', 'MPLCONFIGDIR=/cache/matplotlib',
     '--env', 'PYTHONPATH=/workspace/src',
+    '--env', "SPLADE_CORPUS_GIT_SHA=$corpusGitSha",
     '--workdir', '/workspace',
     'ghcr.io/astral-sh/uv:python3.12-bookworm-slim'
 )

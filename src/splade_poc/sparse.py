@@ -50,3 +50,23 @@ class SparseVector:
             else:
                 right += 1
         return score
+
+
+class SparseIndex:
+    def __init__(self, documents: dict[str, SparseVector]) -> None:
+        self.postings: dict[int, list[tuple[str, float]]] = {}
+        for document_id, vector in sorted(documents.items()):
+            for term_id, weight in zip(vector.term_ids, vector.weights, strict=True):
+                self.postings.setdefault(term_id, []).append((document_id, weight))
+
+    @property
+    def storage_bytes(self) -> int:
+        return sum(len(postings) for postings in self.postings.values()) * 8
+
+    def search(self, query: SparseVector, limit: int = 24) -> list[tuple[str, float]]:
+        scores: dict[str, float] = {}
+        for term_id, query_weight in zip(query.term_ids, query.weights, strict=True):
+            for document_id, document_weight in self.postings.get(term_id, []):
+                scores[document_id] = scores.get(document_id, 0.0) + query_weight * document_weight
+        ranked = sorted(scores.items(), key=lambda item: (-item[1], item[0]))
+        return ranked[:limit]

@@ -14,6 +14,7 @@ class ModelSpec:
     revision: str
     vocab_size: int
     inference_free_query: bool
+    license: str
     max_query_terms: int = 32
     max_document_terms: int = 256
 
@@ -25,6 +26,7 @@ MODEL_SPECS = (
         revision="37bc323e08e4e99d9e36d2c55d25877a579b3745",
         vocab_size=30522,
         inference_free_query=True,
+        license="apache-2.0",
     ),
     ModelSpec(
         key="if-opensearch-mini",
@@ -32,6 +34,7 @@ MODEL_SPECS = (
         revision="4af867a426867dfdd744097531046f4289a32fdd",
         vocab_size=30522,
         inference_free_query=True,
+        license="apache-2.0",
     ),
     ModelSpec(
         key="splade-tiny",
@@ -39,6 +42,7 @@ MODEL_SPECS = (
         revision="7391972eac4411e33efff5fad27b886ec97895c0",
         vocab_size=30522,
         inference_free_query=False,
+        license="mit",
     ),
 )
 
