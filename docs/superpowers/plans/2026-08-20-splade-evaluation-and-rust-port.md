@@ -10,6 +10,8 @@
 
 **Spec:** `docs/superpowers/specs/2026-08-20-splade-rust-poc-design.md`
 
+**Status:** Completed on 2026-08-20. Raw results and verification evidence are under `artifacts/eval/2026-08-20-pentesting-267`.
+
 ## Global Constraints
 
 - Run Python and Cargo only in Docker with `--memory 4g --memory-swap 4g --cpus 2 --pids-limit 512`.

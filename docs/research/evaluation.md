@@ -43,8 +43,21 @@ IF BERT-Tiny는 최종 검증값은 가장 높았지만 선택셋 Recall gate를
 | Hugging Face 비인증 병렬 요청 429 | 고정 revision을 단일 worker로 먼저 다운로드 |
 | 컨테이너에 Git 없음 | 호스트가 corpus SHA만 전달 |
 
+## Rust 재평가
+
+선정 모델을 ONNX + tract로 옮긴 뒤 같은 267개 문서와 60개 질의를 다시 실행했다.
+
+| 항목 | Python | Rust |
+|---|---:|---:|
+| 문서 처리량 | 4.404 docs/s | 1.115 docs/s |
+| 질의+검색 p95 | 1.730ms | 0.075ms |
+| 최대 RSS | 858.7MiB | 724.1MiB |
+| top-10 순위 일치 | – | 60/60 |
+
+Rust 점수의 Python 대비 최대 절대 오차는 0.00003288이었다. 품질은 유지됐지만 tract release 문서 인코딩은 Python보다 약 3.95배 느리다.
+
 ## 한계
 
 - 실제 `.pentesting/knowledge` vault가 없어 저장소 문서를 대체 corpus로 사용했다.
 - 60개 qrel은 POC용이며 운영 품질 보증 자료가 아니다.
-- 네 번째 레이어 도입 판단은 Rust 동등성 확인 후 별도로 한다.
+- Rust 수치는 이 2 CPU 제한 환경의 tract 0.23.4 release 결과이며 다른 CPU나 런타임으로 일반화하지 않는다.

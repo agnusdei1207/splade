@@ -5,6 +5,7 @@ description = "Reproducible SPLADE model evaluation and Rust parity harness"
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "matplotlib>=3.10,<4",
+    "onnx>=1.17,<2",
     "psutil>=7,<8",
     "sentence-transformers==5.0.0",
     "torch==2.6.0",

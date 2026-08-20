@@ -1,6 +1,6 @@
 param(
     [Parameter(Position = 0, Mandatory = $true)]
-    [ValidateSet('probe', 'lock', 'sync', 'pytest', 'evaluate', 'report', 'rust-report', 'export', 'python')]
+    [ValidateSet('lock', 'format', 'fmt', 'test', 'clippy', 'bench')]
     [string]$Action,
 
     [Parameter(Position = 1, ValueFromRemainingArguments = $true)]
@@ -28,29 +28,17 @@ $dockerArgs = @(
     '--mount', "type=bind,source=$repoRoot,target=/workspace",
     '--mount', "type=bind,source=$corpusRoot,target=/corpus,readonly",
     '--mount', "type=bind,source=$cacheRoot,target=/cache",
-    '--env', 'HF_HOME=/cache/huggingface',
-    '--env', 'UV_CACHE_DIR=/cache/uv',
-    '--env', 'UV_PROJECT_ENVIRONMENT=/cache/venv',
-    '--env', 'MPLCONFIGDIR=/cache/matplotlib',
-    '--env', 'PYTHONPATH=/workspace/src',
+    '--env', 'CARGO_HOME=/cache/cargo-home',
+    '--env', 'CARGO_TARGET_DIR=/cache/cargo-target',
+    '--env', 'CARGO_BUILD_JOBS=2',
     '--env', "SPLADE_CORPUS_GIT_SHA=$corpusGitSha",
     '--workdir', '/workspace',
-    'ghcr.io/astral-sh/uv:python3.12-bookworm-slim'
+    'rust:1.96-bookworm'
 )
 
-$containerCommand = switch ($Action) {
-    'probe' { @('python', 'scripts/container_probe.py') }
-    'lock' { @('uv', 'lock') }
-    'sync' { @('uv', 'sync', '--locked') }
-    'pytest' { @('uv', 'run', '--no-sync', 'pytest') + $Arguments }
-    'evaluate' { @('uv', 'run', '--no-sync', 'python', '-m', 'splade_poc.evaluate') + $Arguments }
-    'report' { @('uv', 'run', '--no-sync', 'python', '-m', 'splade_poc.report') + $Arguments }
-    'rust-report' { @('uv', 'run', '--no-sync', 'python', '-m', 'splade_poc.rust_report') + $Arguments }
-    'export' { @('uv', 'run', '--no-sync', 'python', '-m', 'splade_poc.export_winner') + $Arguments }
-    'python' { @('uv', 'run', '--no-sync', 'python') + $Arguments }
-}
+$cargoCommand = @('bash', '/workspace/scripts/rust-container.sh', $Action) + $Arguments
 
-& docker @dockerArgs @containerCommand
+& docker @dockerArgs @cargoCommand
 if ($LASTEXITCODE -ne 0) {
     exit $LASTEXITCODE
 }

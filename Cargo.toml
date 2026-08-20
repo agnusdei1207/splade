@@ -1,0 +1,31 @@
+[package]
+name = "splade-rs-poc"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.96"
+
+[lib]
+name = "splade"
+path = "rust/lib.rs"
+
+[[bin]]
+name = "rust-benchmark"
+path = "rust/bin/rust-benchmark.rs"
+
+[dependencies]
+anyhow = "1.0"
+safetensors = "0.8"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+tokenizers = { version = "0.23.1", default-features = false, features = ["fancy-regex"] }
+tract-onnx = { version = "=0.23.4", default-features = false }
+
+[dev-dependencies]
+tempfile = "3.27"
+
+[profile.dev]
+debug = 0
+
+[profile.test]
+debug = 0
