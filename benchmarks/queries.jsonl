@@ -1,0 +1,60 @@
+{"id":"q001","query":"Why are Cargo builds required to run in memory-capped Docker containers?","category":"semantic","split":"selection","relevance":{"docs/BUILD_SAFETY.md":2}}
+{"id":"q002","query":"How is a five-surface release verified after publication?","category":"semantic","split":"selection","relevance":{"docs/human/qa/q15_release_verification.md":2,"docs/human/release_delivery.md":1}}
+{"id":"q003","query":"maintainer-triggered manual release procedure","category":"exact","split":"selection","relevance":{"docs/human/manual_release.md":2}}
+{"id":"q004","query":"BM25 dense embeddings graph RRF knowledge search pipeline","category":"exact","split":"selection","relevance":{"docs/human/knowledge_search_pipeline.md":2}}
+{"id":"q005","query":"RAG에서 lexical semantic graph 검색 결과를 어떻게 합치나요?","category":"ko-en","split":"selection","relevance":{"docs/human/qa/q05_knowledge_search_rag.md":2,"docs/human/knowledge_search_pipeline.md":1}}
+{"id":"q006","query":"knowledge note creation indexing refresh lifecycle","category":"semantic","split":"selection","relevance":{"docs/human/knowledge_note_lifecycle.md":2}}
+{"id":"q007","query":"대화 메모리와 workspace knowledge vault의 차이는 무엇인가요?","category":"ko-en","split":"selection","relevance":{"docs/human/qa/q06_memory_vs_vault.md":2}}
+{"id":"q008","query":"how the final model prompt is assembled from system context","category":"semantic","split":"selection","relevance":{"docs/human/qa/q01_prompt_assembly.md":2}}
+{"id":"q009","query":"Korean user request normalized into an English retrieval intent","category":"semantic","split":"selection","relevance":{"docs/human/qa/q01_3_english_intent.md":2,"docs/plans/2026/08/13/PLAN_MultilingualRetrievalIntentNormalization_2026-08-13.md":1}}
+{"id":"q010","query":"difference between goal state and todo plan","category":"semantic","split":"selection","relevance":{"docs/human/qa/q01_2_goal_and_todo.md":2}}
+{"id":"q011","query":"when autonomous continuation is allowed after a turn","category":"semantic","split":"selection","relevance":{"docs/human/qa/q01_2_1_auto_loop.md":2}}
+{"id":"q012","query":"subagent delegation result promotion and parent ownership","category":"semantic","split":"selection","relevance":{"docs/human/qa/q02_subagent_delegation.md":2}}
+{"id":"q013","query":"EvidenceItem hierarchy and provenance rules","category":"exact","split":"selection","relevance":{"docs/human/qa/q03_evidence_item_hierarchy.md":2}}
+{"id":"q014","query":"PUCT frontier selection balances exploration and evidence","category":"semantic","split":"selection","relevance":{"docs/human/qa/q04_puct_frontier_search.md":2}}
+{"id":"q015","query":"conversation memory consolidation and retention","category":"semantic","split":"selection","relevance":{"docs/human/qa/q07_memory_consolidation.md":2}}
+{"id":"q016","query":"shell output truncation preserves beginning and end","category":"semantic","split":"selection","relevance":{"docs/human/qa/q08_shell_truncation.md":2}}
+{"id":"q017","query":"registered tool execution policy hook resource boundary","category":"semantic","split":"selection","relevance":{"docs/human/qa/q09_tool_execution_boundary.md":2}}
+{"id":"q018","query":"reverse shell PTY upgrade helper order python script expect","category":"exact","split":"selection","relevance":{"docs/human/qa/q10_reverse_shell_and_pty.md":2}}
+{"id":"q019","query":"model Stop is not evidence-backed mission completion","category":"semantic","split":"selection","relevance":{"docs/human/qa/q11_model_stop_vs_complete.md":2}}
+{"id":"q020","query":"goal command does not enable auto mode","category":"semantic","split":"selection","relevance":{"docs/human/qa/q12_goal_and_auto_controls.md":2}}
+{"id":"q021","query":"queued input FIFO resume at safe turn boundary","category":"semantic","split":"selection","relevance":{"docs/human/qa/q13_input_queue_and_resume.md":2}}
+{"id":"q022","query":"auto state resets and terminal theme behavior","category":"semantic","split":"selection","relevance":{"docs/human/qa/q14_auto_state_and_theme.md":2}}
+{"id":"q023","query":"Coral terminal palette theme color tokens","category":"exact","split":"selection","relevance":{"docs/human/qa/q16_theme_and_colors.md":2,"docs/superpowers/specs/2026-08-13-coral-terminal-palette-design.md":1}}
+{"id":"q024","query":"when the agent must use web search and citations","category":"semantic","split":"selection","relevance":{"docs/human/qa/q17_web_search.md":2}}
+{"id":"q025","query":"markdown rendering lifecycle safety and escaping","category":"semantic","split":"selection","relevance":{"docs/human/qa/q18_markdown_lifecycle_and_safety.md":2}}
+{"id":"q026","query":"builder crate responsibilities and module ownership","category":"semantic","split":"selection","relevance":{"docs/human/builder_modules.md":2}}
+{"id":"q027","query":"main request flow from CLI through orchestration","category":"semantic","split":"selection","relevance":{"docs/architecture/MAIN_FLOWS.md":2}}
+{"id":"q028","query":"typed evidence record examples and JSON fields","category":"semantic","split":"selection","relevance":{"docs/human/evidence_data_examples.md":2}}
+{"id":"q029","query":"public visualizer product requirements and data boundaries","category":"semantic","split":"selection","relevance":{"docs/human/public-visualizer-requirements.md":2}}
+{"id":"q030","query":"rules for generating public architecture graphics","category":"semantic","split":"selection","relevance":{"docs/PUBLIC_GRAPHICS_GUIDELINES.md":2}}
+{"id":"q031","query":"runtime safety hardening cancellation mutex poison panic","category":"exact","split":"selection","relevance":{"docs/superpowers/specs/2026-08-19-runtime-safety-hardening-design.md":2}}
+{"id":"q032","query":"incremental RAG cache invalidation and changed note embedding","category":"semantic","split":"selection","relevance":{"docs/superpowers/specs/2026-08-19-rag-incremental-cache-hardening-design.md":2}}
+{"id":"q033","query":"다국어 질문을 영어 검색어로 바꾸는 retrieval normalization","category":"ko-en","split":"selection","relevance":{"docs/plans/2026/08/13/PLAN_MultilingualRetrievalIntentNormalization_2026-08-13.md":2,"docs/superpowers/specs/2026-08-13-multilingual-retrieval-intent-design.md":1}}
+{"id":"q034","query":"384 dimensional Snowflake Arctic dense embedding redesign","category":"exact","split":"selection","relevance":{"docs/plans/2026/08/12/DOC_RagEmbeddingRedesign_Explained_KO_2026-08-12.md":2}}
+{"id":"q035","query":"Kubernetes ingress controller Helm chart configuration","category":"no-answer","split":"selection","relevance":{}}
+{"id":"q036","query":"Android Jetpack Compose navigation tutorial","category":"no-answer","split":"selection","relevance":{}}
+{"id":"q037","query":"BuildKit child compiler OOM is detected with cgroup oom_kill delta","category":"exact","split":"validation","relevance":{"docs/superpowers/specs/2026-08-12-docker-image-tract-oom-design.md":2}}
+{"id":"q038","query":"live knowledge index upsert without full rebuild","category":"semantic","split":"validation","relevance":{"docs/plans/2026/08/18/PLAN_LiveIndexUpsert_2026-08-18.md":2}}
+{"id":"q039","query":"global incremental embedding cache shared across retrievers","category":"semantic","split":"validation","relevance":{"docs/plans/2026/08/18/PLAN_GlobalIncrementalEmbeddingCache_2026-08-18.md":2}}
+{"id":"q040","query":"retrieval cadence avoids rebuilding knowledge on every auto turn","category":"semantic","split":"validation","relevance":{"docs/plans/2026/08/15/retrieval-cadence-and-auto-loop.md":2}}
+{"id":"q041","query":"turn performance telemetry and queued steering replay","category":"semantic","split":"validation","relevance":{"docs/plans/2026/08/13/PLAN_TurnPerformanceTelemetryAndQueueReplay_2026-08-13.md":2}}
+{"id":"q042","query":"workspace retrieval intent keeps canonical English query","category":"semantic","split":"validation","relevance":{"docs/plans/2026/08/13/PLAN_MultilingualRetrievalIntentNormalization_2026-08-13.md":2}}
+{"id":"q043","query":"dense RAG legacy stability after local embedding migration","category":"semantic","split":"validation","relevance":{"docs/plans/2026/08/12/PLAN_RagDenseLegacyStability_2026-08-12.md":2}}
+{"id":"q044","query":"adaptive PTY upgrade is bounded ACT then VERIFY","category":"exact","split":"validation","relevance":{"docs/plans/2026/07/12/PLAN_AdaptivePtyUpgrade_2026-07-12.md":2}}
+{"id":"q045","query":"TUI modal cursor restore and queued input ownership","category":"semantic","split":"validation","relevance":{"docs/plans/2026/07/11/PLAN_InteractiveTuiControlStability_2026-07-11.md":2}}
+{"id":"q046","query":"Battlefield Lite bounded attention brief hides lead details","category":"semantic","split":"validation","relevance":{"docs/plans/2026/07/15/REVIEW_AttentionBattlefieldWiring_2026-07-15.md":2}}
+{"id":"q047","query":"local Docker release must use capped nested daemon","category":"semantic","split":"validation","relevance":{"docs/plans/2026/07/11/REFACTOR_LocalDockerOperations_2026-07-11.md":2}}
+{"id":"q048","query":"v0.100.7 publication surfaces and validation record","category":"exact","split":"validation","relevance":{"docs/plans/2026/07/11/RELEASE_v0.100.7_2026-07-11.md":2}}
+{"id":"q049","query":"Docker build automation and interactive TUI launch","category":"semantic","split":"validation","relevance":{"docs/plans/2026/05/27/PLAN_DockerBuildAutomation_2026-05-27-1428.md":2}}
+{"id":"q050","query":"spinner freeze root cause and terminal liveness troubleshooting","category":"semantic","split":"validation","relevance":{"docs/plans/2026/04/17/pty-spinner-freeze-troubleshooting.md":2}}
+{"id":"q051","query":"terminal transcript and prompt rows must not overlap","category":"semantic","split":"validation","relevance":{"docs/plans/2026/04/15/PLAN_TerminalSplitNoOverlap_2026-04-15-1104.md":2}}
+{"id":"q052","query":"Ctrl-C clears input while Esc interrupts active turn","category":"exact","split":"validation","relevance":{"docs/plans/2026/07/17/PLAN_CtrlCClearsEscInterrupts_2026-07-17.md":2}}
+{"id":"q053","query":"producer consumer plumbing cleanup across runtime flows","category":"semantic","split":"validation","relevance":{"docs/plans/2026/07/19/PLAN_FlowWiringCleanup_2026-07-19.md":2}}
+{"id":"q054","query":"deep code review findings and remediation plan","category":"semantic","split":"validation","relevance":{"docs/plans/2026/07/18/PLAN_DeepCodeReview_2026-07-18.md":2}}
+{"id":"q055","query":"reduce core complexity while preserving behavior","category":"semantic","split":"validation","relevance":{"docs/plans/2026/04/21/2026-04-21-complexity-reduction-plan.md":2}}
+{"id":"q056","query":"consolidated deep dive into Builder architecture","category":"semantic","split":"validation","relevance":{"docs/BUILDER-CONSOLIDATED-DEEP-DIVE.md":2}}
+{"id":"q057","query":"developer setup and repository contribution workflow","category":"semantic","split":"validation","relevance":{"docs/DEVELOPMENT.md":2}}
+{"id":"q058","query":"minimal core philosophy and evidence-first completion","category":"semantic","split":"validation","relevance":{"docs/human/philosophy.md":2}}
+{"id":"q059","query":"Terraform state backend migration to Google Cloud Storage","category":"no-answer","split":"validation","relevance":{}}
+{"id":"q060","query":"SwiftUI iOS widget timeline provider example","category":"no-answer","split":"validation","relevance":{}}
