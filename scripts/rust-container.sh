@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Runs Cargo only inside the capped Docker wrapper.
 set -euo pipefail
 
 action="$1"
