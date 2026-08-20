@@ -1,0 +1,23 @@
+[project]
+name = "splade-poc"
+version = "0.1.0"
+description = "Reproducible SPLADE model evaluation and Rust parity harness"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "matplotlib>=3.10,<4",
+    "psutil>=7,<8",
+    "sentence-transformers>=5.5,<6",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.4,<9"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/splade_poc"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
