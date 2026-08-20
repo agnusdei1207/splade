@@ -1,6 +1,6 @@
 param(
     [Parameter(Position = 0, Mandatory = $true)]
-    [ValidateSet('probe', 'lock', 'pytest', 'evaluate', 'report', 'python')]
+    [ValidateSet('probe', 'lock', 'sync', 'pytest', 'evaluate', 'report', 'python')]
     [string]$Action,
 
     [Parameter(Position = 1, ValueFromRemainingArguments = $true)]
@@ -28,6 +28,7 @@ $dockerArgs = @(
     '--env', 'UV_CACHE_DIR=/cache/uv',
     '--env', 'UV_PROJECT_ENVIRONMENT=/cache/venv',
     '--env', 'MPLCONFIGDIR=/cache/matplotlib',
+    '--env', 'PYTHONPATH=/workspace/src',
     '--workdir', '/workspace',
     'ghcr.io/astral-sh/uv:python3.12-bookworm-slim'
 )
@@ -35,10 +36,11 @@ $dockerArgs = @(
 $containerCommand = switch ($Action) {
     'probe' { @('python', 'scripts/container_probe.py') }
     'lock' { @('uv', 'lock') }
-    'pytest' { @('uv', 'run', '--locked', 'pytest') + $Arguments }
-    'evaluate' { @('uv', 'run', '--locked', 'python', '-m', 'splade_poc.evaluate') + $Arguments }
-    'report' { @('uv', 'run', '--locked', 'python', '-m', 'splade_poc.report') + $Arguments }
-    'python' { @('uv', 'run', '--locked', 'python') + $Arguments }
+    'sync' { @('uv', 'sync', '--locked') }
+    'pytest' { @('uv', 'run', '--no-sync', 'pytest') + $Arguments }
+    'evaluate' { @('uv', 'run', '--no-sync', 'python', '-m', 'splade_poc.evaluate') + $Arguments }
+    'report' { @('uv', 'run', '--no-sync', 'python', '-m', 'splade_poc.report') + $Arguments }
+    'python' { @('uv', 'run', '--no-sync', 'python') + $Arguments }
 }
 
 & docker @dockerArgs @containerCommand
