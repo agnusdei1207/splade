@@ -41,8 +41,18 @@ class RawSpladeEncoder:
         self.vocab_size = int(self.model.config.vocab_size)
 
     @torch.inference_mode()
-    def encode(self, texts: list[str], batch_size: int) -> list[tuple[list[int], list[float]]]:
+    def encode(
+        self, texts: list[str], batch_size: int, cap: int = 4096
+    ) -> list[tuple[list[int], list[float]]]:
+        """Keep at most `cap` terms per row.
+
+        Taking every nonzero over a 100k+ vocabulary and materialising it through
+        Python lists costs gigabytes and dominates the run. A topk on the tensor
+        stays inside torch and still leaves far more terms than any index setting
+        being swept downstream.
+        """
         rows: list[tuple[list[int], list[float]]] = []
+        limit = min(cap, self.vocab_size)
         for start in range(0, len(texts), batch_size):
             batch = texts[start : start + batch_size]
             encoded = self.tokenizer(
@@ -54,12 +64,14 @@ class RawSpladeEncoder:
             )
             logits = self.model(**encoded)[0]
             scores = splade_pool(logits, encoded["attention_mask"])
-            for row in scores:
-                nonzero = torch.nonzero(row, as_tuple=False).flatten()
+            values, indices = scores.topk(limit, dim=1, largest=True, sorted=True)
+            keep = values > 0
+            for row in range(values.shape[0]):
+                mask = keep[row]
                 rows.append(
                     (
-                        [int(i) for i in nonzero],
-                        [float(row[i]) for i in nonzero],
+                        indices[row][mask].tolist(),
+                        [round(value, 6) for value in values[row][mask].tolist()],
                     )
                 )
         return rows
@@ -75,9 +87,21 @@ class StEncoder:
         from sentence_transformers import SparseEncoder
 
         self.encoder = SparseEncoder(str(snapshot), device="cpu")
-        self.vocab_size = int(
-            getattr(self.encoder, "max_active_dims", None) or self.encoder[0].auto_model.config.vocab_size
-        )
+        self.vocab_size = self._vocab_size(snapshot)
+
+    def _vocab_size(self, snapshot: Path) -> int | None:
+        """Inference-free repos expose no auto_model, so read the config instead."""
+        for module in self.encoder:
+            config = getattr(getattr(module, "auto_model", None), "config", None)
+            if config is not None and getattr(config, "vocab_size", None):
+                return int(config.vocab_size)
+        for name in ("config.json", "0_MLMTransformer/config.json"):
+            path = snapshot / name
+            if path.is_file():
+                size = json.loads(path.read_text(encoding="utf-8")).get("vocab_size")
+                if size:
+                    return int(size)
+        return None
 
     def _rows(self, tensor) -> list[tuple[list[int], list[float]]]:
         tensor = tensor.coalesce()
