@@ -1,0 +1,34 @@
+{
+  "corpus_root": "/corpus",
+  "documents": 354,
+  "corpus_bytes": 3146932,
+  "queries": 2261,
+  "ambiguous_queries": 26,
+  "threads": 8,
+  "batch_size": 8,
+  "vocab_size": 30522,
+  "model_load_seconds": 78.73123794699495,
+  "document_encode_seconds": 49.94841749299667,
+  "documents_per_second": 7.087311626031691,
+  "query_encode_seconds": 1.2291364439879544,
+  "queries_per_second": 1839.5028567081995,
+  "document_active_dims": {
+    "count": 354,
+    "min": 59,
+    "p50": 300,
+    "p90": 507,
+    "p99": 620,
+    "max": 694,
+    "mean": 323.67514124293785
+  },
+  "query_active_dims": {
+    "count": 2261,
+    "min": 5,
+    "p50": 16,
+    "p90": 28,
+    "p99": 38,
+    "max": 45,
+    "mean": 17.09420610349403
+  },
+  "peak_rss_mib": 1883.83984375
+}
