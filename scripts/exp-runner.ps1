@@ -3,6 +3,8 @@
 param(
     [int]$Cpus = 2,
     [string]$Memory = '4g',
+    # Extra packages resolved for this run only, e.g. -With onnxruntime
+    [string[]]$With = @(),
     [Parameter(Position = 0, Mandatory = $true)]
     [string]$Script,
     [Parameter(Position = 1, ValueFromRemainingArguments = $true)]
@@ -38,5 +40,9 @@ $dockerArgs = @(
     'ghcr.io/astral-sh/uv:python3.12-bookworm-slim'
 )
 
-& docker @dockerArgs uv run --no-sync python $Script @Arguments
+$uvArgs = @('uv', 'run', '--no-sync')
+foreach ($package in $With) { $uvArgs += @('--with', $package) }
+$uvArgs += @('python', $Script)
+
+& docker @dockerArgs @uvArgs @Arguments
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }

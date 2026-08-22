@@ -1,0 +1,29 @@
+{
+  "model": "snowflake-arctic-embed-xs (quantized, from pentesting assets)",
+  "embedding_dim": 384,
+  "asset_bytes": 23782082,
+  "threads": 3,
+  "documents": 354,
+  "queries_total": 5495,
+  "queries_accepted": 3099,
+  "queries_rejected_non_english": 2396,
+  "rejected_by_language": {
+    "ko": 1803,
+    "en": 593,
+    "other": 0
+  },
+  "model_load_seconds": 1.0414624010008993,
+  "document_encode_seconds": 30.925800683995476,
+  "documents_per_second": 11.446752943188947,
+  "query_encode_seconds": 15.876414568992914,
+  "queries_per_second": 195.19520522300007,
+  "search_seconds": 0.11322124299476855,
+  "semantic_limit": 24,
+  "relative_floor": 0.8,
+  "absolute_floor": 0.55,
+  "hits_after_floor": {
+    "mean": 17.339141658599548,
+    "zero_hit_queries": 261
+  },
+  "peak_rss_mib": 2051.29296875
+}
