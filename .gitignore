@@ -6,3 +6,4 @@ __pycache__/
 .coverage
 *.pyc
 models/
+artifacts/exp/chunk-dump.json

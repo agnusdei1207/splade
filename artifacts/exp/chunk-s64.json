@@ -1,0 +1,89 @@
+{
+  "mode": "chunk",
+  "stride": 64,
+  "doc_top_k": 256,
+  "batch_size": 4,
+  "threads": 8,
+  "documents": 267,
+  "encoded_units": 2665,
+  "model_load_seconds": 155.22385765400395,
+  "encode_seconds": 450.9969951710009,
+  "units_per_second": 5.909130279215128,
+  "documents_per_second": 0.5920216827581385,
+  "average_active_dims": 240.7170731707317,
+  "capped_units": 1826,
+  "average_query_terms": 11.266666666666667,
+  "index_postings": 641511,
+  "index_bytes_estimate": 5132088,
+  "query_p50_ms": 3.0240929991123267,
+  "query_p95_ms": 4.162808996625245,
+  "peak_rss_mib": 3511.734375,
+  "metrics": {
+    "selection": {
+      "judged_queries": 34,
+      "no_answer_queries": 2,
+      "recall@5": 0.35294117647058826,
+      "recall@10": 0.47058823529411764,
+      "mrr@10": 0.21510270774976656,
+      "ndcg@10": 0.252374163722554,
+      "by_category": {
+        "exact": {
+          "judged_queries": 7,
+          "no_answer_queries": 0,
+          "recall@5": 0.5,
+          "recall@10": 0.6428571428571429,
+          "mrr@10": 0.3,
+          "ndcg@10": 0.34668151464371155
+        },
+        "ko-en": {
+          "judged_queries": 3,
+          "no_answer_queries": 0,
+          "recall@5": 0.6666666666666666,
+          "recall@10": 0.6666666666666666,
+          "mrr@10": 0.5,
+          "ndcg@10": 0.42072706808024085
+        },
+        "semantic": {
+          "judged_queries": 24,
+          "no_answer_queries": 0,
+          "recall@5": 0.2708333333333333,
+          "recall@10": 0.3958333333333333,
+          "mrr@10": 0.154728835978836,
+          "ndcg@10": 0.20382373999250555
+        }
+      }
+    },
+    "validation": {
+      "judged_queries": 22,
+      "no_answer_queries": 2,
+      "recall@5": 0.6818181818181818,
+      "recall@10": 0.8636363636363636,
+      "mrr@10": 0.492550505050505,
+      "ndcg@10": 0.5808076713581678,
+      "by_category": {
+        "exact": {
+          "judged_queries": 4,
+          "no_answer_queries": 0,
+          "recall@5": 1.0,
+          "recall@10": 1.0,
+          "mrr@10": 0.5625,
+          "ndcg@10": 0.673134016304077
+        },
+        "semantic": {
+          "judged_queries": 18,
+          "no_answer_queries": 0,
+          "recall@5": 0.6111111111111112,
+          "recall@10": 0.8333333333333334,
+          "mrr@10": 0.47700617283950614,
+          "ndcg@10": 0.5602907058146325
+        }
+      }
+    }
+  },
+  "chunk_stats_summary": {
+    "total_tokens": 1146917,
+    "average_tokens": 4295.5692883895135,
+    "average_chunks": 9.9812734082397,
+    "max_chunks": 149
+  }
+}
