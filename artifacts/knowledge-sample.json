@@ -1,0 +1,662 @@
+[
+ {
+  "id": "docs/BUILDER-CONSOLIDATED-DEEP-DIVE.md",
+  "lang": "en",
+  "title": "Pentesting 런타임 통합 설계",
+  "head": " 이 문서는 현재 `main`의 유일한 상세 설계 설명서다. 사용자 요청이 프롬프트와 도구 실행으로 이어지는 과정, 필요할 때 subagent가 붙는 방식, CTF·PTY·저장·검증 경계를 큰 흐름부터 코드 탐색 지점까지 한 문서에서 설명한다. 공개 제품명과 명령은 `pentesting`, Rust 내부 crate 이름은 `builder_*`다. 둘은 별도 에이전트가 아니라 같은 바이너리의 배포 표면과 내부 "
+ },
+ {
+  "id": "docs/human/philosophy.md",
+  "lang": "ko",
+  "title": "에이전트 설계 철학",
+  "head": " 이 문서는 Pentesting 에이전트가 어떤 철학과 세계관을 바탕으로 설계되고 구현되었는지를 설명한다. 단순한 기능 명세서가 아니라, 시스템의 모든 아키텍처 결정의 뿌리가 되는 개발자의 핵심 철학이다. --- 기능을 보존하고 소유권을 명확히 하며 쉽게 검증할 수 있는 가장 단순한 설계를 지향한다. 불필요한 장식, 과도한 외부 서버 의존성, 유행에 편승한 복잡성을 걷어내고 가장 본질적인 엔지니어링에 집중한다"
+ },
+ {
+  "id": "docs/superpowers/specs/2026-08-13-multilingual-retrieval-intent-design.md",
+  "lang": "en",
+  "title": "Multilingual Retrieval Intent Design",
+  "head": " ## Purpose Remove the language-based retrieval bypass without changing the user's message or response language. A single front-door layer produces one bounded English retrieval intent for every prompt and shares it across vault, "
+ },
+ {
+  "id": "docs/plans/2026/07/10/concept-unification/02_FRONTIER_AS_BUDGET.md",
+  "lang": "ko",
+  "title": "Phase 2 — frontier를 모드에서 예산으로 변경",
+  "head": " ```text explore 호출 -> max_frontier_nodes -> max_breadth -> depth/cycle/dedup 규칙 -> explicit dispatch ``` 막는다. 전자는 삭제하고 후자는 유지한다. Migration: - 새 schema와 예제에서는 `enabled`를 제거한다. - 기본 breadth는 우선 1을 유지한다. 이는 mode가 아니라 비용 상한이다."
+ },
+ {
+  "id": "docs/plans/2026/06/27/roadmap/2026-06-27/07-agent-excellence.md",
+  "lang": "en",
+  "title": "07 · 코어 에이전트 우수성 — 2026 SOTA 기법 (레전드급) ★",
+  "head": " - **우선순위**: **P0★** (코어 강화 핵심) · **상태**: ✅ 완료(Codex, 2026-06-28 02:05:38 KST +0900) - **근거**: 2025–2026 에이전트 연구 능동 조사. CTF 무관, **모든 에이전트 작업을 강하게** 만드는 코어 기법. (출처 §하단) ## 체크리스트 (영향순) - [x] **CodeAct 실행형 액션**: 완료 2026-06-28 01:39:0"
+ },
+ {
+  "id": "docs/plans/2026/06/12/PLAN_ShellListenerTuiMinorRelease_2026-06-12-2243.md",
+  "lang": "en",
+  "title": "PLAN: Shell Listener TUI Minor Release",
+  "head": " ## Metadata - **Timestamp**: 2026-06-12 22:43:57 +0900 - **File Name**: `PLAN_ShellListenerTuiMinorRelease_2026-06-12-2243.md` - **Change Type**: Feature / Documentation / Release preparation - **Risk Level**: HIGH ## Scope Bound"
+ },
+ {
+  "id": "docs/plans/2026/06/24/PLAN_ShellSessionControlPlane_2026-06-24.md",
+  "lang": "en",
+  "title": "계획서: Shell Session Control Plane",
+  "head": " ## 메타데이터 - **작성일**: 2026-06-24 - **파일명**: `PLAN_ShellSessionControlPlane_2026-06-24.md` - **범위**: authorized lab/CTF 용 `shell-listener` 세션을 에이전트와 CLI가 동적으로 관리할 수 있게 만든다. - **변경 유형**: 아키텍처 설계 + 단계별 구현 계획 - **위험도**: HIGH - **최종 권장안"
+ },
+ {
+  "id": "docs/plans/2026/04/16/harness-program/PLAN_Phase5_VerificationAndAgentOrchestration_2026-04-15-2329.md",
+  "lang": "en",
+  "title": "PLAN: Phase 5 Verification And Agent Orchestration",
+  "head": " 마스터 문서: [PLAN_HarnessProgramMaster_2026-04-15-2329.md](./PLAN_HarnessProgramMaster_2026-04-15-2329.md) ## 목표 계획, 실행, 검증을 명확히 분리한 하네스를 만든다. 다른 에이전트는 bounded scope 안에서만 움직이고, 완료는 verifier가 판정한다. 현재 확인된 근거: - Builder는 tool failure 시"
+ },
+ {
+  "id": "docs/plans/2026/07/01/002_1505_cognitive-agent-architecture-implementation-plan.md",
+  "lang": "en",
+  "title": "🧠 Cognitive Agent Architecture — 구현 플랜",
+  "head": " > **시작일**: 2026-07-01 > **예상 완료**: 2026-10-27 (17주) > **설계 문서**: [002_1505_cognitive-agent-architecture.md](./002_1505_cognitive-agent-architecture.md) --- **2026-07-01 ~ 2026-07-14** - [ ] `crates/builder_knowledge/src/working_m"
+ },
+ {
+  "id": "docs/plans/2026/07/10/minimal-core/03_TARGET_ARCHITECTURE.md",
+  "lang": "en",
+  "title": "목표 아키텍처: Thin Agent Kernel",
+  "head": " ```text InputPort → AgentKernel → ModelPort.query(trajectory projection) → ToolGateway.validate/authorize/execute → TrajectoryStore.append(observation) → repeat until TurnExit → OutcomeVerifier (artifact가 있을 때만) → OutputPort ``` "
+ },
+ {
+  "id": "docs/plans/2026/04/21/2026-04-21-complexity-reduction-plan.md",
+  "lang": "en",
+  "title": "PLAN: 시스템 복잡도 전수조사 & 구조 개선",
+  "head": " ## Current Session - **Task**: pre-merge 기준으로 작성된 복잡도 축소 계획을 current merged tree에 다시 맞추고 누락된 `orch` 분리와 `SemanticCache` 통합을 재정착한다. - **Modified Files**: `crates/builder_app/src/orch.rs`, `crates/builder_app/src/orch/phase_manager"
+ },
+ {
+  "id": "docs/human/qa/q18_markdown_lifecycle_and_safety.md",
+  "lang": "ko",
+  "title": "q18_markdown_lifecycle_and_safety",
+  "head": " # Q18. 생성 마크다운 및 입력 데이터의 라이프사이클 위험과 방어 아키텍처는 무엇인가? 이 문서는 AI 침투테스트 에이전트 환경에서 마크다운 및 입력 데이터가 처리되는 4대 핵심 타이밍별 잠재적 위험과 이를 원천 방어하는 무손실 아키텍처(Zero Data Loss & Deep Defensive Architecture)를 설명한다. --- - 방어 설계 (crates/builder_main/src/inpu"
+ },
+ {
+  "id": "docs/plans/2026/07/11/REFACTOR_LocalDockerOperations_2026-07-11.md",
+  "lang": "en",
+  "title": "Local Docker Operations Refactor",
+  "head": " Date: 2026-07-11 ## Objective Remove dead CI/CD branches after GitHub Actions was disabled, keep one explicit local release path, and preserve the existing Docker resource boundary. 1. **Workflow inventory** — confirmed that GitH"
+ },
+ {
+  "id": "docs/plans/2026/06/27/roadmap/2026-06-27/06-context-architecture.md",
+  "lang": "en",
+  "title": "06 · 코어 컨텍스트 아키텍처 — 최신 Claude",
+  "head": " - **우선순위**: P1 · **상태**: ✅ 완료(Codex) · **상세**: Phase 2 플랜 · **마지막 갱신**: 2026-06-28 02:15:45 KST +0900 - **왜**: 컨텍스트창 운용을 최신 Claude와 동형으로. 압축(요약)과 **별개**의 삭제(prune), 모델 주도 memory, 점진 도구 노출, 캐시 인지. ## 체크리스트 - [x] C0 컨텍스트 매니저 경계 정리("
+ },
+ {
+  "id": "docs/plans/2026/04/15/PLAN_InfoDisplayBoundary_2026-04-15-2358.md",
+  "lang": "en",
+  "title": "PLAN: Info Display Boundary",
+  "head": " ## Metadata - **Created**: 2026-04-15 23:58 - **File Name**: `PLAN_InfoDisplayBoundary_2026-04-15-2358.md` - **Scope**: Decide the correct ownership boundary for `Info`, `Porcelain`, `tools_display`, and related display constants"
+ },
+ {
+  "id": "docs/plans/2026/06/01/PLAN_BufferedInputSessionRefactor_2026-06-01-2338.md",
+  "lang": "en",
+  "title": "PLAN: Buffered Input Session Refactor",
+  "head": " ## Metadata - **Timestamp**: 2026-06-01 23:38:00 +09:00 - **File Name**: `PLAN_BufferedInputSessionRefactor_2026-06-01-2338.md` - **Change Type**: Refactoring - **Risk Level**: MEDIUM ## Files | File | Action | Reason | | :--- | "
+ },
+ {
+  "id": "docs/plans/2026/05/22/2026-05-22-general-agent-runtime-alignment-plan.md",
+  "lang": "en",
+  "title": "General Agent Runtime Alignment Plan",
+  "head": " - **Date**: 2026-05-22 - **Scope**: Keep Builder aligned with a Claude-Code-style **general-purpose terminal agent CLI**, not a domain-specific CTF runtime, while preserving the real runtime fixes already shipped. - **Trigger**: "
+ },
+ {
+  "id": "docs/plans/2026/06/27/roadmap/2026-06-27/11-future-moat.md",
+  "lang": "en",
+  "title": "11 · 미래 해자 (연구·후순위)",
+  "head": " - **우선순위**: P4 (코어·CTF 안정 후) · **상태**: 🔄 진행중(Codex, 마지막 갱신 2026-06-28 03:17:33 KST +0900) - **왜**: 단순 파리티를 넘어 **차별화**될 지점. 단, 코어(01–09)가 우선. 여기 항목은 코어 위에서 *복리*로 강해지는 장기 해자. (조사 근거 §하단) - [~] **경험 메모리 / writeup 코퍼스 플라이휠**(최고 영향):"
+ },
+ {
+  "id": "docs/plans/2026/05/22/2026-05-22-intent-handoff-recovery-plan.md",
+  "lang": "en",
+  "title": "PLAN: Intent Handoff Recovery",
+  "head": " ## Metadata - **Created**: 2026-05-22 - **Change Type**: Runtime autonomy / intent handoff hardening - **Risk Level**: MEDIUM ## Findings 3. Workflow phase carryover reused prior recovery and prompt phases even for non-feedback r"
+ },
+ {
+  "id": "docs/superpowers/specs/2026-08-13-session-footer-velog-theme-design.md",
+  "lang": "en",
+  "title": "Session Footer and Velog Theme Design",
+  "head": " > Superseded on 2026-08-13 by the later coral terminal palette and quiet-chrome decision. Token/runtime values remain internal session state but are not rendered in the footer. The current visual contract is `2026-08-13-coral-ter"
+ },
+ {
+  "id": "docs/plans/2026/04/17/pty-spinner-freeze-troubleshooting.md",
+  "lang": "en",
+  "title": "PTY spinner freeze troubleshooting",
+  "head": " ## Scope Related sibling plan: `implementation-roadmap.md` ## Symptoms 1. A live PTY turn could remain in `Processing · rendering output` without surfacing `Finished`. 2. After repeated keypresses, the runtime could surface `asse"
+ },
+ {
+  "id": "docs/plans/2026/08/04/PLAN_LegacyCodeRetirement_2026-08-04.md",
+  "lang": "en",
+  "title": "Behavior-Preserving Legacy Code Retirement Plan (2026-08-04)",
+  "head": " ## Status Completed on 2026-08-04. ## Objective Remove code with no current producer, consumer, or runtime ownership while preserving provider compatibility, serialized state compatibility, terminal lifetime guards, and all obser"
+ },
+ {
+  "id": "docs/plans/2026/04/15/PLAN_EscInterruptSafeRefactor_2026-04-15-1435.md",
+  "lang": "en",
+  "title": "PLAN: Esc Interrupt Safe Refactor",
+  "head": " ## Metadata - Created: 2026-04-15 14:35 - File Name: `PLAN_EscInterruptSafeRefactor_2026-04-15-1435.md` - Scope: `builder_main` runtime interrupt broker, status-row hint propagation, PTY interrupt regression - Change Type: Bugfix"
+ },
+ {
+  "id": "docs/human/qa/q15_release_verification.md",
+  "lang": "ko",
+  "title": "Q15. npm·GitHub·Docker 배포가 같은 버전인지 어떻게 보장하나?",
+  "head": " npm 실행기는 관리 바이너리 manifest가 현재 패키지의 저장소·태그·자산과 일치할 때만 기존 파일을 실행한다. 배포 마지막에는 `verify-release-set.sh`가 `origin/main`, GitHub 릴리즈와 바이너리, npm 버전과 `latest`, Docker Hub와 public GHCR의 버전 태그와 `latest`를 모두 확인하고 GitHub/Docker Hub/GHCR 바이너리의"
+ },
+ {
+  "id": "docs/plans/2026/05/22/2026-05-22-forgecode-visibility-orchestration-plan.md",
+  "lang": "en",
+  "title": "PLAN: Forgecode Visibility and Shell Orchestration Alignment",
+  "head": " ## Metadata - **Created**: 2026-05-22 14:35 KST - **Scope**: Absorb the highest-value transparency and orchestration learnings from local `../forgecode` and recent Claude behavior without turning Builder into a product-specific c"
+ },
+ {
+  "id": "docs/plans/2026/06/30/PLAN_TurnQueueHandoffRedesign_2026-06-30.md",
+  "lang": "en",
+  "title": "PLAN: Turn Queue Handoff Redesign",
+  "head": " ## Metadata - **Date**: 2026-06-30 - **Timestamp**: 2026-06-30 +09:00 - **File Name**: `docs/plans/2026/06/30/PLAN_TurnQueueHandoffRedesign_2026-06-30.md` - **Scope**: Replace the current raw-key replay queue behavior with a turn"
+ },
+ {
+  "id": "docs/human/qa/q01_2_1_auto_loop.md",
+  "lang": "ko",
+  "title": "Q1-2-1. /auto 자율 실행 모드는 일반 모드와 무엇이 다른가?",
+  "head": " --- 1. 입력 주체: 사람이 매 턴 엔터를 치는 대신, 시스템 자율 루프 엔진이 \"목표를 향해 스스로 다음 단계를 계속하라\"는 셀프 프롬프트를 AI에게 연속 주입한다. (Esc로 일시 정지 및 큐 관리: [Q13. 입력 큐와 ESC 제어](q13_input_queue_and_resume.md)) 2. 종료 조건: AI가 답변을 마쳤다고 멈추지 않고, 실제 플래그나 루트 권한 증거(Verification)"
+ },
+ {
+  "id": "docs/plans/2026/08/17/PLAN_TuiStartupBannerAndClipping_2026-08-17.md",
+  "lang": "en",
+  "title": "Plan: TUI Startup Banner Redesign & Viewport Clipping Fix",
+  "head": " **Date:** 2026-08-17 **Status:** Completed **Objective:** Modernize and clean up the TUI startup welcome banner with primary-colored text typography (avoiding tacky ASCII art block fonts), provide clear 3-step mission guidance, a"
+ },
+ {
+  "id": "docs/plans/2026/07/08/001_1537_reverse_silver_rce_reverse_shell_agent_verification.md",
+  "lang": "ko",
+  "title": "vuluable reverse-silver: reversing → real RCE → reverse shell, verified by an autonomous pentesting agent run",
+  "head": " > **작성일**: 2026-07-08 KST > **대상 레포**: `../vuluable` (`agnusdei1207/vulnerable.git`), sibling of this repo > **트리거**: 사용자 요청 — \"리버싱 문제 만들고 커밋 푸시해라 리버스쉘 기능 체크 빡시게 해보게\" + 이후 명시적 정정: \"사람이 뭘 한다는둥 그런거 빼세요, 자율성으로 에이전트가 알아서 해야 하는거에요\" (검"
+ },
+ {
+  "id": "docs/plans/2026/07/10/MIDREPORT_ArchitectureChange_2026-07-10.md",
+  "lang": "en",
+  "title": "아키텍처 변경 중간보고 (2026-07-10)",
+  "head": " > 이 문서는 당시 중간 상태의 기록이다. 호환 경로 물리 삭제 이후의 기준과 완료 > 상태는 [차세대 클린브레이크 수렴 계획](./next-generation-convergence/README.md)을 따른다. > 오늘 계획 전체의 최종 판정은 [2026-07-10 계획 완료 감사](./COMPLETION_AUDIT_2026-07-10.md)에 > 기록한다. 아래 진척률과 남은 항목은 보고 당시의 역사적 "
+ },
+ {
+  "id": "docs/superpowers/specs/2026-08-12-docker-image-tract-oom-design.md",
+  "lang": "en",
+  "title": "Docker Image `tract-core` OOM Fix Design",
+  "head": " Date: 2026-08-12 ## Problem The first application-image build after adding the embedded dense RAG encoder failed while compiling `tract-core`. The sanctioned BuildKit runner recorded `reason=container_oom`, `oom_killed=true`, a 4"
+ },
+ {
+  "id": "docs/plans/2026/07/08/002_0834_session_summary_ctf_reverse_shell_hardening.md",
+  "lang": "ko",
+  "title": "세션 요약 — CTF 리버스쉘 자율성 하드닝 (pentesting + vuluable)",
+  "head": " > **작성일**: 2026-07-08 KST > **범위**: 이 세션에서 `/home/user/pentesting`와 `/home/user/vuluable` 두 레포에 걸쳐 수행한 작업 전체. > **관련 문서**: `docs/plans/2026/07/07/003_1930_autonomous_pty_upgrade_strategy.md` (§8 후속 변경), `docs/plans/2026/07/08/001"
+ },
+ {
+  "id": "docs/plans/2026/08/18/PLAN_GlobalIncrementalEmbeddingCache_2026-08-18.md",
+  "lang": "en",
+  "title": "Result: Global Exact-Content Incremental Embedding Cache",
+  "head": " **Date:** 2026-08-18 **Hardened:** 2026-08-19 **Status:** Completed and focused-Docker verified **Scope:** `crates/builder_workspace_index`, `crates/builder_knowledge`, `crates/builder_app` ## Shipped Design `DenseEncoder` uses o"
+ },
+ {
+  "id": "docs/plans/2026/07/16/PLAN_RuntimeAbruptTerminationHardening_2026-07-16.md",
+  "lang": "ko",
+  "title": "Runtime Abrupt-Termination Hardening Plan (2026-07-16)",
+  "head": " > 상태: 원인·환경 사실 확인 완료, 구현 착수 > 작성일: 2026-07-16 > 범위: 장기 실행 자율 세션을 예고 없이 끝내는 두 종류의 결함 — (A) Windows 강제 자동 재부팅(호스트), (B) hot-loop panic/abrupt-exit로 인한 프로세스 소멸(코드) > 결론: 두 결함 모두 \"긴 실행을 도중에 통째로 잃는다\"는 같은 증상을 만든다. 새 감시 프레임워크를 만들지 않는다. "
+ },
+ {
+  "id": "docs/human/builder_modules.md",
+  "lang": "ko",
+  "title": "빌더(Builder)란 무엇인가? — 모듈 구조와 역할",
+  "head": " 이 문서는 프로젝트 내부에서 사용되는 '빌더(builder_*)'의 정체와 26개 독립 모듈(Crate)의 역할을 사람이 알기 쉽게 설명한다. --- 1. 이름만 붙인 껍데기가 아니라, 26개의 완전히 분리된 독립 Crate(모듈)들의 집합이다. 2. 과거 프레임워크 설계 유산으로 `builder_*`라는 접두사가 붙었으며, 실제 최종 실행 파일(`pentesting`)은 이 독립 모듈들이 조립되어 완성된다"
+ },
+ {
+  "id": "docs/plans/2026/04/14/3-2-status-row-prompt-handoff-root-cause-plan.md",
+  "lang": "ko",
+  "title": "`builder_main` Terminal Ownership 안정화 계획서 3-2",
+  "head": " **작성일:** 2026-04-14 ## 필수 참고 - 작업자는 구현 전 반드시 `../codex/docs/tui-chat-composer.md`를 읽고, - `../codex/codex-rs/tui/src/bottom_pane/request_user_input/mod.rs`의 composer 재사용 방식을 참고하며, - prompt/footer/status를 서로 다른 renderer에 흩뿌리지 않는 방향"
+ },
+ {
+  "id": "docs/plans/2026/05/27/PLAN_QueuePrioritizationAndIntentClassifier_2026-05-27-1910.md",
+  "lang": "en",
+  "title": "PLAN: Queued Input Prioritization & Intent Aggregator",
+  "head": " ## Metadata - **Timestamp**: 2026-05-27 19:10:13 +09:00 - **File Name**: `PLAN_QueuePrioritizationAndIntentClassifier_2026-05-27-1910.md` - **Change Type**: Feature / Refactoring - **Risk Level**: MEDIUM --- Currently, the Builde"
+ },
+ {
+  "id": "docs/plans/2026/06/19/LOCAL_SEARCH_ENHANCEMENT_COMPLETION_REPORT.md",
+  "lang": "en",
+  "title": "Local Search & Memory Enhancement — Completion Report",
+  "head": " > Implementation, audit, and integration report for the **builder-private** local-first memory work proposed in `LOCAL_SEARCH_ENHANCEMENT_PROPOSAL.md`. --- ## Metadata | Field | Value | |:------|:------| | **Date** | 2026-06-19 |"
+ },
+ {
+  "id": "docs/DEVELOPMENT.md",
+  "lang": "en",
+  "title": "Development & Release",
+  "head": " Contributor-facing build, test, and release workflow. **Internal engine = `builder`** (Rust crates + binary, versioned in `Cargo.toml`). **Public product = `pentesting`** (npm facade = root `package.json`, versioned independently"
+ },
+ {
+  "id": "docs/human/qa/q01_5_builtin_rules_and_doctrine.md",
+  "lang": "ko",
+  "title": "Q1-5. 시스템 프롬프트의 기본 룰셋과 침투 교리에는 어떤 내용이 들어가나?",
+  "head": " 시스템 프롬프트(System 메시지) 안에는 AI 에이전트의 기본적인 작업 규율(6대 기본 행동 수칙)과 침투 전용 4대 내장 교리, 그리고 프로젝트 맞춤형 규칙이 들어간다. 실제 코드 템플릿(`templates/builder-custom-agent-template.md` 및 `system_prompt.rs`)에는 LLM의 지침 준수율과 토큰 효율을 극대화하기 위해 간결한 영어로 작성되어 있다. --- 1."
+ },
+ {
+  "id": "docs/plans/2026/07/11/RELEASE_v0.100.7_2026-07-11.md",
+  "lang": "en",
+  "title": "v0.100.7 Release Record",
+  "head": " Date: 2026-07-11 ## Published artifacts - Private and public GitHub Releases: `v0.100.7` - Linux binary: `pentesting-x86_64-unknown-linux-musl` - npm: `pentesting@0.100.7` - Docker: `agnusdei1207/pentesting:v0.100.7` and `latest`"
+ },
+ {
+  "id": "docs/plans/2026/06/19/LOCAL_SEARCH_ENHANCEMENT_PROPOSAL.md",
+  "lang": "en",
+  "title": "로컬 퍼스트 검색 고도화 제안서",
+  "head": " > **builder-private** 하이브리드 검색 엔진의 검색 품질·정확도·확장성을 단계적으로 끌어올리기 위한 기술 제안서 --- ## 메타데이터 | 항목 | 값 | |:---|:---| | **작성일** | 2026-06-19 | | **대상 프로젝트** | builder-private (Rust) | | **현행 시스템** | BM25 + FNV 해시 임베딩 768D + 위키링크 그래프 BFS + "
+ },
+ {
+  "id": "docs/plans/2026/06/24/REFACTOR_AUDIT_100_ROUNDS_2026-06-24.md",
+  "lang": "en",
+  "title": "Refactor Audit 100 Rounds",
+  "head": " 작성일: 2026-06-24 목표: 코드 전수조사, 리팩터링, 최적화, 더 나은 방향 탐색을 100회 누적한다. 각 회차는 현재 worktree를 기준으로 새로 조사하고, 작더라도 실제 코드 품질을 올리는 변경과 검증 결과를 남긴다. ## 진행 원칙 - 매 회차는 현재 worktree를 권위 있는 상태로 보고 다시 조사한다. - 테스트 mock의 panic stub, 런타임 panic 가능성, 큰 파일, 중"
+ },
+ {
+  "id": "docs/superpowers/plans/2026-08-14-runtime-release-refactor.md",
+  "lang": "en",
+  "title": "Runtime and Release Reliability Refactor Implementation Plan",
+  "head": " > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking. **Goal"
+ },
+ {
+  "id": "docs/plans/2026/07/10/concept-unification/03_MODEL_PROFILE_AUDIT.md",
+  "lang": "en",
+  "title": "Phase 3 — model tier와 profile 개념 감사",
+  "head": " | 개념 | 현재 효과 | 판단 | | --- | --- | --- | | weak/standard model capability | 삭제됨 | prompt/strategy/tool 분기를 만들지 않음 | | autonomy profile | prompt/dynamic profile preset | 명시 설정 또는 engagement context의 표현 보조로 축소 | | execution strategy"
+ },
+ {
+  "id": "docs/plans/2026/07/10/PLAN_ResourceSafeBuildAndValidation_2026-07-10.md",
+  "lang": "en",
+  "title": "PLAN — Resource-Safe Build & Validation: Cargo/npm이 WSL을 쓰러뜨리지 못하게 하기 (2026-07-10)",
+  "head": " **최종 완료 감사:** [`COMPLETION_AUDIT_2026-07-10.md`](./COMPLETION_AUDIT_2026-07-10.md) **상태:** Implemented — Docker-only containment and final gates complete **선행 문서:** [`PLAN_LightweightAutonomousHarness_2026-07-10.md`](./PLAN_Light"
+ },
+ {
+  "id": "docs/plans/2026/05/25/PLAN_ObsidianKnowledgeGraphRAG_2026-05-25-1514.md",
+  "lang": "ko",
+  "title": "PLAN: Rust 기반 Obsidian 지식 그래프 RAG 고도화 및 로컬 Second Brain 설계 (AI 자율 초고도 지식 생태계)",
+  "head": " ## Metadata - **Timestamp**: 2026-05-25 15:30:00 +09:00 - **File Name**: `PLAN_ObsidianKnowledgeGraphRAG_2026-05-25-1514.md` - **Scope**: `builder-private` Rust 프로젝트의 지식 관리 영역을 Obsidian 스타일의 양방향 지식 그래프로 고도화. AI 에이전트의 자율 메모리 라이프사이"
+ },
+ {
+  "id": "docs/human/qa/q14_auto_state_and_theme.md",
+  "lang": "ko",
+  "title": "Q14. 자동 실행과 답변 표시는 어디서 관리하나?",
+  "head": " 자동 실행의 계속·완료 판단은 `ui/auto_loop.rs`, goal과 auto 상태 변경은 `ui/auto_state.rs`, 한 턴의 스트리밍과 종료 연결은 `turn_runtime.rs`가 담당한다. 모델 reasoning 문장을 사용자에게 보여 줄 짧은 상태 문구로 정리하는 순수 함수는 `turn_runtime/reasoning.rs`에 분리되어 있어 상태 변경이나 터미널 쓰기를 하지 않는다. 이"
+ },
+ {
+  "id": "docs/human/qa/q12_goal_and_auto_controls.md",
+  "lang": "ko",
+  "title": "Q12. /goal과 /auto는 어떻게 동작하나?",
+  "head": " - `/goal`은 목표를 기록할 뿐 auto mode를 켜지 않는다. - `/auto`만 자율 연속 실행을 켜거나 끈다. - tool/request budget interruption의 self-continue도 auto mode가 명시적으로 켜진 경우에만 허용된다. - 사용자 판단, credential, 승인 또는 hard blocker가 필요하면 자동 진행의 대상이 아니다. --- 커널의 `Missio"
+ },
+ {
+  "id": "docs/plans/2026/05/23/2026-05-23-phase6-prompt-absorption-report.md",
+  "lang": "en",
+  "title": "Phase 6 Prompt Absorption Report",
+  "head": " Builder already had the prompt's most relevant engineering DNA, and this change productized the main remaining gap: **timestamped, evidence-first reporting**. The repo now ships a dedicated `evidence-report` skill and aligns plan"
+ },
+ {
+  "id": "docs/plans/2026/07/08/DECISION_CtfFrontierExploration_2026-07-08.md",
+  "lang": "en",
+  "title": "Decision Record — CTF Frontier Exploration: how much runtime, how much model",
+  "head": " **Date:** 2026-07-08 **Status:** Accepted **Scope:** Chooses the architecture for the CTF exploration upgrade before implementation. **Links:** - Implementation plan: [`PLAN_CtfFrontierExploration_2026-07-08.md`](./PLAN_CtfFronti"
+ },
+ {
+  "id": "docs/plans/2026/05/25/PLAN_UnifiedKnowledgeEcosystem_2026-05-25-1543.md",
+  "lang": "en",
+  "title": "PLAN: 기존 지식 관리 기능 → Obsidian Knowledge Graph RAG 완전 흡수 통합",
+  "head": " ## Metadata - **Timestamp**: 2026-05-25 15:43:00 +09:00 - **File Name**: `PLAN_UnifiedKnowledgeEcosystem_2026-05-25-1543.md` - **Scope**: `builder-private` 프로젝트 내 파편화된 지식 관리 기능들(`builder_workspace_index`, `conversation_memory`, `"
+ },
+ {
+  "id": "docs/human/evidence_data_examples.md",
+  "lang": "en",
+  "title": "침투 증거(Evidence) 및 서브에이전트 보고 실제 데이터 예시",
+  "head": " 이 문서는 에이전트가 실제 침투 테스트 및 CTF 환경에서 생성하는 서브에이전트 보고 텍스트와 시스템 원장(`.pentesting/runtime/...json`)에 기록되는 `EvidenceItem` 3종(Finding, Lead, Verification)의 구체적인 데이터 예시를 제공한다. --- 서브에이전트가 독립된 환경에서 `ffuf`, `curl`, `sqlmap` 등을 수십 번 실행한 뒤, 수만 줄"
+ },
+ {
+  "id": "docs/plans/2026/07/10/PLAN_LightweightAutonomousHarness_2026-07-10.md",
+  "lang": "en",
+  "title": "PLAN — Lightweight Autonomous Harness: Codex·Claude Code형 코어 재정렬 (2026-07-10)",
+  "head": " **상태:** Implemented — core semantics, reduction, and Docker gates complete **범위:** core loop, tool protocol, mission lifecycle, CTF exploration, prompt/context, PTY·queue, TUI UX **기준 문서:** `PLAN_LightweightCoreCtfUx_2026-07-09.m"
+ },
+ {
+  "id": "docs/plans/2026/07/10/ADR_LightweightHarnessBoundaries_2026-07-10.md",
+  "lang": "en",
+  "title": "ADR — Lightweight Harness Boundaries (2026-07-10)",
+  "head": " [`concept-unification/ADR_OneSecuritySurface_2026-07-10.md`](./concept-unification/ADR_OneSecuritySurface_2026-07-10.md)가 대체한다. ## 결정 1. `StreamTerminal`, `TurnExit`, `MissionState`를 별도 타입으로 유지한다. 2. model Stop은 `TurnCompleted`만 "
+ },
+ {
+  "id": "docs/human/qa/q08_shell_truncation.md",
+  "lang": "ko",
+  "title": "Q8. 긴 셸 출력과 컨텍스트 초과는 어떻게 처리하나?",
+  "head": " 두 단계로 분리되어 처리된다. --- 셸 stdout/stderr는 설정된 prefix line, suffix line, line-length 상한으로 잘린 뒤 도구 결과가 된다. 즉 모델이 항상 10,000줄 원문을 먼저 다 읽고 다음 턴에만 잘리는 구조가 아니다. (도구 실행 경계: [Q9. 도구 실행 경계](q09_tool_execution_boundary.md)) --- 컨텍스트가 compact th"
+ },
+ {
+  "id": "docs/plans/2026/06/27/roadmap/2026-06-27/10-ctf-thin-layer.md",
+  "lang": "en",
+  "title": "10 · CTF — 얇은 특화 레이어 (과적합 금지)",
+  "head": " - **우선순위**: P3 (코어 안정 후) · **상태**: ✅ 얇은 레이어 완료(Codex, 2026-06-28 01:39:00 KST +0900) · **상세**: Phase 3 플랜(전체) — 여기선 **얇게**만 - **방침(사용자 지시)**: 코어(01–09)가 강해지면 CTF는 얇은 레이어로 충분. **너무 CTF에만 맞추지 말 것.** 무거운 CTF 항목(병렬 보드·풀 카테고리 플레이북)은 P"
+ },
+ {
+  "id": "docs/plans/2026/07/09/PLAN_P0_ToolCallReliability_2026-07-09.md",
+  "lang": "en",
+  "title": "P0 — Tool-Call Reliability Implementation Plan",
+  "head": " > **For agentic workers (Codex):** This plan is self-contained. Implement it > task-by-task with TDD. Steps use checkbox (`- [ ]`) syntax. The plan author > (Claude) will VERIFY your work after each task — do not skip the \"run te"
+ },
+ {
+  "id": "docs/plans/2026/08/12/PLAN_RagDenseLegacyStability_2026-08-12.md",
+  "lang": "en",
+  "title": "Dense RAG Legacy Cleanup and Stability Implementation Plan",
+  "head": " > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking. **Goal"
+ },
+ {
+  "id": "docs/superpowers/plans/2026-08-19-runtime-safety-hardening.md",
+  "lang": "en",
+  "title": "Runtime Safety Hardening Implementation Plan",
+  "head": " > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking. **Goal"
+ },
+ {
+  "id": "docs/plans/2026/07/17/PLAN_AutoGoalPersistence_Minimal_2026-07-17.md",
+  "lang": "en",
+  "title": "Minimal Auto Goal Persistence Plan",
+  "head": " Date: 2026-07-17 Status: Completed Baseline: `26dd6905` (`fix(tui): preserve Unicode status labels`) ## Starting point Implementation started from `26dd6905` after the broad autonomy experiment was removed from the working tree a"
+ },
+ {
+  "id": "docs/plans/2026/07/02/001_1054_claude-code-parity-survey-and-plan.md",
+  "lang": "ko",
+  "title": "🧭 Claude Code 동작 정합성 — 전수조사 & 개선 플랜 (2026-07-02)",
+  "head": " > **작성 시각**: 2026-07-02 10:54 KST (+0900) > **목표(사용자)**: \"클로드 코드처럼 동작하게 하고 싶다. 현재 코드를 분석해 구조와 개선 방안을 전수조사해서 도출하라.\" > **작성 규율(008/009 계승)**: 모든 사실 주장은 실제 소스에 `file:line`으로 대조. 미확인은 ❓로 남긴다. 기획 문서가 아니라 **감사 + 실행 플랜**이다. > **조사 방법**:"
+ },
+ {
+  "id": "docs/superpowers/specs/2026-08-13-coral-terminal-palette-design.md",
+  "lang": "ko",
+  "title": "Coral Terminal Palette Design",
+  "head": " ## 목표 터미널 UI를 어두운 중성 회색과 따뜻한 코랄 중심으로 통일한다. Markdown 응답은 읽기 쉬운 의미별 색상을 허용하되 일반 UI와 오류 표시는 명확히 분리한다. ## 색상 역할 - Primary `#D97757`: 제품명, 선택 상태, 로딩과 주요 강조 - Secondary `#EAA789`: 제한적인 보조 강조 - Markdown: 본문은 중성색을 유지하고 제목·목록·링크·코드 같은 의미 "
+ },
+ {
+  "id": "docs/plans/2026/07/01/001_0546_competitive-analysis.md",
+  "lang": "ko",
+  "title": "🔬 3-Way 비교 분석: NexAU vs mini-swe-agent vs Pentesting",
+  "head": " > **분석일**: 2026-07-01 > **목적**: pentesting 시스템 강화를 위한 경쟁 분석 및 도입 가치 평가 > **분석 방법**: 서브에이전트 6개 투입, 80+ 소스 파일 정독 기반 > **⚠️ 주의**: 이전 분석의 오류를 실제 코드 기반으로 정정함 (NexAU 메모리 시스템 등) --- | 항목 | NexAU | mini-swe-agent | Pentesting | |------|:"
+ },
+ {
+  "id": "docs/plans/2026/07/16/PLAN_CtrlCClearWithoutTurnInterrupt_2026-07-16.md",
+  "lang": "en",
+  "title": "Plan: Ctrl+C Clears Input Without Interrupting the Active Turn (2026-07-16)",
+  "head": " > Status: proposed; diagnosis complete, implementation not started ## Problem the active turn, clears queued input and the draft, and stops auto mode. The footer advertises only the clear behavior, so the destructive turn interru"
+ },
+ {
+  "id": "ARCHITECTURE.md",
+  "lang": "en",
+  "title": "Architecture",
+  "head": " This document reflects the current `main` branch architecture. It is the single, detailed reference for how the runtime is structured; the [README](README.md) stays intentionally short and usage-focused. For a diagram-level tour "
+ },
+ {
+  "id": "docs/plans/2026/05/24/PLAN_UbuntuMigration_2026-05-24-2210.md",
+  "lang": "en",
+  "title": "PLAN: Ubuntu 26.04 Migration",
+  "head": " ## Metadata - **Timestamp**: 2026-05-24 22:11:00 KST - **File Name**: `PLAN_UbuntuMigration_2026-05-24-2210.md` - **Change Type**: [Refactoring / Migration] - **Risk Level**: [MEDIUM] ## Files | File | Action | Reason | | :----- "
+ },
+ {
+  "id": "docs/plans/2026/07/10/minimal-core/02_CURRENT_SYSTEM_AUDIT.md",
+  "lang": "en",
+  "title": "현재 시스템 전수 감사",
+  "head": " 2026-07-10 worktree의 정적 집계다. | 지표 | 현재 값 | 해석 | | --- | ---: | --- | | Rust crate | 26 | 배포 단위보다 내부 계층 분리가 많음 | | Rust 파일 | 611 | 탐색·변경 영향 범위가 큼 | | Rust 줄 수 | 약 218,382 | 모델 루프 외 scaffold 비용이 큼 | | `builder_app` | 169 files / 61"
+ },
+ {
+  "id": "docs/plans/2026/07/11/HANDOFF_Amd64DockerRelease_2026-07-11.md",
+  "lang": "en",
+  "title": "AMD64-Only Docker Release Handoff — 2026-07-11",
+  "head": " ## Decision - Official native release asset: Linux x86_64 musl only. - Official Docker image platform: `linux/amd64` only. - Docker is the recommended runtime on Windows and macOS. - Apple Silicon users run the published amd64 im"
+ },
+ {
+  "id": "docs/plans/2026/07/01/002_1505_cognitive-agent-architecture.md",
+  "lang": "en",
+  "title": "🧠 Cognitive Agent Architecture — 인지과학 기반 에이전트 아키텍처 설계서",
+  "head": " > **프로젝트**: Pentesting Agent Runtime > **날짜**: 2026-07-01 > **기반 이론**: Endel Tulving 기억 분류 (1972), Ebbinghaus 망각 곡선 (1885), Baddeley 작업 기억 모델 (2000) > **핵심 원칙**: LLM을 대뇌피질의 일부로 보고, 그 위에 인간 인지 아키텍처 전체를 재구성한다 > **핵심 제약**: Vector DB"
+ },
+ {
+  "id": "docs/plans/2026/07/16/PLAN_ReliablePayloadDeliveryAndInterpreter_2026-07-16.md",
+  "lang": "en",
+  "title": "Reliable Payload Delivery & Interpreter-Aware Execution Plan (2026-07-16)",
+  "head": " > 상태: 구현 및 Docker/Linux 검증 완료 > 작성일: 2026-07-16 > 대상 실행자: 소형/약한 모델(또는 다음 세션 GPT). **추측 금지.** 파일·라인·recipe를 그대로 따르고, > 각 절의 \"검증\"을 통과하지 못하면 다음으로 넘어가지 않는다. > 선행 플랜: `PLAN_AdaptiveCallbackPortTransportAgility_2026-07-16.md` (아래 §1에서 "
+ },
+ {
+  "id": "docs/plans/2026/06/19/MEMORY_MANAGEMENT_AND_RESEARCH_GROUNDING.md",
+  "lang": "ko",
+  "title": "builder 메모리 관리 — 기억 저장과 기억 조회의 연구 근거",
+  "head": " > **builder-private**의 로컬 퍼스트 장기 메모리가 *무엇을, 어떻게, 왜* 그렇게 저장하고 조회하는지를 > 최신 에이전트 메모리 연구(논문)와 1:1로 연관지어 설명하는 단일 정본 문서. --- | 항목 | 값 | |:---|:---| | **작성일** | 2026-06-20 | | **대상** | builder-private (Rust), crate `builder_knowledge` |"
+ },
+ {
+  "id": "docs/plans/2026/07/09/PLAN_LightweightCoreCtfUx_2026-07-09.md",
+  "lang": "ko",
+  "title": "PLAN — 가벼운 코어 · CTF 신뢰성 · UX 정리 (2026-07-09)",
+  "head": " > 이 플랜은 감(感)이 아니라 **증거 기반**으로 작성됐다. 4개 병렬 코드 감사 + > 라이브 CTF 부검(7/9) + 논문 역공학(arXiv 2604.14228v1) + 이 저장소 자신의 > `00-INDEX` 복잡도 판정이 **모두 같은 결론으로 수렴**한다. --- > **왜 남기나:** 유지보수자가 \"이 플랜이 왜 이 방향인가\"를 나중에 재구성할 수 있도록, > 이 플랜을 낳은 요구를 프롬프트 "
+ },
+ {
+  "id": "docs/plans/2026/07/10/minimal-core/05_PHASES_4_TO_7.md",
+  "lang": "en",
+  "title": "Phase 4~7: 상태 감량, 확장 격리, UI, 삭제",
+  "head": " > **2026-07-10 후속 구현 정정:** 이 문서는 원래 목표와 감사 체크리스트를 > 보존하며, 아래 미체크 항목은 현재의 열린 작업 목록이 아니다. 후속 clean-break에서 > 저장 계약은 10개의 물리 port로 분리됐고 `ControlPlaneRepository`는 메서드 없는 > composition marker가 됐다. Phase 5의 capability-pack/default-off "
+ },
+ {
+  "id": "docs/plans/2026/05/22/2026-05-22-workflow-visibility-adoption-plan.md",
+  "lang": "en",
+  "title": "PLAN: Workflow Visibility Adoption",
+  "head": " ## Metadata - **Created**: 2026-05-22 15:40 KST - **Scope**: Compare the user-observed Claude-style workflow explanation against Builder’s current visibility surfaces and add the missing operator-facing workflow explanation layer"
+ },
+ {
+  "id": "docs/plans/2026/04/16/harness-program/PLAN_Phase3_ASTContextEngine_2026-04-15-2329.md",
+  "lang": "en",
+  "title": "PLAN: Phase 3 AST Context Engine",
+  "head": " 마스터 문서: [PLAN_HarnessProgramMaster_2026-04-15-2329.md](./PLAN_HarnessProgramMaster_2026-04-15-2329.md) ## 목표 파일 단위 읽기와 line chunk 중심 맥락을 **symbol-aware / dependency-aware context packet** 으로 바꾼다. 현재 확인된 근거: - Builder는 range read와"
+ },
+ {
+  "id": "README.md",
+  "lang": "en",
+  "title": "Pentesting 🔓",
+  "head": " <div align=\"center\"> <picture> <source media=\"(prefers-color-scheme: light)\" srcset=\"https://api.iconify.design/hugeicons:bash.svg?color=%23000000\" /> <img src=\"https://api.iconify.design/hugeicons:bash.svg?color=%23000000\" alt=\""
+ },
+ {
+  "id": "docs/PUBLIC_GRAPHICS_GUIDELINES.md",
+  "lang": "en",
+  "title": "Architecture Explorer — Reusable Blueprint & Directive",
+  "head": " A portable spec for building **an explorable 3D architecture visualizer** for *any* software/agent project. It captures both the hard requirements and the design insights distilled from building the pentesting-agent explorer (`pu"
+ },
+ {
+  "id": "docs/superpowers/plans/2026-08-13-session-footer-velog-theme.md",
+  "lang": "en",
+  "title": "Session Footer and Velog Theme Implementation Plan",
+  "head": " > Superseded on 2026-08-13 by the later coral terminal palette and quiet-chrome decision. Do not execute this historical plan. See `2026-08-13-coral-terminal-palette.md`. > **For agentic workers:** REQUIRED SUB-SKILL: Use superpo"
+ },
+ {
+  "id": "docs/plans/2026/07/16/RESULT_TuiUxHardening_2026-07-16.md",
+  "lang": "ko",
+  "title": "TUI UX Hardening 구현 결과 (2026-07-16)",
+  "head": " > 상태: 계획 범위 구현 및 검증 완료 > 원본 계획: [PLAN_TuiUxHardening_2026-07-16.md](PLAN_TuiUxHardening_2026-07-16.md) > 추가 반영: 푸터 모델명 영역의 가로·세로 패딩 및 좁은 터미널 대응 점검 - `/goal`, `/auto` 같은 즉시 실행 명령이 다음 queued/auto turn으로 넘어가기 전에 렌더 명령을 drain하도록 하여 확"
+ },
+ {
+  "id": "docs/plans/2026/07/07/003_1930_autonomous_pty_upgrade_strategy.md",
+  "lang": "en",
+  "title": "자율 PTY Upgrade 전략화 — 하드코딩 python3 제거",
+  "head": " > **작성일**: 2026-07-07 KST > **작성자**: Claude (Fable 5) > **선행 문서**: `001_0801_reverse_shell_pty_execution_audit.md`, `002_1600_shell_listener_plumbing_code_review_plan.md` > **상태**: 구현 완료 (2026-07-07). P1–P7 반영. stty-only/socat는 R"
+ },
+ {
+  "id": "docs/plans/2026/07/10/concept-unification/README.md",
+  "lang": "ko",
+  "title": "개념 통합·정돈 마스터 플랜 (2026-07-10)",
+  "head": " 중간보고: [아키텍처 변경 중간보고](../MIDREPORT_ArchitectureChange_2026-07-10.md) 최종 청사진: [최종 아키텍처 청사진](../BLUEPRINT_FinalArchitecture_2026-07-10.md) 전체 완료 감사: [2026-07-10 계획 완료 감사](../COMPLETION_AUDIT_2026-07-10.md) ## 결론부터 사용자가 알아야 할 보안 “모드”"
+ },
+ {
+  "id": "docs/superpowers/specs/2026-08-19-rag-incremental-cache-hardening-design.md",
+  "lang": "en",
+  "title": "RAG Incremental Cache Hardening Design",
+  "head": " **Date:** 2026-08-19 **Status:** Implemented; capped-Docker verification recorded in the implementation plan **Scope:** `builder_workspace_index`, `builder_knowledge`, related RAG plans and architecture documentation **Explicitly"
+ },
+ {
+  "id": "docs/plans/2026/05/22/2026-05-22-adaptive-autonomy-upgrade-plan.md",
+  "lang": "en",
+  "title": "PLAN: Adaptive Autonomy Upgrade",
+  "head": " ## Metadata - **Created**: 2026-05-22 16:40 KST - **Change Type**: Runtime autonomy + recovery routing upgrade - **Risk Level**: MEDIUM ## Current Session - **Modified Files**: - `docs/plans/2026-05-22/2026-05-22-adaptive-autonom"
+ },
+ {
+  "id": "docs/superpowers/specs/2026-08-15-one-command-release-design.md",
+  "lang": "en",
+  "title": "One-Command Release Design",
+  "head": " ## Goal `npm run release` is the only command a maintainer needs to commit and push all current changes and publish the next patch release to all four required public surfaces. ## Architecture The root npm script remains a native"
+ },
+ {
+  "id": "docs/plans/2026/07/09/PLAN_ProjectImprovement_2026-07-09.md",
+  "lang": "en",
+  "title": "PLAN — Project Improvement: Reliability + UI/UX + CTF Effectiveness (2026-07-09)",
+  "head": " Authoritative \"what's needed now\" plan for the builder/pentesting runtime. Built from three parallel code audits (core reliability, TUI UI/UX, CTF agent effectiveness) plus live-container log analysis. Every item is anchored to `"
+ },
+ {
+  "id": "docs/plans/2026/07/15/REVIEW_AttentionBattlefieldWiring_2026-07-15.md",
+  "lang": "en",
+  "title": "Attention Brief / Battlefield Lite Wiring Review (30 passes)",
+  "head": " Date: 2026-07-15 Scope: canonical Lead fold -> pure attention projection -> explicit `explore` adapter -> API status projection -> transcript-only Battlefield Lite. Each pass checks a distinct producer/consumer or authority bound"
+ },
+ {
+  "id": "docs/plans/2026/07/16/PLAN_TuiUxHardening_2026-07-16.md",
+  "lang": "ko",
+  "title": "TUI UX Hardening Plan (2026-07-16)",
+  "head": " > 상태: 구현 및 검증 완료 (2026-07-16) > 구현 결과: [RESULT_TuiUxHardening_2026-07-16.md](RESULT_TuiUxHardening_2026-07-16.md) > 작성일: 2026-07-16 > 구현 주체: 외부 에이전트(GPT)가 이 문서만 보고 구현할 수 있도록 self-contained하게 작성. > 범위: `builder_main`/`builder_rata"
+ },
+ {
+  "id": "docs/plans/2026/06/27/roadmap/2026-06-27/03-core-unification.md",
+  "lang": "en",
+  "title": "03 · 코어 통합 — Shell sugar + CLI 강등 (평면 3→1)",
+  "head": " - **전제(하드)**: 01(리펙토링+완전 PTY) 완료 후에만. 불안정 베이스에 평면 합치면 문제. - **왜**: 분리된 3평면(1회성 도구 / followup 핸드오프 / 별도 UDS `shell-session` CLI)을 하나로. Claude Code의 \"균일한 도구\" 모델. 코드가 줄어듦. ## 체크리스트 - [x] one-shot Shell 도구를 세션 sugar로 재배선(= `spawn`+`e"
+ },
+ {
+  "id": "docs/plans/2026/07/01/004_1511_storage-separation-architecture.md",
+  "lang": "en",
+  "title": "🗂️ 인지 메모리 저장소 분리 설계 — 복잡도를 올리지 않으면서 분리하기",
+  "head": " > **프로젝트**: Pentesting Agent Runtime > **시각**: 2026-07-01 15:11 > **전제**: 기존 `.builder/knowledge/` 플랫 구조 → 인지 유형별 분리 > **원칙**: 복잡도 최소화. 새 DB 없음. 마크다운+YAML 유지. 기존 코드 최소 변경. --- ```text .builder/ ├── knowledge/ ← 모든 노트가 여기에 섞여 있음 │"
+ },
+ {
+  "id": "docs/plans/2026/04/14/0-project-analysis-and-improvement-plan.md",
+  "lang": "en",
+  "title": "Builder 프로젝트 현행 문제점 파악 및 개선안 계획서",
+  "head": " **작성일:** 2026-04-14 **작성자:** Claude Code --- | 항목 | 내용 | |------|------| | 프로젝트명 | Builder | | 유형 | Rust CLI 도구 (Workspace 기반 멀티크레이트) | | 목적 | AI 에이전트용 CLI 도구 | | 기술 스택 | Rust 1.92, Tokio 비동기 런타임, Ratatui (TUI), AWS Bedrock | | 크"
+ },
+ {
+  "id": "docs/plans/2026/06/12/PLAN_InteractiveTuiAuditBacklog_2026-06-12-0001.md",
+  "lang": "en",
+  "title": "PLAN: Interactive TUI Audit Backlog",
+  "head": " ## Metadata - **Timestamp**: 2026-06-12 00:01:55 +09:00 - **File Name**: `PLAN_InteractiveTuiAuditBacklog_2026-06-12-0001.md` - **Scope**: Remaining interactive TUI, live PTY, and MiniMax runtime issues discovered during the long"
+ },
+ {
+  "id": "docs/plans/2026/04/15/PLAN_RetryVisibility_2026-04-15-1820.md",
+  "lang": "en",
+  "title": "PLAN: Retry Visibility for Long LLM Calls",
+  "head": " ## Metadata - **Created**: 2026-04-15 18:20 - **File Name**: `PLAN_RetryVisibility_2026-04-15-1820.md` - **Change Type**: Bugfix - **Risk Level**: Medium ## Files | File | Action | Reason | |:---|:---|:---| | `crates/builder_main"
+ },
+ {
+  "id": "docs/plans/2026/07/16/PLAN_CodebaseReliabilityAndComplexitySweep_2026-07-16.md",
+  "lang": "ko",
+  "title": "Codebase Reliability & Complexity Sweep Plan (2026-07-16)",
+  "head": " > 상태: 착수 — 계획 확정, 감사·구현 진행 > 작성일: 2026-07-16 > 범위: 전 crate(26개) 전수 정적 감사로 (D1) abrupt-termination/신뢰성 결함과 (D2) 과도한 복잡도를 찾아 **동작을 보존한 채** 강등·단순화한다. > 실행 모델: **Sonnet 5가 구현, Opus가 검수·반려·재보완 반복.** > 결론: 새 프레임워크·기능을 만들지 않는다. 이미 존재하는 "
+ },
+ {
+  "id": "docs/plans/2026/07/21/RESULT_ActiveTurnInputTranscript_2026-07-21.md",
+  "lang": "ko",
+  "title": "Active-Turn Input Transcript Plumbing Review (2026-07-21)",
+  "head": " > 상태: 완료; 제한형 전체 빌드·테스트·Clippy·스키마·Node·PTY 안정성 게이트 통과 > 범위: 활성 턴 입력의 키 이벤트부터 큐, interrupt, 재생, transcript scrollback까지 ## 증상과 원인 일반 프롬프트 입력은 `Console::prompt`가 실행 직전에 `❯ <input>` 줄을 transcript에 남긴다. 반면 모델 응답이 진행 중일 때 받은 입력은 inte"
+ },
+ {
+  "id": "docs/plans/2026/07/10/BASELINE_LightweightHarness_2026-07-10.md",
+  "lang": "en",
+  "title": "Baseline — Lightweight Harness (2026-07-10)",
+  "head": " ## 구현 기준선 - native tool precedence와 terminal-only text salvage provenance - built-in/agent/MCP registered contract audit - deterministic FIFO revision queue - O(1) turn snapshot mission note - thin observation ledger with CAS/cap"
+ },
+ {
+  "id": "docs/superpowers/specs/2026-08-15-resumable-one-command-release-design.md",
+  "lang": "en",
+  "title": "Resumable One-Command Release Design",
+  "head": " ## Goal interrupted four-surface patch release instead of calculating another patch. ## Decision The Windows entrypoint will inspect the Cargo workspace version, npm package version, and `builderReleaseTag` after committing the r"
+ },
+ {
+  "id": "docs/plans/2026/07/07/001_0801_reverse_shell_pty_execution_audit.md",
+  "lang": "en",
+  "title": "Reverse Shell / PTY 실행 감사 — 2026-07-07",
+  "head": " > **작성일**: 2026-07-07 08:01 KST > **범위**: 2026-07-06 reverse shell / PTY 완전 관리·추적 플랜 3건, 오늘 정리한 프로젝트 레벨 `plans/` 이동, 현재 `HEAD` 구현·테스트 상태 > **판정**: 사용자 의도인 authorized CTF/lab용 multi reverse shell / multi PTY session fabric은 현재 소스와"
+ },
+ {
+  "id": "docs/superpowers/plans/2026-08-19-rag-incremental-cache-hardening.md",
+  "lang": "en",
+  "title": "RAG Incremental Cache Hardening Implementation Plan",
+  "head": " > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking. **Goal"
+ },
+ {
+  "id": "docs/plans/2026/06/27/PLAN_Builder_Master_2026-06-27.md",
+  "lang": "en",
+  "title": "Builder → Claude Code급 통합 에이전트 프레임워크 (단일 마스터 플랜)",
+  "head": " - **작성일시**: 2026-06-27 14:35:00 KST (+0900) - **최종 갱신일시**: 2026-06-28 03:43:16 KST (+0900) - **작성자**: Claude (Opus 4.8, 1M) — 기획·계획만 담당 - **실행 주체**: **Codex** (본 문서 단독 기준으로 구현) - **검토 주체**: Claude (§5 체크리스트로 감사) - **상태**: 이전 4개 분"
+ },
+ {
+  "id": "docs/plans/2026/04/15/POSTMORTEM_spinner-freeze-current-status.md",
+  "lang": "en",
+  "title": "Spinner Freeze Current Status",
+  "head": " Observed symptom: - The spinner starts. - The UI then stops animating even though the task is still running. This is a user-visible blocker because it makes the application look hung during the exact flow that is supposed to reas"
+ },
+ {
+  "id": "docs/plans/2026/07/01/009_1701_ctf-parallel-subagent-dispatch.md",
+  "lang": "ko",
+  "title": "🚀 CTF 병렬 서브에이전트 파견 강화 — 설계 & 착수 계획",
+  "head": " > **작성 시각**: 2026-07-01 17:01 > **선행 의존**: [`008_1653_reality-check-episodic-mvp.md`](./008_1653_reality-check-episodic-mvp.md) **완료 후 착수** (008은 기억, 009는 파견 — 코드상 독립이나 순서는 008 먼저) > **작성 규율**: 008과 동일 — 모든 사실 주장은 실제 소스에 file:lin"
+ },
+ {
+  "id": "docs/plans/2026/07/15/PLAN_CtfAutonomousPersistence_2026-07-15.md",
+  "lang": "en",
+  "title": "CTF Autonomous Persistence Repair Plan (2026-07-15)",
+  "head": " > 상태: 코드·실행 로그 기반 원인 분석 완료, 구현 미착수 > 작성일: 2026-07-15 > 대상 재현: conversation `cf2c0a1c-7d8f-44bf-add6-8e0e8f4a602e`, run `bee565b9-5393-466d-821e-f2aa3bd6757d` > 범위: auto agent가 아직 열린 목표를 스스로 `blocked`로 선언하고 멈추는 제어 결함 > 우선순위: 현재 sl"
+ },
+ {
+  "id": "docs/plans/2026/07/18/PLAN_DeepCodeReview_2026-07-18.md",
+  "lang": "en",
+  "title": "Deep Code Review — Improvement & Refactoring Plan (2026-07-18)",
+  "head": " Date: 2026-07-18 Status: **Complete** — P0, P1, P2, and P3 all landed and green on `main`. See \"Execution status\" below. Baseline: `main` @ `854fd25b` Scope: deep review of the autonomous loop / REPL, the TUI rendering pipeline, "
+ },
+ {
+  "id": "docs/plans/2026/04/15/PLAN_BuilderRepoManifestRepair_2026-04-15-1800.md",
+  "lang": "en",
+  "title": "PLAN: Builder Repo Manifest Repair",
+  "head": " ## Metadata - **Created**: 2026-04-15 18:00 - **File Name**: `PLAN_BuilderRepoManifestRepair_2026-04-15-1800.md` - **Change Type**: Bugfix - **Risk Level**: LOW ## Files | File | Action | Reason | |:---|:---|:---| | `crates/build"
+ },
+ {
+  "id": "docs/plans/2026/06/27/NEXT_AGENT_HANDOFF_2026-06-28.md",
+  "lang": "en",
+  "title": "Builder Next Agent Handoff - 2026-06-28",
+  "head": " 최종 갱신: 2026-06-28 10:38:07 KST +0900 ## 이어받을 기준점 - Repo: `/home/user/builder-private` - Branch: `main` - Remote: `origin/main` - 코드 기준 HEAD: `9a7fcc2 refactor: shrink mission-control gathering and drop dead replay hints` - 상태: ro"
+ },
+ {
+  "id": "docs/plans/2026/06/27/roadmap/2026-06-27/08-reliability-verification.md",
+  "lang": "en",
+  "title": "08 · 코어 신뢰성 — anti-loop · 예산 · 검증 · grounding ★",
+  "head": " - **우선순위**: **P0★** (코어 강화 핵심) · **상태**: ✅ 완료(Codex, 2026-06-28 02:05:38 KST +0900) - **왜**: 장기 자율 작업의 붕괴 지점(루프·환각·예산 폭주)을 코어에서 차단. 마스터 평탄화(04)가 강제 게이트를 제거하므로, **검증을 \"모델 호출 도구 + 프롬프트 디시플린\"으로 되살림**(양립). ## 체크리스트 - [x] **anti-loop "
+ },
+ {
+  "id": "docs/plans/2026/04/14/4-terminal-ownership-verification-and-final-stabilization-plan.md",
+  "lang": "en",
+  "title": "`builder_main` Terminal Ownership 검증 고도화 / 최종 안정처리 계획서 4",
+  "head": " **작성일:** 2026-04-14 **선행 조건:** [3-2-status-row-prompt-handoff-root-cause-plan.md](/Users/pf/workspace/builder/plans/2026-04-14/3-2-status-row-prompt-handoff-root-cause-plan.md) 의 `Plan 4로 넘기는 게이트`를 모두 만족할 것 ## 필수 참고 - `../codex/d"
+ },
+ {
+  "id": "docs/plans/2026/04/18/2026-04-18-weak-model-harness-direction.md",
+  "lang": "en",
+  "title": "Weak-Model Harness Hardening: Current Plan, Concerns, and Direction",
+  "head": " **작성일**: 2026-04-18 **목적**: 약한 모델에서 남아 있는 환각 문제를 줄이기 위해, 현재 계획과 설계 고민을 정리하고 가장 적합한 방향을 결정한다. --- 현재 가장 적합한 방향은 **큰 새 레이어를 하나 더 추가하는 것**이 아니라, 이미 존재하는 사전 요청 라우팅을 유지하면서 그 아래에 **`Execution Strategy` 층을 추가**하는 것이다. 즉: 1. **Intent/Req"
+ },
+ {
+  "id": "docs/plans/2026/06/19/PLAN_DeepDiveDocsUpdate_2026-06-19-2350.md",
+  "lang": "en",
+  "title": "PLAN: Deep Dive Docs Update",
+  "head": " ## Metadata - **Timestamp**: 2026-06-19 23:50:00 +09:00 - **File Name**: `PLAN_DeepDiveDocsUpdate_2026-06-19-2350.md` - **Change Type**: Documentation / Refactoring - **Risk Level**: LOW ## Files | File | Action | Reason | | :---"
+ }
+]

@@ -1,0 +1,1178 @@
+[
+ {
+  "id": "AGENTS.md",
+  "lang": "en",
+  "title": "Agent Operating Contract",
+  "head": " **This is the #1 rule. Violating it has repeatedly taken WSL down and forced a full Windows reboot.** - Root cause (confirmed 2026-07-09): the Window"
+ },
+ {
+  "id": "ARCHITECTURE.md",
+  "lang": "en",
+  "title": "Architecture",
+  "head": " This document reflects the current `main` branch architecture. It is the single, detailed reference for how the runtime is structured; the [README](R"
+ },
+ {
+  "id": "README.md",
+  "lang": "en",
+  "title": "Pentesting 🔓",
+  "head": " <div align=\"center\"> <picture> <source media=\"(prefers-color-scheme: light)\" srcset=\"https://api.iconify.design/hugeicons:bash.svg?color=%23000000\" /"
+ },
+ {
+  "id": "commands/github-pr-description.md",
+  "lang": "en",
+  "title": "github-pr-description",
+  "head": " {{parameters}}"
+ },
+ {
+  "id": "crates/builder_app/src/dto/anthropic/transforms/claude_code.md",
+  "lang": "en",
+  "title": "claude_code",
+  "head": " "
+ },
+ {
+  "id": "crates/builder_display/src/fixtures/code-02.md",
+  "lang": "en",
+  "title": "code-02",
+  "head": " ### Rust Example ```rust fn main() { println!(\"Hello, world!\"); } ``` ### Python Example ```python def greet(name): print(f\"Hello, {name}!\") ``` ### "
+ },
+ {
+  "id": "crates/builder_domain/src/tools/descriptions/fs_patch.md",
+  "lang": "en",
+  "title": "fs_patch",
+  "head": " Usage: - You must use your `{{tool_names.read}}` tool at least once in the conversation before editing. This tool will error if you attempt an edit w"
+ },
+ {
+  "id": "crates/builder_domain/src/tools/descriptions/semantic_search.md",
+  "lang": "en",
+  "title": "semantic_search",
+  "head": " AI-powered semantic code search. YOUR DEFAULT TOOL for code discovery and exploration when searching within {{env.cwd}}. Use this when you need to fi"
+ },
+ {
+  "id": "crates/builder_domain/src/tools/descriptions/todo_write.md",
+  "lang": "en",
+  "title": "todo_write",
+  "head": " Use this tool to create and manage a structured task list for your current coding session. This helps you track progress, organize complex tasks, and"
+ },
+ {
+  "id": "crates/builder_domain/src/tools/descriptions/net_fetch.md",
+  "lang": "en",
+  "title": "net_fetch",
+  "head": " Retrieves content from URLs as markdown or raw text. Enables access to current online information including websites, APIs and documentation. Use for"
+ },
+ {
+  "id": "crates/builder_domain/src/tools/descriptions/fs_multi_patch.md",
+  "lang": "en",
+  "title": "fs_multi_patch",
+  "head": " This is a tool for making multiple edits to a single file in one operation. It is built on top of the {{tool_names.patch}} tool and allows you to per"
+ },
+ {
+  "id": "crates/builder_domain/src/tools/descriptions/show_code.md",
+  "lang": "en",
+  "title": "show_code",
+  "head": " Show a short code to the user, such as a device authorization code, one-time pairing code, or browser login code. Use this only for codes the model a"
+ },
+ {
+  "id": "crates/builder_domain/src/tools/descriptions/fs_read.md",
+  "lang": "en",
+  "title": "fs_read",
+  "head": " Reads a file from the local filesystem. You can access any file directly by using this tool. Assume this tool is able to read all files on the machin"
+ },
+ {
+  "id": "crates/builder_domain/src/tools/descriptions/flag_check.md",
+  "lang": "en",
+  "title": "flag_check",
+  "head": " Verifies a captured CTF flag candidate against the configured `FLAG_FORMAT`. Use this after a shell/process/fetch result produces a possible flag. Do"
+ },
+ {
+  "id": "crates/builder_domain/src/tools/descriptions/open_url.md",
+  "lang": "en",
+  "title": "open_url",
+  "head": " Ask the user to open a URL in their browser or confirm that a browser-based step is complete. Use this for OAuth/login/device-flow links or local web"
+ },
+ {
+  "id": "crates/builder_domain/src/tools/descriptions/session_control.md",
+  "lang": "en",
+  "title": "session_control",
+  "head": " Control a Builder shell-listener session through its local JSONL control socket. Use this for long-running or interactive sessions, authorized revers"
+ },
+ {
+  "id": "crates/builder_domain/src/tools/descriptions/request_secret.md",
+  "lang": "en",
+  "title": "request_secret",
+  "head": " Ask the user for sensitive input such as a password, API key, token, one-time code, or private credential. Use this only when the value must stay out"
+ },
+ {
+  "id": "crates/builder_domain/src/fixtures/tool_call_01.md",
+  "lang": "en",
+  "title": "tool_call_01",
+  "head": " Let me try the correct format to complete the task: <builder_tool_call> {\"name\": \"attempt_completion\", \"arguments\": {\"result\": \"# Analysis of Manual "
+ },
+ {
+  "id": "crates/builder_domain/src/tools/descriptions/todo_read.md",
+  "lang": "en",
+  "title": "todo_read",
+  "head": " Retrieves the current todo list for this coding session. Use this tool to check existing todos before making updates, or to review the current state "
+ },
+ {
+  "id": "crates/builder_domain/src/tools/descriptions/best_of_n_verify.md",
+  "lang": "en",
+  "title": "best_of_n_verify",
+  "head": " Use this when you have several candidate answers, exploit payloads, commands, flags, or hypotheses and an actual verifier output for each one. This t"
+ },
+ {
+  "id": "crates/builder_domain/src/tools/descriptions/code_action.md",
+  "lang": "en",
+  "title": "code_action",
+  "head": " Execute a short code action and return the real stdout/stderr/exit code. Use this when executable code is the clearest next action, such as a small p"
+ },
+ {
+  "id": "crates/builder_domain/src/tools/descriptions/skill_fetch.md",
+  "lang": "en",
+  "title": "skill_fetch",
+  "head": " Fetches detailed information about a specific skill. Use this tool to load skill content and instructions when you need to understand how to perform "
+ },
+ {
+  "id": "crates/builder_domain/src/tools/descriptions/plan_create.md",
+  "lang": "en",
+  "title": "plan_create",
+  "head": " Creates a new plan file with the specified name, version, and content. Use this tool to create structured project plans, task breakdowns, or implemen"
+ },
+ {
+  "id": "crates/builder_repo/src/agents/builder.md",
+  "lang": "en",
+  "title": "Task Management",
+  "head": " You are Builder, an expert software engineering assistant designed to help users with programming tasks, file operations, and software development pr"
+ },
+ {
+  "id": "crates/builder_repo/src/agents/operator.md",
+  "lang": "en",
+  "title": "operator",
+  "head": " ## Operating Model - Create or adjust small operational artifacts only when they are part of the requested workflow. - Keep environment assumptions e"
+ },
+ {
+  "id": "crates/builder_repo/src/skills/ctf-competition/SKILL.md",
+  "lang": "en",
+  "title": "CTF Competition",
+  "head": " Use only inside authorized CTF, lab, pentest, audit, or security-assessment scope. Stay evidence-led: record reusable facts with `finding`, verify pr"
+ },
+ {
+  "id": "crates/builder_repo/src/fixtures/agents/advanced.md",
+  "lang": "en",
+  "title": "Advanced Test Agent",
+  "head": " "
+ },
+ {
+  "id": "crates/builder_repo/src/skills/create-skill/SKILL.md",
+  "lang": "en",
+  "title": "Skill Creator",
+  "head": " This skill provides guidance for creating effective skills. ## About Skills Skills are modular, self-contained packages that extend your capabilities"
+ },
+ {
+  "id": "crates/builder_repo/src/agents/report-writer.md",
+  "lang": "en",
+  "title": "report-writer",
+  "head": " You are report-writer, a general-purpose technical reporting delegate. ## Operating Model - Preserve enough context for another operator to reproduce"
+ },
+ {
+  "id": "crates/builder_repo/src/agents/verifier.md",
+  "lang": "en",
+  "title": "verifier",
+  "head": " ## Operating Model - If verification fails, provide the shortest useful failing trace and next diagnostic step. ## Output - Verdict. - Verification c"
+ },
+ {
+  "id": "crates/builder_repo/src/agents/coordinator.md",
+  "lang": "en",
+  "title": "coordinator",
+  "head": " You are coordinator, a general-purpose orchestration delegate for Builder. ## Operating Model - Keep dependencies and unresolved discoveries visible "
+ },
+ {
+  "id": "crates/builder_repo/src/fixtures/agents/invalid.md",
+  "lang": "en",
+  "title": "Agent",
+  "head": " Some content."
+ },
+ {
+  "id": "crates/builder_repo/src/fixtures/agents/no_id.md",
+  "lang": "en",
+  "title": "No ID Agent",
+  "head": " "
+ },
+ {
+  "id": "crates/builder_repo/src/agents/pwn.md",
+  "lang": "en",
+  "title": "pwn",
+  "head": " and exploit scripts. Verify each primitive against real output before chaining."
+ },
+ {
+  "id": "crates/builder_repo/src/fixtures/skills/with_description_only.md",
+  "lang": "en",
+  "title": "Skill Content",
+  "head": " "
+ },
+ {
+  "id": "crates/builder_repo/src/agents/planner.md",
+  "lang": "en",
+  "title": "[Task Name]",
+  "head": " You are planner, an expert strategic planning and analysis assistant designed to help users with detailed implementation planning. Your primary funct"
+ },
+ {
+  "id": "crates/builder_repo/src/fixtures/skills/with_name_only.md",
+  "lang": "en",
+  "title": "Skill Content",
+  "head": " "
+ },
+ {
+  "id": "crates/builder_repo/src/agents/recon.md",
+  "lang": "en",
+  "title": "recon",
+  "head": " You are recon, a CTF and lab reconnaissance specialist. Work only inside the delegated target and scope. Prefer low-impact discovery, "
+ },
+ {
+  "id": "crates/builder_repo/src/agents/crypto.md",
+  "lang": "en",
+  "title": "crypto",
+  "head": " "
+ },
+ {
+  "id": "crates/builder_services/src/fixtures/commands/invalid.md",
+  "lang": "en",
+  "title": "invalid",
+  "head": " "
+ },
+ {
+  "id": "crates/builder_services/src/fixtures/commands/multiline.md",
+  "lang": "en",
+  "title": "multiline",
+  "head": " This is a multiline prompt: - Step 1: Do something"
+ },
+ {
+  "id": "crates/builder_workspace_index/assets/snowflake-arctic-embed-xs/MODEL_CARD.md",
+  "lang": "en",
+  "title": "Compute token embeddings",
+  "head": " <h1 align=\"center\">Snowflake's Arctic-embed-xs</h1> <h4 align=\"center\"> <p> <a href=#news>News</a> | <a href=#models>Models</a> | <a href=#usage>Usag"
+ },
+ {
+  "id": "docs/BUILDER-CONSOLIDATED-DEEP-DIVE.md",
+  "lang": "en",
+  "title": "Pentesting 런타임 통합 설계",
+  "head": " 이 문서는 현재 `main`의 유일한 상세 설계 설명서다. 사용자 요청이 프롬프트와 도구 실행으로 이어지는 과정, 필요할 때 subagent가 붙는 방식, CTF·PTY·저장·검증 경계를 큰 흐름부터 코드 탐색 지점까지 한 문서에서 설명한다. 공개 제품명과 명령은 `"
+ },
+ {
+  "id": "docs/BUILD_SAFETY.md",
+  "lang": "en",
+  "title": "Docker-Only Build Safety Contract",
+  "head": " All repository compilation runs inside a resource-capped Docker container. This is a hard admission rule, not a recommendation and not a temporary wo"
+ },
+ {
+  "id": "docs/DEVELOPMENT.md",
+  "lang": "en",
+  "title": "Development & Release",
+  "head": " Contributor-facing build, test, and release workflow. **Internal engine = `builder`** (Rust crates + binary, versioned in `Cargo.toml`). **Public pro"
+ },
+ {
+  "id": "docs/PUBLIC_GRAPHICS_GUIDELINES.md",
+  "lang": "en",
+  "title": "Architecture Explorer — Reusable Blueprint & Directive",
+  "head": " A portable spec for building **an explorable 3D architecture visualizer** for *any* software/agent project. It captures both the hard requirements an"
+ },
+ {
+  "id": "docs/README.md",
+  "lang": "en",
+  "title": "Documentation Map",
+  "head": " 문서는 목적에 따라 권위 수준이 다르다. 현재 동작을 확인할 때는 아래 순서를 따른다. 1. [Root README](../README.md): 설치, 실행, 사용자 기능, 기본 설정 3. [통합 설계](BUILDER-CONSOLIDATED-DEEP-DIVE.md):"
+ },
+ {
+  "id": "docs/architecture/MAIN_FLOWS.md",
+  "lang": "en",
+  "title": "Main Flows — Internal Architecture Map",
+  "head": " > **Internal only.** This document is never mirrored to the public repo. It > captures the *main* runtime flows, the design philosophy behind them, a"
+ },
+ {
+  "id": "docs/human/README.md",
+  "lang": "ko",
+  "title": "docs/human — 사람이 읽기 위한 문서",
+  "head": " 코드베이스 전체를 읽는 것은 현실적으로 불가능하고, 자동 생성된 아키텍처 문서는 장황하여 핵심 파악이 어렵다. 이 디렉토리는 사람이 실제로 이해할 수 있는 수준으로 정리된 문서만 보관한다. --- - AI 에이전트가 리팩토링, 보완, 용어 통일 등의 명목으로 임의 수"
+ },
+ {
+  "id": "docs/human/builder_modules.md",
+  "lang": "ko",
+  "title": "빌더(Builder)란 무엇인가? — 모듈 구조와 역할",
+  "head": " 이 문서는 프로젝트 내부에서 사용되는 '빌더(builder_*)'의 정체와 26개 독립 모듈(Crate)의 역할을 사람이 알기 쉽게 설명한다. --- 1. 이름만 붙인 껍데기가 아니라, 26개의 완전히 분리된 독립 Crate(모듈)들의 집합이다. 2. 과거 프레임워크"
+ },
+ {
+  "id": "docs/human/evidence_data_examples.md",
+  "lang": "en",
+  "title": "침투 증거(Evidence) 및 서브에이전트 보고 실제 데이터 예시",
+  "head": " 이 문서는 에이전트가 실제 침투 테스트 및 CTF 환경에서 생성하는 서브에이전트 보고 텍스트와 시스템 원장(`.pentesting/runtime/...json`)에 기록되는 `EvidenceItem` 3종(Finding, Lead, Verification)의 구체적인"
+ },
+ {
+  "id": "docs/human/knowledge_note_lifecycle.md",
+  "lang": "ko",
+  "title": "지식 노트와 대화 기억의 생명주기",
+  "head": " 이 문서는 에이전트가 참조하는 지식 문서(Vault)와 대화 기억(Memory)의 저장 위치, 관리 방식, 정리 규칙을 알기 쉽게 설명한다. - 지식 Vault: `.pentesting/knowledge/**/*.md` (사용자가 작성해둔 SOP, 플레이북, 공격/방"
+ },
+ {
+  "id": "docs/human/knowledge_search_pipeline.md",
+  "lang": "ko",
+  "title": "하이브리드 RAG 검색 아키텍처",
+  "head": " 사용자 입력 ➔ 내부 참조용 '영어 의도 요약' 1회 생성 ➔ 3개 검색 엔진 (키워드·벡터·그래프) ➔ RRF 순위 융합 ➔ 에빙하우스 망각곡선 ➔ 상위 문서 선별. 검색 과정에서 디스크의 문서 내용은 전혀 변하지 않는다. 인메모리에서 관련도 점수만 계산할 뿐 원본"
+ },
+ {
+  "id": "docs/human/manual_release.md",
+  "lang": "ko",
+  "title": "수동 전체 배포",
+  "head": " 이 문서는 유지관리자가 별도 도움 없이 프로젝트의 네 가지 공개 표면을 한 번에 배포하는 절차를 설명한다. ## 최종 명령 Windows Git Bash에서 저장소 루트로 이동한 뒤 다음 명령 하나만 실행한다. ```bash npm run release ``` Pow"
+ },
+ {
+  "id": "docs/human/pentesting_architecture.md",
+  "lang": "ko",
+  "title": "Pentesting Agent — 아키텍처와 설계 해설서",
+  "head": " 이 문서는 현재 코드가 실제로 수행하는 핵심 아키텍처 경로를 질문(Q&A) 형식의 색인으로 제공한다. 각 질문의 핵심 요약을 읽고, 링크를 클릭하여 상세 답변 전문을 확인할 수 있다. --- ```text [1. 입력 접수 & TUI 제어] - 사용자 입력 접수 및 "
+ },
+ {
+  "id": "docs/human/philosophy.md",
+  "lang": "ko",
+  "title": "에이전트 설계 철학",
+  "head": " 이 문서는 Pentesting 에이전트가 어떤 철학과 세계관을 바탕으로 설계되고 구현되었는지를 설명한다. 단순한 기능 명세서가 아니라, 시스템의 모든 아키텍처 결정의 뿌리가 되는 개발자의 핵심 철학이다. --- 기능을 보존하고 소유권을 명확히 하며 쉽게 검증할 수 있"
+ },
+ {
+  "id": "docs/human/public-visualizer-requirements.md",
+  "lang": "ko",
+  "title": "public 3D 비주얼라이저 — 요구사항 명세",
+  "head": " > 작성일 2026-08-14 · 대상: `C:\\workspace\\pentesting\\public` (GitHub Pages / `file://` 배포용 정적 사이트) > 참고 무드보드: https://cyberstrike.io/ko/ (눈으로만 참고 — 소스 비공개"
+ },
+ {
+  "id": "docs/human/qa/q01_prompt_assembly.md",
+  "lang": "ko",
+  "title": "Q1. 프롬프트에는 어떤 정보가 들어가나?",
+  "head": " --- 1. 시스템 지침: [에이전트 6대 기본 행동 수칙](q01_5_builtin_rules_and_doctrine.md)(도구 실행·간결한 소통·코딩 규율), 침투 교리, 도구 스키마, 그리고 [영어 의도 요약](q01_3_english_intent.md)으로 "
+ },
+ {
+  "id": "docs/human/qa/q11_model_stop_vs_complete.md",
+  "lang": "ko",
+  "title": "Q11. 모델이 Stop을 보내면 왜 완료가 아닌가?",
+  "head": " LLM이 말을 끝마치고 멈췄다고(Stop) 해서 실제 침투 목표를 달성한 것은 아니기 때문이다. 커널은 모델의 출력 종료(TurnExit)와 실제 미션 완료(MissionState)를 엄격히 분리한다. 반드시 도구 실행을 통해 \"목표 취약점이 실제로 검증되었다는 증거"
+ },
+ {
+  "id": "docs/human/qa/q01_4_context_merge.md",
+  "lang": "ko",
+  "title": "Q1-4. 원문과 영어 의도 요약본은 어떻게 하나로 머지(Merge)되나?",
+  "head": " ```text [하나의 완성된 대화 컨텍스트] │ ├─▶ 1. System 메시지: 백그라운드에서 생성된 영어 의도 요약이 지침과 함께 머지되어 핵심 과업 방향 제공 ├─▶ 2. User 메시지: 사용자가 입력한 한국어 원문 및 특수 침투 페이로드(' OR 1=1 등"
+ },
+ {
+  "id": "docs/human/qa/q07_memory_consolidation.md",
+  "lang": "ko",
+  "title": "Q7. 지식 노트가 자동 분열·융합·아카이브되나?",
+  "head": " 아니다. 검색과 프롬프트 조립은 완전한 읽기 전용(Read-Only)이다. - 긴 원문도 임의로 자동 분할 저장하지 않는다. - WikiLink 그래프와 메모리 메타데이터는 검색 신호로만 읽는다. (검색 원리: [Q5. 지식 검색 RAG](q05_knowledge_s"
+ },
+ {
+  "id": "docs/human/qa/q14_auto_state_and_theme.md",
+  "lang": "ko",
+  "title": "Q14. 자동 실행과 답변 표시는 어디서 관리하나?",
+  "head": " 자동 실행의 계속·완료 판단은 `ui/auto_loop.rs`, goal과 auto 상태 변경은 `ui/auto_state.rs`, 한 턴의 스트리밍과 종료 연결은 `turn_runtime.rs`가 담당한다. 모델 reasoning 문장을 사용자에게 보여 줄 짧은 상"
+ },
+ {
+  "id": "docs/human/qa/q01_2_goal_and_todo.md",
+  "lang": "ko",
+  "title": "Q1-2. TUI의 목표와 할 일 목록은 어떻게 연결되나?",
+  "head": " 등록된 목표를 향해 쉬지 않고 연속 실행하는 원리는 [Q1-2-1. /auto 자율 실행 모드](q01_2_1_auto_loop.md) 및 [Q12. /goal과 /auto 상세 제어](q12_goal_and_auto_controls.md)를 참조한다."
+ },
+ {
+  "id": "docs/human/qa/q18_markdown_lifecycle_and_safety.md",
+  "lang": "ko",
+  "title": "q18_markdown_lifecycle_and_safety",
+  "head": " # Q18. 생성 마크다운 및 입력 데이터의 라이프사이클 위험과 방어 아키텍처는 무엇인가? 이 문서는 AI 침투테스트 에이전트 환경에서 마크다운 및 입력 데이터가 처리되는 4대 핵심 타이밍별 잠재적 위험과 이를 원천 방어하는 무손실 아키텍처(Zero Data Loss"
+ },
+ {
+  "id": "docs/human/qa/q08_shell_truncation.md",
+  "lang": "ko",
+  "title": "Q8. 긴 셸 출력과 컨텍스트 초과는 어떻게 처리하나?",
+  "head": " 두 단계로 분리되어 처리된다. --- 셸 stdout/stderr는 설정된 prefix line, suffix line, line-length 상한으로 잘린 뒤 도구 결과가 된다. 즉 모델이 항상 10,000줄 원문을 먼저 다 읽고 다음 턴에만 잘리는 구조가 아니다."
+ },
+ {
+  "id": "docs/human/qa/q16_theme_and_colors.md",
+  "lang": "ko",
+  "title": "Q16. 화면 색상은 어떤 기준으로 고정되나?",
+  "head": " TUI, Markdown 답변, shell 선택 UI, 대화 HTML은 아래 중앙 팔레트만 사용한다. light/dark 환경 감지는 호환성을 위해 남아 있지만 색상 역할을 다른 값으로 바꾸지 않는다. | 역할 | 색상 | | :--- | :--- | | Primar"
+ },
+ {
+  "id": "docs/human/qa/q05_knowledge_search_rag.md",
+  "lang": "ko",
+  "title": "Q5. 지식 검색은 어떻게 동작하나?",
+  "head": " 외부 DB 서버(Qdrant, Neo4j 등)를 전혀 쓰지 않고, 순수 Rust 인메모리 HashMap들만으로 키워드(Sparse), 의미(Dense), 연결(Graph)을 결합한 하이브리드 RAG를 수행한다. ```text ① BM25 (Sparse 키워드) Top"
+ },
+ {
+  "id": "docs/human/qa/q03_evidence_item_hierarchy.md",
+  "lang": "ko",
+  "title": "Q3. EvidenceItem, Finding, Lead, Verification은 어떻게 다른가?",
+  "head": " ```text ┌──────────────────────────────────────────────────────────┐ │ EvidenceItem (공통 증거 레코드) │ │ - evidence_id: \"ev-1234\" │ │ - run_id: \"run-01\" │"
+ },
+ {
+  "id": "docs/human/qa/q09_tool_execution_boundary.md",
+  "lang": "ko",
+  "title": "Q9. 모든 도구가 같은 실행 경계를 지나나?",
+  "head": " 그렇다. 내장 도구(Built-in), 서브에이전트 위임, 외부 MCP 호출 모두 공통 실행 경계를 통과한다. ```text 도구 호출 파싱 → 등록 계약 조회 → 스키마/인자 검증과 audit 기록 → hook → 사용자 승인/authorization → polic"
+ },
+ {
+  "id": "docs/human/release_delivery.md",
+  "lang": "ko",
+  "title": "배포는 다섯 곳이 모두 맞아야 끝난다",
+  "head": " 패치 배포는 명령 하나가 성공했다고 끝나지 않는다. 아래 다섯 곳에 같은 버전이 올라가고, 실제 실행 파일까지 일치해야 완료다. | 확인 대상 | 완료 조건 | | :--- | :--- | | Git | 릴리즈 커밋이 `origin/main`에 존재 | | GitHu"
+ },
+ {
+  "id": "docs/plans/2026/07/10/minimal-core/01_REQUIREMENTS_AND_PRINCIPLES.md",
+  "lang": "ko",
+  "title": "요구사항과 설계 원칙",
+  "head": " > AI가 점점 똑똑해 지면서 오히려 에이전트가 병목이다. 복잡도가 너무 높다. > minimal-agent처럼 간단한 구조가 높은 SWE 벤치 성능을 내는 것을 참고해, > 하드한 가드와 필요 이상으로 얽힌 구조를 덜고 진짜 핵심 코어만 남겨라. > 모듈화하여 결합"
+ },
+ {
+  "id": "docs/plans/2026/06/10/PLAN_PentestingControlPlaneMigration_2026-06-10-132903.md",
+  "lang": "en",
+  "title": "PLAN: Pentesting Control Plane Migration",
+  "head": " ## Metadata - **Timestamp**: 2026-06-10 13:29:03 +09:00 - **File Name**: `PLAN_PentestingControlPlaneMigration_2026-06-10-132903.md` - **Change Type*"
+ },
+ {
+  "id": "docs/plans/2026/06/27/roadmap/2026-06-27/03-core-unification.md",
+  "lang": "en",
+  "title": "03 · 코어 통합 — Shell sugar + CLI 강등 (평면 3→1)",
+  "head": " - **전제(하드)**: 01(리펙토링+완전 PTY) 완료 후에만. 불안정 베이스에 평면 합치면 문제. - **왜**: 분리된 3평면(1회성 도구 / followup 핸드오프 / 별도 UDS `shell-session` CLI)을 하나로. Claude Code의 \"균"
+ },
+ {
+  "id": "docs/plans/2026/07/16/PLAN_AdaptiveCallbackPortTransportAgility_2026-07-16.md",
+  "lang": "en",
+  "title": "Adaptive Callback: Port/Transport/Address Agility Plan (2026-07-16)",
+  "head": " > 상태: 구현 및 검증 완료 > 작성일: 2026-07-16 > 대상 실행자: 소형/약한 모델. **추측 금지.** 이 문서의 파일·라인·edit를 그대로 따르고, > 각 Phase 끝의 \"검증\"을 통과하지 못하면 다음 Phase로 넘어가지 않는다. > 범위: 리버"
+ },
+ {
+  "id": "docs/plans/2026/07/10/concept-unification/01_SECURITY_TOOL_UNIFICATION.md",
+  "lang": "en",
+  "title": "Phase 1 — 보안 도구 표면 통합",
+  "head": " 기본 surface로 만든다. 구현: - `RuntimeCapabilitySet`과 pack/tier manifest 삭제. - web search와 semantic search처럼 외부 의존성이 실제로 필요한 도구만 availability filter 유지. 보존 "
+ },
+ {
+  "id": "docs/plans/2026/08/18/PLAN_LiveIndexUpsertAndSessionInteraction_2026-08-18.md",
+  "lang": "en",
+  "title": "Decision: Knowledge Rebuild Hardening and Deferred TUI Session Interaction",
+  "head": " **Date:** 2026-08-18 **Updated:** 2026-08-19 ## Knowledge Portion The knowledge portion is complete under the corrected contract: - structural indexe"
+ },
+ {
+  "id": "docs/plans/2026/07/17/PLAN_DeheuristicAutonomyAndLivelySpinner_2026-07-17.md",
+  "lang": "en",
+  "title": "Plan: De-hardcode Auto Judgment + Lively Random Spinner (2026-07-17)",
+  "head": " Date: 2026-07-17 Status: In progress Baseline: `1801d958` (branch `feat/footer-ux-autonomy-hardening`) ## Motivation Two user directives: 1. **Stop h"
+ },
+ {
+  "id": "docs/plans/2026/06/27/PLAN_Builder_Master_2026-06-27.md",
+  "lang": "en",
+  "title": "Builder → Claude Code급 통합 에이전트 프레임워크 (단일 마스터 플랜)",
+  "head": " - **작성일시**: 2026-06-27 14:35:00 KST (+0900) - **최종 갱신일시**: 2026-06-28 03:43:16 KST (+0900) - **작성자**: Claude (Opus 4.8, 1M) — 기획·계획만 담당 - **실행 주체**: "
+ },
+ {
+  "id": "docs/plans/2026/07/01/008_1653_reality-check-episodic-mvp.md",
+  "lang": "en",
+  "title": "🔬 코드 대조 감사 & 교정 계획 — Episodic MVP (006/007 리얼리티 체크)",
+  "head": " > **작성 시각**: 2026-07-01 16:53 > **대체 대상**: [`006_1553_episodic-memory-mvp.md`](./006_1553_episodic-memory-mvp.md), [`007_1638_codex-impl-guide-episod"
+ },
+ {
+  "id": "docs/plans/2026/04/16/harness-program/PLAN_Phase3_ASTContextEngine_2026-04-15-2329.md",
+  "lang": "en",
+  "title": "PLAN: Phase 3 AST Context Engine",
+  "head": " 마스터 문서: [PLAN_HarnessProgramMaster_2026-04-15-2329.md](./PLAN_HarnessProgramMaster_2026-04-15-2329.md) ## 목표 파일 단위 읽기와 line chunk 중심 맥락을 **symbol-awa"
+ },
+ {
+  "id": "docs/plans/2026/06/12/PLAN_NewOnlyPentestingListenerIntegration_2026-06-12-2225.md",
+  "lang": "en",
+  "title": "PLAN: New-Only Pentesting Listener Integration",
+  "head": " ## Metadata - **Timestamp**: 2026-06-12 22:25:08 +09:00 - **File Name**: `PLAN_NewOnlyPentestingListenerIntegration_2026-06-12-2225.md` - **Change Ty"
+ },
+ {
+  "id": "docs/plans/2026/07/11/REFACTOR_LocalDockerOperations_2026-07-11.md",
+  "lang": "en",
+  "title": "Local Docker Operations Refactor",
+  "head": " Date: 2026-07-11 ## Objective Remove dead CI/CD branches after GitHub Actions was disabled, keep one explicit local release path, and preserve the ex"
+ },
+ {
+  "id": "docs/plans/2026/07/19/PLAN_FlowWiringCleanup_2026-07-19.md",
+  "lang": "en",
+  "title": "Flow Wiring Cleanup — Post-Review Loose Ends (2026-07-19)",
+  "head": " Date: 2026-07-19 Status: **In progress** Baseline: `main` @ `21d1ce68` Scope: eliminate every wiring loose end surfaced by the 2026-07-19 final full "
+ },
+ {
+  "id": "docs/plans/2026/04/16/PLAN_TerminalLivenessArchitectureReset_2026-04-16-1502.md",
+  "lang": "en",
+  "title": "PLAN: Terminal Liveness Architecture Reset",
+  "head": " ## Metadata - **Created**: 2026-04-16 15:02 - **File Name**: `PLAN_TerminalLivenessArchitectureReset_2026-04-16-1502.md` - **Scope**: Interactive ter"
+ },
+ {
+  "id": "docs/plans/2026/06/27/roadmap/2026-06-27/08-reliability-verification.md",
+  "lang": "en",
+  "title": "08 · 코어 신뢰성 — anti-loop · 예산 · 검증 · grounding ★",
+  "head": " - **우선순위**: **P0★** (코어 강화 핵심) · **상태**: ✅ 완료(Codex, 2026-06-28 02:05:38 KST +0900) - **왜**: 장기 자율 작업의 붕괴 지점(루프·환각·예산 폭주)을 코어에서 차단. 마스터 평탄화(04)가 강제 게"
+ },
+ {
+  "id": "docs/plans/2026/07/15/PLAN_AttentionDrivenAgentOrchestration_2026-07-15.md",
+  "lang": "en",
+  "title": "Attention Brief & Battlefield Lite CTF Orchestration Plan (2026-07-15)",
+  "head": " > **상태:** Complete — Phase 0/1/2/3/4 완료, bounded design 채택 > **작성일:** 2026-07-15 > **이번 작업:** pure `AttentionBrief`를 bounded `explore frontier`와 명시적 "
+ },
+ {
+  "id": "docs/plans/2026/04/21/2026-04-21-complexity-reduction-plan.md",
+  "lang": "en",
+  "title": "PLAN: 시스템 복잡도 전수조사 & 구조 개선",
+  "head": " ## Current Session - **Task**: pre-merge 기준으로 작성된 복잡도 축소 계획을 current merged tree에 다시 맞추고 누락된 `orch` 분리와 `SemanticCache` 통합을 재정착한다. - **Modified Files"
+ },
+ {
+  "id": "docs/plans/2026/08/15/retrieval-cadence-and-auto-loop.md",
+  "lang": "en",
+  "title": "Retrieval cadence, the retry loop, and auto-mode — investigation + plan",
+  "head": " > **Superseded on 2026-08-19:** The mutable `HybridSearchIndex::upsert_note`, > `remove_note`, and `refresh_from_memory` path described below was rem"
+ },
+ {
+  "id": "docs/plans/2026/05/22/2026-05-22-intent-handoff-recovery-plan.md",
+  "lang": "en",
+  "title": "PLAN: Intent Handoff Recovery",
+  "head": " ## Metadata - **Created**: 2026-05-22 - **Change Type**: Runtime autonomy / intent handoff hardening - **Risk Level**: MEDIUM ## Findings 3. Workflow"
+ },
+ {
+  "id": "docs/plans/2026/07/10/concept-unification/04_MIGRATION_AND_DOCS.md",
+  "lang": "ko",
+  "title": "Phase 4 — 설정·문서·migration 정돈",
+  "head": " - `docs/config/ctf.toml`: engagement와 cap만 남김. - generated schema에서 `exploration.enabled` 제거. 호환성: - 옛 `enabled=true/false`는 읽을 수 있지만 무시된다."
+ },
+ {
+  "id": "docs/plans/2026/07/10/concept-unification/02_FRONTIER_AS_BUDGET.md",
+  "lang": "ko",
+  "title": "Phase 2 — frontier를 모드에서 예산으로 변경",
+  "head": " ```text explore 호출 -> max_frontier_nodes -> max_breadth -> depth/cycle/dedup 규칙 -> explicit dispatch ``` 막는다. 전자는 삭제하고 후자는 유지한다. Migration: - 새 schem"
+ },
+ {
+  "id": "docs/plans/2026/05/25/PLAN_ObsidianKnowledgeGraphRAG_2026-05-25-1514.md",
+  "lang": "ko",
+  "title": "PLAN: Rust 기반 Obsidian 지식 그래프 RAG 고도화 및 로컬 Second Brain 설계 (AI 자율 초고도 지식 생태계)",
+  "head": " ## Metadata - **Timestamp**: 2026-05-25 15:30:00 +09:00 - **File Name**: `PLAN_ObsidianKnowledgeGraphRAG_2026-05-25-1514.md` - **Scope**: `builder-pr"
+ },
+ {
+  "id": "docs/plans/2026/06/27/NEXT_AGENT_HANDOFF_2026-06-28.md",
+  "lang": "en",
+  "title": "Builder Next Agent Handoff - 2026-06-28",
+  "head": " 최종 갱신: 2026-06-28 10:38:07 KST +0900 ## 이어받을 기준점 - Repo: `/home/user/builder-private` - Branch: `main` - Remote: `origin/main` - 코드 기준 HEAD: `9a7fcc2"
+ },
+ {
+  "id": "docs/plans/2026/05/22/2026-05-22-autonomy-interrupt-recovery-plan.md",
+  "lang": "en",
+  "title": "PLAN: Autonomy Interrupt Recovery",
+  "head": " ## Metadata - **Created**: 2026-05-22 15:58 KST - **Change Type**: Runtime autonomy + interruption UX correction - **Risk Level**: MEDIUM ## Current "
+ },
+ {
+  "id": "docs/plans/2026/07/10/BLUEPRINT_FinalArchitecture_2026-07-10.md",
+  "lang": "en",
+  "title": "최종 아키텍처 청사진 (2026-07-10)",
+  "head": " > 후속 clean-break 구현까지 반영한 현재 청사진이다. 상세 완료 기록은 > [차세대 클린브레이크 수렴 계획](./next-generation-convergence/README.md)이다. 상태: Implemented — 좁은 port 전환, 레거시 상태 모"
+ },
+ {
+  "id": "docs/plans/2026/06/18/PLAN_RemainingDecisions_2026-06-18.md",
+  "lang": "ko",
+  "title": "남은 4개 항목 — 승인 결정 브리프",
+  "head": " > PLAN 진행도 ~60% (55 커밋, 5축 전부 착수). 아래 4개는 **코드가 아니라 결정**이 선행 조건이라 멈춰 있음. > 각 항목: 무엇을 배웠나 / 무엇을·어떻게·왜 / **필요한 결정**. --- - **배운 것**: README \"Strict San"
+ },
+ {
+  "id": "docs/plans/2026/05/23/2026-05-23-phase6-prompt-absorption-plan.md",
+  "lang": "en",
+  "title": "PLAN: Phase 6 Prompt Absorption for Builder",
+  "head": " ## Metadata - **Timestamp**: 2026-05-23 01:36:08 +09:00 - **Scope**: Compare Builder against the supplied Phase 6 audit/autonomy prompt, keep only ge"
+ },
+ {
+  "id": "docs/plans/2026/07/09/PLAN_LightweightCoreCtfUx_2026-07-09.md",
+  "lang": "ko",
+  "title": "PLAN — 가벼운 코어 · CTF 신뢰성 · UX 정리 (2026-07-09)",
+  "head": " > 이 플랜은 감(感)이 아니라 **증거 기반**으로 작성됐다. 4개 병렬 코드 감사 + > 라이브 CTF 부검(7/9) + 논문 역공학(arXiv 2604.14228v1) + 이 저장소 자신의 > `00-INDEX` 복잡도 판정이 **모두 같은 결론으로 수렴**한다"
+ },
+ {
+  "id": "docs/plans/2026/07/17/PLAN_CtrlCClearsEscInterrupts_2026-07-17.md",
+  "lang": "en",
+  "title": "Plan: Ctrl+C Clears the Input, Esc Interrupts the Turn (2026-07-17)",
+  "head": " Date: 2026-07-17 Status: Proposed (planning only — no implementation in this pass) Baseline: `4ffee3d4` (branch `feat/footer-ux-autonomy-hardening`) "
+ },
+ {
+  "id": "docs/plans/2026/06/12/PLAN_TuiErrorAndWiringAudit_2026-06-12-1915.md",
+  "lang": "en",
+  "title": "PLAN: TUI Modal Prompt, Custom URL, and Unit/PTY Test Race Resolution",
+  "head": " ## Metadata - **Timestamp**: 2026-06-12 19:15:00 +09:00 - **File Name**: `docs/plans/2026-06-12/PLAN_TuiErrorAndWiringAudit_2026-06-12-1915.md` - **S"
+ },
+ {
+  "id": "docs/plans/2026/07/12/PLAN_AdaptivePtyHardeningContinuation_2026-07-12.md",
+  "lang": "en",
+  "title": "Adaptive PTY / Reverse-Shell Hardening Continuation Plan (2026-07-12)",
+  "head": " ## 문서 상태 - 상태: **통합·검증 완료 — 후속 세션에서 초안을 이어받아 마무리함** - 기준 브랜치: `main` - 기준 커밋: `8c2fd44fd5eda694f0d362b8c88b39a6b5167cce` - 작성일: 2026-07-12 - 최초 종료 결정"
+ },
+ {
+  "id": "docs/plans/2026/06/22/PLAN_SearchSubsystemHardening_2026-06-22.md",
+  "lang": "en",
+  "title": "Search Subsystem Hardening — Implementation Plan & Record",
+  "head": " > **Status:** Implemented and verified on 2026-06-22 (branch `fix/search-subsystem`). Checkboxes reflect completed work. > **Scope:** Audit of all fo"
+ },
+ {
+  "id": "docs/plans/2026/04/29/2026-04-29-routing-and-live-output-troubleshooting.md",
+  "lang": "en",
+  "title": "2026-04-29 routing and live-output troubleshooting",
+  "head": " ## Scope This note records the 2026-04-29 troubleshooting that closed two user-visible regressions: 1. delegated survey/planner conversations refusin"
+ },
+ {
+  "id": "docs/plans/2026/07/16/PLAN_ReliablePayloadDeliveryAndInterpreter_2026-07-16.md",
+  "lang": "en",
+  "title": "Reliable Payload Delivery & Interpreter-Aware Execution Plan (2026-07-16)",
+  "head": " > 상태: 구현 및 Docker/Linux 검증 완료 > 작성일: 2026-07-16 > 대상 실행자: 소형/약한 모델(또는 다음 세션 GPT). **추측 금지.** 파일·라인·recipe를 그대로 따르고, > 각 절의 \"검증\"을 통과하지 못하면 다음으로 넘어가지 않"
+ },
+ {
+  "id": "docs/plans/2026/06/19/PLAN_ProjectComprehensiveSurvey_2026-06-19-2342.md",
+  "lang": "en",
+  "title": "PLAN: Project Comprehensive Survey",
+  "head": " ## Metadata - **Timestamp**: 2026-06-19 23:42:00 +09:00 - **File Name**: `PLAN_ProjectComprehensiveSurvey_2026-06-19-2342.md` - **Scope**: Gwangju-ba"
+ },
+ {
+  "id": "docs/plans/2026/04/14/1-spinner-interrupt-root-cause-refactor-plan.md",
+  "lang": "ko",
+  "title": "Builder 스피너/인터럽트 루트 원인 분석 및 리팩토링 계획서",
+  "head": " **작성일:** 2026-04-14 --- 현재 스피너와 인터럽트 처리 경로가 서로 다른 계층에서 부분적으로 상태를 갱신하고 있습니다. - 논리 상태는 `ChatStreamTurnState`와 `StatusRowRuntime`가 따로 관리합니다. - 이벤트 라우팅은 "
+ },
+ {
+  "id": "docs/plans/2026/07/10/minimal-core/02_CURRENT_SYSTEM_AUDIT.md",
+  "lang": "en",
+  "title": "현재 시스템 전수 감사",
+  "head": " 2026-07-10 worktree의 정적 집계다. | 지표 | 현재 값 | 해석 | | --- | ---: | --- | | Rust crate | 26 | 배포 단위보다 내부 계층 분리가 많음 | | Rust 파일 | 611 | 탐색·변경 영향 범위가 큼 | | "
+ },
+ {
+  "id": "docs/plans/2026/07/09/PLAN_P0_ToolCallReliability_2026-07-09.md",
+  "lang": "en",
+  "title": "P0 — Tool-Call Reliability Implementation Plan",
+  "head": " > **For agentic workers (Codex):** This plan is self-contained. Implement it > task-by-task with TDD. Steps use checkbox (`- [ ]`) syntax. The plan a"
+ },
+ {
+  "id": "docs/plans/2026/07/16/RESULT_TuiUxHardening_2026-07-16.md",
+  "lang": "ko",
+  "title": "TUI UX Hardening 구현 결과 (2026-07-16)",
+  "head": " > 상태: 계획 범위 구현 및 검증 완료 > 원본 계획: [PLAN_TuiUxHardening_2026-07-16.md](PLAN_TuiUxHardening_2026-07-16.md) > 추가 반영: 푸터 모델명 영역의 가로·세로 패딩 및 좁은 터미널 대응 점검 - "
+ },
+ {
+  "id": "docs/plans/2026/07/21/RESULT_ActiveTurnInputTranscript_2026-07-21.md",
+  "lang": "ko",
+  "title": "Active-Turn Input Transcript Plumbing Review (2026-07-21)",
+  "head": " > 상태: 완료; 제한형 전체 빌드·테스트·Clippy·스키마·Node·PTY 안정성 게이트 통과 > 범위: 활성 턴 입력의 키 이벤트부터 큐, interrupt, 재생, transcript scrollback까지 ## 증상과 원인 일반 프롬프트 입력은 `Consol"
+ },
+ {
+  "id": "docs/plans/2026/05/23/2026-05-23-phase6-prompt-absorption-report.md",
+  "lang": "en",
+  "title": "Phase 6 Prompt Absorption Report",
+  "head": " Builder already had the prompt's most relevant engineering DNA, and this change productized the main remaining gap: **timestamped, evidence-first rep"
+ },
+ {
+  "id": "docs/plans/2026/07/08/002_0834_session_summary_ctf_reverse_shell_hardening.md",
+  "lang": "ko",
+  "title": "세션 요약 — CTF 리버스쉘 자율성 하드닝 (pentesting + vuluable)",
+  "head": " > **작성일**: 2026-07-08 KST > **범위**: 이 세션에서 `/home/user/pentesting`와 `/home/user/vuluable` 두 레포에 걸쳐 수행한 작업 전체. > **관련 문서**: `docs/plans/2026/07/07/003"
+ },
+ {
+  "id": "docs/plans/2026/06/27/roadmap/2026-06-27/11-future-moat.md",
+  "lang": "en",
+  "title": "11 · 미래 해자 (연구·후순위)",
+  "head": " - **우선순위**: P4 (코어·CTF 안정 후) · **상태**: 🔄 진행중(Codex, 마지막 갱신 2026-06-28 03:17:33 KST +0900) - **왜**: 단순 파리티를 넘어 **차별화**될 지점. 단, 코어(01–09)가 우선. 여기 항목은 "
+ },
+ {
+  "id": "docs/plans/2026/05/22/2026-05-22-shell-autonomy-flexibility-plan.md",
+  "lang": "en",
+  "title": "PLAN: Shell Autonomy Flexibility Recovery",
+  "head": " ## Metadata - **Created**: 2026-05-22 14:05 KST - **Scope**: Improve Builder’s general-purpose shell autonomy around missing commands and negative ne"
+ },
+ {
+  "id": "docs/plans/2026/04/15/PLAN_InfoDisplayBoundary_2026-04-15-2358.md",
+  "lang": "en",
+  "title": "PLAN: Info Display Boundary",
+  "head": " ## Metadata - **Created**: 2026-04-15 23:58 - **File Name**: `PLAN_InfoDisplayBoundary_2026-04-15-2358.md` - **Scope**: Decide the correct ownership "
+ },
+ {
+  "id": "docs/plans/2026/07/10/concept-unification/03_MODEL_PROFILE_AUDIT.md",
+  "lang": "en",
+  "title": "Phase 3 — model tier와 profile 개념 감사",
+  "head": " | 개념 | 현재 효과 | 판단 | | --- | --- | --- | | weak/standard model capability | 삭제됨 | prompt/strategy/tool 분기를 만들지 않음 | | autonomy profile | prompt/dynami"
+ },
+ {
+  "id": "docs/plans/2026/06/01/PLAN_UiTurnExecutionRefactor_2026-06-01-2350.md",
+  "lang": "en",
+  "title": "PLAN: UI Turn Execution Refactor",
+  "head": " ## Metadata - **Timestamp**: 2026-06-01 23:50:00 +09:00 - **File Name**: `PLAN_UiTurnExecutionRefactor_2026-06-01-2350.md` - **Change Type**: Refacto"
+ },
+ {
+  "id": "docs/plans/2026/04/14/4-terminal-ownership-verification-and-final-stabilization-plan.md",
+  "lang": "en",
+  "title": "`builder_main` Terminal Ownership 검증 고도화 / 최종 안정처리 계획서 4",
+  "head": " **작성일:** 2026-04-14 **선행 조건:** [3-2-status-row-prompt-handoff-root-cause-plan.md](/Users/pf/workspace/builder/plans/2026-04-14/3-2-status-row-prompt-"
+ },
+ {
+  "id": "docs/plans/2026/07/06/001_2110_reverse_shell_pty_full_control_plane.md",
+  "lang": "en",
+  "title": "Reverse Shell / PTY 완전 관리·추적 플랜",
+  "head": " > **작성일**: 2026-07-06 21:10 KST > **작성자**: Codex > **범위**: authorized CTF/lab 환경의 reverse shell, dumb shell upgrade, local PTY/pipe session을 하나의 cont"
+ },
+ {
+  "id": "docs/plans/2026/08/18/PLAN_GlobalIncrementalEmbeddingCache_2026-08-18.md",
+  "lang": "en",
+  "title": "Result: Global Exact-Content Incremental Embedding Cache",
+  "head": " **Date:** 2026-08-18 **Hardened:** 2026-08-19 **Status:** Completed and focused-Docker verified **Scope:** `crates/builder_workspace_index`, `crates/"
+ },
+ {
+  "id": "docs/plans/2026/05/22/2026-05-22-general-agent-runtime-alignment-plan.md",
+  "lang": "en",
+  "title": "General Agent Runtime Alignment Plan",
+  "head": " - **Date**: 2026-05-22 - **Scope**: Keep Builder aligned with a Claude-Code-style **general-purpose terminal agent CLI**, not a domain-specific CTF r"
+ },
+ {
+  "id": "docs/plans/2026/07/01/lab/final-episodic-parallel-dispatch-guide.md",
+  "lang": "en",
+  "title": "🧭 [정본] Episodic × Parallel Dispatch — 현재 코드 기반 도입 인사이트 & 실행 지시서",
+  "head": " > **갱신 시각**: 2026-07-01 17:15 · **성격**: 재조사 후 정본 재작성 > **가장 큰 변경**: 이 문서의 이전 판은 \"에피소드를 `.builder/knowledge/episodes/`에 새로 만들라\"고 했으나 **틀렸다.** 실제로는 **0"
+ },
+ {
+  "id": "docs/plans/2026/06/24/PLAN_ShellSessionControlPlane_2026-06-24.md",
+  "lang": "en",
+  "title": "계획서: Shell Session Control Plane",
+  "head": " ## 메타데이터 - **작성일**: 2026-06-24 - **파일명**: `PLAN_ShellSessionControlPlane_2026-06-24.md` - **범위**: authorized lab/CTF 용 `shell-listener` 세션을 에이전트와 CLI"
+ },
+ {
+  "id": "docs/plans/2026/06/27/roadmap/2026-06-27/00-INDEX.md",
+  "lang": "en",
+  "title": "Builder 실행 로드맵 — 진행 대시보드 (2026-06-27)",
+  "head": " > **이 폴더는 \"앞으로 할 것들\"을 실행 순서대로 정리한 체크리스트입니다.** 기존 설계 플랜(`docs/plans/2026/06/27/`)과 분리. 각 번호 파일은 **그 자체로 이어서 작업 가능한 체크리스트**(상태·근거·하위작업·수용기준·만질 모듈·상세 링크"
+ },
+ {
+  "id": "docs/plans/2026/06/27/PLAN_Builder_CTF_TopTier_Phase3_2026-06-27.md",
+  "lang": "en",
+  "title": "Builder Phase 3 — CTF 최고급 에이전트 프레임워크 (Claude Code + Codex + CTF SOTA 역기획)",
+  "head": " - **작성일시**: 2026-06-27 14:12 KST (+0900) - **작성자**: Claude (Opus 4.8, 1M) — 능동 조사·기획 - **실행 주체**: Codex / **검토 주체**: Claude - **전제**: 마스터 [`PLAN_Buil"
+ },
+ {
+  "id": "docs/plans/2026/07/10/PLAN_ResourceSafeBuildAndValidation_2026-07-10.md",
+  "lang": "en",
+  "title": "PLAN — Resource-Safe Build & Validation: Cargo/npm이 WSL을 쓰러뜨리지 못하게 하기 (2026-07-10)",
+  "head": " **최종 완료 감사:** [`COMPLETION_AUDIT_2026-07-10.md`](./COMPLETION_AUDIT_2026-07-10.md) **상태:** Implemented — Docker-only containment and final gates comp"
+ },
+ {
+  "id": "docs/plans/2026/06/24/REFACTOR_AUDIT_100_ROUNDS_2026-06-24.md",
+  "lang": "en",
+  "title": "Refactor Audit 100 Rounds",
+  "head": " 작성일: 2026-06-24 목표: 코드 전수조사, 리팩터링, 최적화, 더 나은 방향 탐색을 100회 누적한다. 각 회차는 현재 worktree를 기준으로 새로 조사하고, 작더라도 실제 코드 품질을 올리는 변경과 검증 결과를 남긴다. ## 진행 원칙 - 매 회차는 현"
+ },
+ {
+  "id": "docs/plans/2026/07/17/PLAN_FooterUxAndAutonomyGapHardening_2026-07-17.md",
+  "lang": "en",
+  "title": "Footer UX, Autonomy Gap, and Refactoring Hardening Plan",
+  "head": " Date: 2026-07-17 Status: Implemented (behavior + UX + C1/C4); C2/C3 deferred (see below) Baseline: `095df0b2` (`chore: bump pentesting package to 0.1"
+ },
+ {
+  "id": "docs/plans/2026/06/28/PLAN_CTF_Prompt_Engineering_2026-06-28.md",
+  "lang": "ko",
+  "title": "CTF Prompt Engineering Strengthening — 2026-06-28",
+  "head": " ## 목표 CTF에서 **일반적으로 잘 작동하는** 프롬프트 엔지니어링을 넣는다. 카테고리별 공격 엣지케이스 카탈로그(RSA e=3, padding oracle …)를 나열하는 게 아니라, Claude Code 프롬프트가 유명한 그 **일반 운영 원리(operatin"
+ },
+ {
+  "id": "docs/plans/2026/07/08/2026-07-08-codebase-modularization-plan.md",
+  "lang": "en",
+  "title": "2026-07-08 Codebase Modularization Refactor Plan",
+  "head": " ## Purpose This plan targets large-scale refactoring that preserves behavior while reducing code smell, coupling, and oversized module pressure. The "
+ },
+ {
+  "id": "docs/plans/2026/07/07/002_1600_shell_listener_plumbing_code_review_plan.md",
+  "lang": "en",
+  "title": "Shell Listener Plumbing Code Review Plan",
+  "head": " Date: 2026-07-07 ## Objective PTY/write/control plumbing을 코드 리뷰 관점에서 다시 전수조사하고, 실제 오류 또는 유지보수 위험을 낮출 수 있는 리팩터링을 안전하게 적용한다. 변경이 생긴 체크포인트는 검증 통과 후 커밋/푸"
+ },
+ {
+  "id": "docs/plans/2026/05/26/PLAN_DockerInteractiveFix_2026-05-26-0950.md",
+  "lang": "en",
+  "title": "PLAN: Docker Interactive Mode Startup Fix & Verification",
+  "head": " ## Metadata - **Timestamp**: 2026-05-26 09:55:00 KST - **File Name**: `PLAN_DockerInteractiveFix_2026-05-26-0950.md` - **Scope**: Fix builder docker "
+ },
+ {
+  "id": "docs/plans/2026/06/10/PLAN_PentestingNpmReleaseHardening_2026-06-10-134932.md",
+  "lang": "en",
+  "title": "PLAN: Pentesting npm Release Hardening",
+  "head": " ## Metadata - **Timestamp**: 2026-06-10 13:49:32 +09:00 - **Target**: `builder-private` pentesting npm release flow - **Reason**: `builder-private` a"
+ },
+ {
+  "id": "docs/plans/2026/06/12/PLAN_ShellListenerTui_2026-06-12-2206.md",
+  "lang": "en",
+  "title": "PLAN: Shell Listener TUI",
+  "head": " ## Metadata - **Timestamp**: 2026-06-12 22:06:06 +09:00 - **File Name**: `PLAN_ShellListenerTui_2026-06-12-2206.md` - **Scope**: Add an authorized la"
+ },
+ {
+  "id": "docs/plans/2026/07/10/HANDOFF_FinalPlumbingTuiRefactor_2026-07-10.md",
+  "lang": "ko",
+  "title": "최종 플럼빙·TUI 리팩터링 인계",
+  "head": " 작성일: 2026-07-10 브랜치: `main` 시작 기준: `b2d554f6` (`origin/main`과 동일) 이번 작업은 논리적으로만 나뉘어 있던 control-plane 저장소를 실제 코드 경계로 분리하고, TUI에 값은 전달하지만 화면에는 그리지 않던 데"
+ },
+ {
+  "id": "docs/plans/2026/05/22/2026-05-22-forgecode-visibility-orchestration-plan.md",
+  "lang": "en",
+  "title": "PLAN: Forgecode Visibility and Shell Orchestration Alignment",
+  "head": " ## Metadata - **Created**: 2026-05-22 14:35 KST - **Scope**: Absorb the highest-value transparency and orchestration learnings from local `../forgeco"
+ },
+ {
+  "id": "docs/plans/2026/04/18/2026-04-18-weak-model-harness-master-plan.md",
+  "lang": "en",
+  "title": "MASTER PLAN: Weak-Model Hallucination Harness & Execution Strategy",
+  "head": " > Companion to `plans/2026-04-18/2026-04-18-weak-model-harness-direction.md`. > 본 문서는 그 방향성을 **누가 이어받아도 코드 수정까지 그대로 진행 가능한** > 단계별 마스터 계획서로 확장한 것이다. "
+ },
+ {
+  "id": "docs/plans/2026/04/15/PLAN_EscInterruptSafeRefactor_2026-04-15-1435.md",
+  "lang": "en",
+  "title": "PLAN: Esc Interrupt Safe Refactor",
+  "head": " ## Metadata - Created: 2026-04-15 14:35 - File Name: `PLAN_EscInterruptSafeRefactor_2026-04-15-1435.md` - Scope: `builder_main` runtime interrupt bro"
+ },
+ {
+  "id": "docs/plans/2026/07/06/002_reverse_shell_pty_execution_checklist.md",
+  "lang": "en",
+  "title": "Reverse Shell / PTY 관리·추적 — 실행 체크리스트 (GPT 착수용)",
+  "head": " > **대상**: 이 체크리스트를 실행하는 에이전트(GPT) > **원본 계획서**: `docs/plans/2026/07/06/001_2110_reverse_shell_pty_full_control_plane.md` > **검토 반영**: 위 계획서 §12(Claud"
+ },
+ {
+  "id": "docs/plans/2026/06/27/roadmap/2026-06-27/10-ctf-thin-layer.md",
+  "lang": "en",
+  "title": "10 · CTF — 얇은 특화 레이어 (과적합 금지)",
+  "head": " - **우선순위**: P3 (코어 안정 후) · **상태**: ✅ 얇은 레이어 완료(Codex, 2026-06-28 01:39:00 KST +0900) · **상세**: Phase 3 플랜(전체) — 여기선 **얇게**만 - **방침(사용자 지시)**: 코어(01–0"
+ },
+ {
+  "id": "docs/plans/2026/06/21/DOC_MemoryAndSearch_Explained_KO_2026-06-21.md",
+  "lang": "ko",
+  "title": "에빙하우스 기억 감쇄 & 로컬 검색 — 상세 해설 (한글)",
+  "head": " > 작성일: 2026-06-21 · 대상 크레이트: `builder_knowledge` (Rust) · 작성: AI Agent > 이 문서는 2026-06-21 전수조사에서 발견한 문제와, 그날 구현한 개선(골든 테스트 · 쓰기-반영 게이트 · PageRank)을 *"
+ },
+ {
+  "id": "docs/plans/2026/07/21/RESULT_AgentPtyControlAudit_2026-07-21.md",
+  "lang": "en",
+  "title": "Agent PTY and Terminal-Control Plumbing Audit (2026-07-21)",
+  "head": " > Status: complete; all capped pre-release validation gates passed > Scope: model tool contract through local PTY/pipe processes, incoming listeners,"
+ },
+ {
+  "id": "docs/plans/2026/07/13/RESULT_PostAdaptivePtyFollowup_2026-07-13.md",
+  "lang": "en",
+  "title": "Post-Adaptive-PTY Follow-up Result (2026-07-13)",
+  "head": " ## Outcome The implementation work in `PLAN_PostAdaptivePtyFollowup_2026-07-13.md` is complete and validated. After explicit maintainer authorization"
+ },
+ {
+  "id": "docs/plans/2026/06/27/roadmap/2026-06-27/01-core-foundation-session-pty.md",
+  "lang": "en",
+  "title": "01 · 코어 토대 — 리펙토링 + 완전 PTY + session_control",
+  "head": " - **왜**: 대화형 프로세스 I/O는 Claude Code(지속 Bash+background)·Codex(PTY write_stdin)의 핵심이자, 이후 모든 능력의 베이스. 통합(03) 전에 토대를 안정화해야 문제 없음(순서 불변식). ## 체크리스트 - [x]"
+ },
+ {
+  "id": "docs/plans/2026/05/22/2026-05-22-adaptive-autonomy-upgrade-plan.md",
+  "lang": "en",
+  "title": "PLAN: Adaptive Autonomy Upgrade",
+  "head": " ## Metadata - **Created**: 2026-05-22 16:40 KST - **Change Type**: Runtime autonomy + recovery routing upgrade - **Risk Level**: MEDIUM ## Current Se"
+ },
+ {
+  "id": "docs/plans/2026/07/16/PLAN_RuntimeAbruptTerminationHardening_2026-07-16.md",
+  "lang": "ko",
+  "title": "Runtime Abrupt-Termination Hardening Plan (2026-07-16)",
+  "head": " > 상태: 원인·환경 사실 확인 완료, 구현 착수 > 작성일: 2026-07-16 > 범위: 장기 실행 자율 세션을 예고 없이 끝내는 두 종류의 결함 — (A) Windows 강제 자동 재부팅(호스트), (B) hot-loop panic/abrupt-exit로 인한 "
+ },
+ {
+  "id": "docs/plans/2026/07/01/004_1511_storage-separation-architecture.md",
+  "lang": "en",
+  "title": "🗂️ 인지 메모리 저장소 분리 설계 — 복잡도를 올리지 않으면서 분리하기",
+  "head": " > **프로젝트**: Pentesting Agent Runtime > **시각**: 2026-07-01 15:11 > **전제**: 기존 `.builder/knowledge/` 플랫 구조 → 인지 유형별 분리 > **원칙**: 복잡도 최소화. 새 DB 없음. 마크다운"
+ },
+ {
+  "id": "docs/plans/2026/05/21/2026-05-21-forgecode-absorption.md",
+  "lang": "en",
+  "title": "2026-05-21 Forgecode 흡수 재감사 및 Builder 반영",
+  "head": " ## 결론 공식 Forgecode는 `tailcallhq/forgecode`이며, Builder는 이미 그 구조적 DNA를 강하게 공유한다. 그래서 이번 조사의 핵심은 \"Forgecode를 복제하자\"가 아니라 **Builder에 아직 빠져 있는 제품화된 workflo"
+ },
+ {
+  "id": "docs/plans/2026/07/08/PLAN_CtfFrontierExploration_2026-07-08.md",
+  "lang": "en",
+  "title": "CTF Frontier-Guided Exploration (BFS/DFS + Specialist Offload) Implementation Plan",
+  "head": " > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement "
+ },
+ {
+  "id": "docs/plans/2026/07/13/PLAN_PostAdaptivePtyFollowup_2026-07-13.md",
+  "lang": "en",
+  "title": "Post-Adaptive-PTY Follow-up Plan (2026-07-13)",
+  "head": " > **작성일**: 2026-07-13 > **선행 작업**: `docs/plans/2026/07/06/001_2110_reverse_shell_pty_full_control_plane.md`, > `docs/plans/2026/07/07/002_1600_shell_"
+ },
+ {
+  "id": "docs/plans/2026/08/18/PLAN_GlobalIncrementalEmbeddingCacheRefinement_2026-08-18.md",
+  "lang": "en",
+  "title": "Result: Global Incremental Embedding Cache Precision Hardening",
+  "head": " **Date:** 2026-08-18 **Completed:** 2026-08-19 **Status:** Completed and focused-Docker verified **Scope:** `crates/builder_workspace_index`, `crates"
+ },
+ {
+  "id": "docs/plans/2026/06/27/roadmap/2026-06-27/JUDGMENT-keep-vs-cut.md",
+  "lang": "ko",
+  "title": "복잡도 판정 — 넣을 것 vs 버릴 것 (먼저 읽기)",
+  "head": " > **원칙(사용자)**: **필요한 복잡도는 용납, 불필요한 복잡도는 제거.** 이 문서가 로드맵 전체의 필터다. 5갈래 과조사(simple>complex 증거·환원불가 코어·80/20 ablation·실무 후회사례·Builder 내부 감사)에서 수렴한 결론. > "
+ },
+ {
+  "id": "docs/plans/2026/07/10/minimal-core/04_PHASES_0_TO_3.md",
+  "lang": "en",
+  "title": "Phase 0~3: 기준선에서 최소 커널·도구까지",
+  "head": " > **역사적 계획 체크리스트:** 아래 미체크 항목은 원래 구현 순서와 감사 기준을 > 보존하며 현재의 열린 작업 목록이 아니다. 완료 상태는 > [구현 결과](07_IMPLEMENTATION_RESULT.md)와 > [차세대 클린브레이크 수렴](../next-ge"
+ },
+ {
+  "id": "docs/plans/2026/04/15/PLAN_MasterUxMcpHarnessAudit_2026-04-15-1500.md",
+  "lang": "en",
+  "title": "PLAN: Master UX MCP Harness Audit",
+  "head": " ## Metadata - **Created**: 2026-04-15 15:00 - **File Name**: `PLAN_MasterUxMcpHarnessAudit_2026-04-15-1500.md` - **Scope**: Remove the status-row shi"
+ },
+ {
+  "id": "docs/plans/2026/04/15/PLAN_StatusMentionSlashAudit_2026-04-15-1515.md",
+  "lang": "en",
+  "title": "PLAN: Status Mention Slash Audit",
+  "head": " ## Metadata - **Created**: 2026-04-15 15:15 - **File Name**: `PLAN_StatusMentionSlashAudit_2026-04-15-1515.md` - **Scope**: Restore the status-row sh"
+ },
+ {
+  "id": "docs/plans/2026/07/01/001_0546_competitive-analysis.md",
+  "lang": "ko",
+  "title": "🔬 3-Way 비교 분석: NexAU vs mini-swe-agent vs Pentesting",
+  "head": " > **분석일**: 2026-07-01 > **목적**: pentesting 시스템 강화를 위한 경쟁 분석 및 도입 가치 평가 > **분석 방법**: 서브에이전트 6개 투입, 80+ 소스 파일 정독 기반 > **⚠️ 주의**: 이전 분석의 오류를 실제 코드 기반으로 "
+ },
+ {
+  "id": "docs/plans/2026/07/10/MIDREPORT_ArchitectureChange_2026-07-10.md",
+  "lang": "en",
+  "title": "아키텍처 변경 중간보고 (2026-07-10)",
+  "head": " > 이 문서는 당시 중간 상태의 기록이다. 호환 경로 물리 삭제 이후의 기준과 완료 > 상태는 [차세대 클린브레이크 수렴 계획](./next-generation-convergence/README.md)을 따른다. > 오늘 계획 전체의 최종 판정은 [2026-07-10"
+ },
+ {
+  "id": "docs/plans/2026/07/10/minimal-core/07_IMPLEMENTATION_RESULT.md",
+  "lang": "en",
+  "title": "Minimal Core 구현 결과 (2026-07-10)",
+  "head": " > 이 문서의 호환 유지 판단은 후속 clean-break 구현으로 대체되었다. 현재 상태는 > [차세대 클린브레이크 수렴 계획](../next-generation-convergence/README.md)을 따른다. > 후속 정돈: capability mode와 we"
+ },
+ {
+  "id": "docs/plans/2026/07/15/DECISION_AttentionBriefBattlefieldLite_2026-07-15.md",
+  "lang": "en",
+  "title": "Decision: Adopt AttentionBrief + Battlefield Lite (2026-07-15)",
+  "head": " > **상태:** Adopted > **결정일:** 2026-07-15 > **기준 구현:** `113e7854` (unbounded legacy frontier output) > **Phase 3 체크포인트:** `3ecb9c05` (on-demand Battlef"
+ },
+ {
+  "id": "docs/plans/2026/07/15/REVIEW_AttentionBattlefieldWiring_2026-07-15.md",
+  "lang": "en",
+  "title": "Attention Brief / Battlefield Lite Wiring Review (30 passes)",
+  "head": " Date: 2026-07-15 Scope: canonical Lead fold -> pure attention projection -> explicit `explore` adapter -> API status projection -> transcript-only Ba"
+ },
+ {
+  "id": "docs/plans/2026/07/16/PLAN_CodebaseReliabilityAndComplexitySweep_2026-07-16.md",
+  "lang": "ko",
+  "title": "Codebase Reliability & Complexity Sweep Plan (2026-07-16)",
+  "head": " > 상태: 착수 — 계획 확정, 감사·구현 진행 > 작성일: 2026-07-16 > 범위: 전 crate(26개) 전수 정적 감사로 (D1) abrupt-termination/신뢰성 결함과 (D2) 과도한 복잡도를 찾아 **동작을 보존한 채** 강등·단순화한다. > "
+ },
+ {
+  "id": "docs/plans/2026/07/08/001_1537_reverse_silver_rce_reverse_shell_agent_verification.md",
+  "lang": "ko",
+  "title": "vuluable reverse-silver: reversing → real RCE → reverse shell, verified by an autonomous pentesting agent run",
+  "head": " > **작성일**: 2026-07-08 KST > **대상 레포**: `../vuluable` (`agnusdei1207/vulnerable.git`), sibling of this repo > **트리거**: 사용자 요청 — \"리버싱 문제 만들고 커밋 푸시해라 리버"
+ },
+ {
+  "id": "docs/plans/2026/06/19/MEMORY_MANAGEMENT_AND_RESEARCH_GROUNDING.md",
+  "lang": "ko",
+  "title": "builder 메모리 관리 — 기억 저장과 기억 조회의 연구 근거",
+  "head": " > **builder-private**의 로컬 퍼스트 장기 메모리가 *무엇을, 어떻게, 왜* 그렇게 저장하고 조회하는지를 > 최신 에이전트 메모리 연구(논문)와 1:1로 연관지어 설명하는 단일 정본 문서. --- | 항목 | 값 | |:---|:---| | **작성일"
+ },
+ {
+  "id": "docs/plans/2026/07/10/PLAN_LightweightAutonomousHarness_2026-07-10.md",
+  "lang": "en",
+  "title": "PLAN — Lightweight Autonomous Harness: Codex·Claude Code형 코어 재정렬 (2026-07-10)",
+  "head": " **상태:** Implemented — core semantics, reduction, and Docker gates complete **범위:** core loop, tool protocol, mission lifecycle, CTF exploration, prom"
+ },
+ {
+  "id": "docs/plans/2026/06/19/LOCAL_SEARCH_ENHANCEMENT_PROPOSAL.md",
+  "lang": "en",
+  "title": "로컬 퍼스트 검색 고도화 제안서",
+  "head": " > **builder-private** 하이브리드 검색 엔진의 검색 품질·정확도·확장성을 단계적으로 끌어올리기 위한 기술 제안서 --- ## 메타데이터 | 항목 | 값 | |:---|:---| | **작성일** | 2026-06-19 | | **대상 프로젝트** | "
+ },
+ {
+  "id": "docs/plans/2026/08/04/PLAN_ToolGatewayPlumbingIntegrity_2026-08-04.md",
+  "lang": "en",
+  "title": "Tool Gateway Plumbing Integrity Improvement Plan (2026-08-04)",
+  "head": " ## Status Completed on 2026-08-04. The repository-wide plumbing and behavior-preserving legacy audit restored one truthful producer-to-consumer path "
+ },
+ {
+  "id": "docs/plans/2026/07/09/PLAN_CtfAgentReliabilityFix_2026-07-09.md",
+  "lang": "en",
+  "title": "PLAN — CTF Agent Reliability Fix (2026-07-09)",
+  "head": " A live CTF session against `agnusdei.kr` produced three visible failures that make the agent look \"dumb\": 1. The final turn printed garbled text — `]"
+ },
+ {
+  "id": "docs/plans/2026/07/16/PLAN_ArchDocSyncAndDockerVerification_2026-07-16.md",
+  "lang": "ko",
+  "title": "Architecture-Doc Sync & Docker Verification Plan (2026-07-16)",
+  "head": " > 상태: 완료 — 문서 동기화 및 Docker/Linux 검증 통과 > 작성일: 2026-07-16 > 대상 실행자: 다른 모델(다음 세션). **추측 금지.** 파일·라인을 그대로 따르고, 각 Task의 \"검증\"을 통과하지 못하면 완료로 표시하지 않는다. > 배경"
+ },
+ {
+  "id": "docs/plans/2026/06/19/PLAN_LocalSearchAndMemoryDecayEnhancement_2026-06-19.md",
+  "lang": "ko",
+  "title": "PLAN: 로컬 퍼스트 검색 고도화 + 기억 감쇄 시스템 강화",
+  "head": " ## Metadata - **Created**: 2026-06-19 15:11 - **File Name**: `PLAN_LocalSearchAndMemoryDecayEnhancement_2026-06-19.md` - **Scope**: `builder-private`"
+ },
+ {
+  "id": "docs/plans/2026/04/14/3-ui-refactor-handoff-plan.md",
+  "lang": "ko",
+  "title": "`builder_main` UI 리펙토링 및 스피너 / 인터럽트 안정화 Handoff 계획서",
+  "head": " **작성일:** 2026-04-14 **대상:** `crates/builder_main/src/ui.rs`, `crates/builder_main/src/ui_turn.rs`, `turn_runtime.rs`, `render_coordinator.rs`, `chat_"
+ },
+ {
+  "id": "docs/plans/2026/04/15/PLAN_TerminalSplitNoOverlap_2026-04-15-1104.md",
+  "lang": "en",
+  "title": "PLAN: Terminal Split No Overlap",
+  "head": " ## Metadata - **Created**: 2026-04-15 11:04 - **File Name**: `PLAN_TerminalSplitNoOverlap_2026-04-15-1104.md` - **Scope**: Remove the root cause of T"
+ },
+ {
+  "id": "docs/plans/2026/07/10/BASELINE_LightweightHarness_2026-07-10.md",
+  "lang": "en",
+  "title": "Baseline — Lightweight Harness (2026-07-10)",
+  "head": " ## 구현 기준선 - native tool precedence와 terminal-only text salvage provenance - built-in/agent/MCP registered contract audit - deterministic FIFO revisio"
+ },
+ {
+  "id": "docs/plans/2026/07/10/concept-unification/README.md",
+  "lang": "ko",
+  "title": "개념 통합·정돈 마스터 플랜 (2026-07-10)",
+  "head": " 중간보고: [아키텍처 변경 중간보고](../MIDREPORT_ArchitectureChange_2026-07-10.md) 최종 청사진: [최종 아키텍처 청사진](../BLUEPRINT_FinalArchitecture_2026-07-10.md) 전체 완료 감사: [20"
+ },
+ {
+  "id": "docs/superpowers/plans/2026-08-19-runtime-safety-hardening.md",
+  "lang": "en",
+  "title": "Runtime Safety Hardening Implementation Plan",
+  "head": " > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement "
+ },
+ {
+  "id": "docs/superpowers/plans/2026-08-19-rag-incremental-cache-hardening.md",
+  "lang": "en",
+  "title": "RAG Incremental Cache Hardening Implementation Plan",
+  "head": " > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement "
+ },
+ {
+  "id": "docs/superpowers/plans/2026-08-14-runtime-release-refactor.md",
+  "lang": "en",
+  "title": "Runtime and Release Reliability Refactor Implementation Plan",
+  "head": " > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement "
+ },
+ {
+  "id": "docs/superpowers/plans/2026-08-15-resumable-one-command-release.md",
+  "lang": "en",
+  "title": "Resumable One-Command Release Implementation Plan",
+  "head": " > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement "
+ },
+ {
+  "id": "docs/superpowers/plans/2026-08-13-coral-terminal-palette.md",
+  "lang": "ko",
+  "title": "Coral Terminal Palette Implementation Plan",
+  "head": " 목표: 터미널 UI를 어두운 중성 회색과 따뜻한 코랄 중심으로 통일하고, 긴 텍스트 붙여넣기와 완료 표시의 안정성을 보강한다. 구조: 공통 브랜드 색상은 `builder_brand`, 터미널 팔레트는 `builder_ratatui`, Markdown 응답 색상은 `b"
+ },
+ {
+  "id": "docs/superpowers/specs/2026-08-13-evidence-puct-knowledge-simplification-design.md",
+  "lang": "ko",
+  "title": "증거 기반 공격 경로 추천과 지식 시스템 단순화 설계",
+  "head": " ## 목표 현재의 정적 Lead 우선순위를 실제 도구 실행 결과로 학습하는 경량 PUCT 추천으로 교체한다. 서브에이전트 원문과 증거는 보존하고, 검증 가능한 구조화 신호만 공격 경로 평가에 사용한다. 동시에 호출되지 않는 지식 유지보수 기능과 쓰기 경로를 제거하고 "
+ },
+ {
+  "id": "docs/superpowers/specs/2026-08-13-coral-terminal-palette-design.md",
+  "lang": "ko",
+  "title": "Coral Terminal Palette Design",
+  "head": " ## 목표 터미널 UI를 어두운 중성 회색과 따뜻한 코랄 중심으로 통일한다. Markdown 응답은 읽기 쉬운 의미별 색상을 허용하되 일반 UI와 오류 표시는 명확히 분리한다. ## 색상 역할 - Primary `#D97757`: 제품명, 선택 상태, 로딩과 주요 강"
+ },
+ {
+  "id": "docs/superpowers/specs/2026-08-12-docker-image-tract-oom-design.md",
+  "lang": "en",
+  "title": "Docker Image `tract-core` OOM Fix Design",
+  "head": " Date: 2026-08-12 ## Problem The first application-image build after adding the embedded dense RAG encoder failed while compiling `tract-core`. The sa"
+ },
+ {
+  "id": "docs/superpowers/specs/2026-08-13-session-footer-velog-theme-design.md",
+  "lang": "en",
+  "title": "Session Footer and Velog Theme Design",
+  "head": " > Superseded on 2026-08-13 by the later coral terminal palette and quiet-chrome decision. Token/runtime values remain internal session state but are "
+ },
+ {
+  "id": "docs/superpowers/specs/2026-08-14-runtime-release-refactor-design.md",
+  "lang": "ko",
+  "title": "Runtime and Release Reliability Refactor Design",
+  "head": " ## Goal 기존 동작을 보존하면서 TUI의 자율 실행 상태와 턴 표시 책임을 작은 모듈로 나누고, npm이 오래된 로컬 바이너리를 실행하는 결함을 제거한다. 작업 완료는 코드 커밋만이 아니라 GitHub 바이너리, npm, Docker까지 같은 버전으로 배포되고 "
+ },
+ {
+  "id": "public/README.md",
+  "lang": "en",
+  "title": "Pentesting 🔓",
+  "head": " <div align=\"center\"> <picture> <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://api.iconify.design/hugeicons:bash.svg?color=%23000000\" />"
+ },
+ {
+  "id": "templates/builder-command-generator-prompt.md",
+  "lang": "en",
+  "title": "Core Rules",
+  "head": " You are a shell command generator that transforms user intent into valid executable commands. <system_information> {{> builder-partial-system-info.md"
+ },
+ {
+  "id": "templates/builder-commit-message-prompt.md",
+  "lang": "en",
+  "title": "Commit Message Format",
+  "head": " You are a commit message generator that creates concise, conventional commit messages from git diffs. IMPORTANT: Return ONLY raw Text. No markdown. N"
+ },
+ {
+  "id": "templates/builder-custom-agent-template.md",
+  "lang": "en",
+  "title": "builder-custom-agent-template",
+  "head": " <system_information> {{> builder-partial-system-info.md }} </system_information> {{#if (not tool_supported)}} <available_tools> {{tool_information}}<"
+ },
+ {
+  "id": "templates/builder-doom-loop-reminder.md",
+  "lang": "en",
+  "title": "builder-doom-loop-reminder",
+  "head": " This indicates you are not making progress. Please: "
+ },
+ {
+  "id": "templates/builder-partial-skill-instructions.md",
+  "lang": "en",
+  "title": "builder-partial-skill-instructions",
+  "head": " ## Skill Instructions: {{#if compact_instructions}} Use a listed skill only when it directly matches the task. Invoke the skill tool with the skill n"
+ },
+ {
+  "id": "templates/builder-partial-summary-frame.md",
+  "lang": "en",
+  "title": "builder-partial-summary-frame",
+  "head": " Use the following summary frames as the authoritative reference for all coding suggestions and decisions. Do not re-explain or revisit it unless I as"
+ },
+ {
+  "id": "templates/builder-partial-system-info.md",
+  "lang": "en",
+  "title": "builder-partial-system-info",
+  "head": " <operating_system>{{env.os}}</operating_system> <current_working_directory>{{env.cwd}}</current_working_directory> <default_shell>{{env.shell}}</defa"
+ },
+ {
+  "id": "templates/builder-partial-tool-error-reflection.md",
+  "lang": "en",
+  "title": "builder-partial-tool-error-reflection",
+  "head": " 2. Explain why it failed using the actual tool output. Distinguish schema mistakes from environment observations such as permission denied, missing c"
+ },
+ {
+  "id": "templates/builder-partial-tool-use-example.md",
+  "lang": "en",
+  "title": "builder-partial-tool-use-example",
+  "head": " 1. You can only make one tool call per message. 2. Each tool call must be wrapped in `<builder_tool_call>` tags. - The `arguments` field must contain"
+ },
+ {
+  "id": "templates/builder-pending-todos-reminder.md",
+  "lang": "en",
+  "title": "builder-pending-todos-reminder",
+  "head": " {{#each todos}} - [{{this.status}}] {{this.content}} {{/each}} "
+ },
+ {
+  "id": "templates/builder-system-prompt-title-generation.md",
+  "lang": "en",
+  "title": "builder-system-prompt-title-generation",
+  "head": " ## Core Requirements: - **Length**: 3–7 words preferred"
+ },
+ {
+  "id": "templates/builder-tool-retry-message.md",
+  "lang": "en",
+  "title": "builder-tool-retry-message",
+  "head": " Tool call failed - **Tool:** {{tool_name}} - **Attempts remaining:** {{attempts_left}} / {{allowed_max_attempts}} {{#if retry_recommendations}}- **Ta"
+ }
+]

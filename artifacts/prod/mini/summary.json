@@ -1,0 +1,20 @@
+{
+  "model": "opensearch-project/opensearch-neural-sparse-encoding-doc-v2-mini",
+  "packaging": "sentence-transformers",
+  "queries": 110,
+  "threads": 6,
+  "encode_seconds": {
+    "raw": 0.11407304499880411,
+    "norm": 0.03611273699789308
+  },
+  "active_dims": {
+    "raw": {
+      "mean": 20.3,
+      "zero": 0
+    },
+    "norm": {
+      "mean": 10.327272727272728,
+      "zero": 0
+    }
+  }
+}

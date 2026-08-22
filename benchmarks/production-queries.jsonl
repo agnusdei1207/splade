@@ -1,0 +1,110 @@
+{"id":"p001","doc":"docs/human/philosophy.md","raw":"이 프로젝트가 어떤 원칙으로 설계됐는지 알려줘","norm":"design principles and philosophy behind the agent architecture"}
+{"id":"p002","doc":"docs/superpowers/specs/2026-08-13-multilingual-retrieval-intent-design.md","raw":"한국어로 물어봐도 검색이 되게 하려면 어떻게 해야 해?","norm":"handle non-English user queries in retrieval without changing response language"}
+{"id":"p003","doc":"docs/plans/2026/08/18/PLAN_GlobalIncrementalEmbeddingCache_2026-08-18.md","raw":"임베딩 다시 계산 안 하고 재사용하는 캐시 어떻게 동작해?","norm":"incremental dense embedding cache reuse across index rebuilds"}
+{"id":"p004","doc":"docs/plans/2026/06/19/LOCAL_SEARCH_ENHANCEMENT_PROPOSAL.md","raw":"검색 품질 올리려면 뭘 해야 하지","norm":"proposal to improve hybrid search quality accuracy and scalability"}
+{"id":"p005","doc":"docs/human/qa/q15_release_verification.md","raw":"릴리즈하고 나서 제대로 나갔는지 어떻게 확인해?","norm":"verify release across npm GitHub release binaries and Docker after publishing"}
+{"id":"p006","doc":"docs/plans/2026/07/11/REFACTOR_LocalDockerOperations_2026-07-11.md","raw":"CI 없앴는데 로컬 릴리즈 경로 정리한 문서 있나","norm":"remove dead CI branches keep one local release path Docker resource bounds"}
+{"id":"p007","doc":"docs/human/qa/q18_markdown_lifecycle_and_safety.md","raw":"마크다운 입력이 위험할 수 있다던데 방어는 어떻게 하고 있어?","norm":"markdown and input data lifecycle risks and defensive architecture"}
+{"id":"p008","doc":"docs/plans/2026/06/24/PLAN_ShellSessionControlPlane_2026-06-24.md","raw":"shell-listener 세션을 CLI로 관리하는 거 설계 어디 있어","norm":"shell-listener session control plane dynamic management by agent and CLI"}
+{"id":"p009","doc":"docs/plans/2026/04/17/pty-spinner-freeze-troubleshooting.md","raw":"스피너가 멈춰서 안 돌아가는 문제 원인이 뭐였지","norm":"PTY turn stuck in Processing spinner freeze troubleshooting"}
+{"id":"p010","doc":"docs/superpowers/specs/2026-08-12-docker-image-tract-oom-design.md","raw":"도커 빌드하다가 메모리 터진 적 있잖아 그거 어떻게 고쳤어","norm":"application image build failed compiling tract-core out of memory BuildKit"}
+{"id":"p011","doc":"docs/human/builder_modules.md","raw":"builder_ 로 시작하는 크레이트들이 각각 뭐 하는 건지 설명해줘","norm":"role of each builder crate module in the workspace"}
+{"id":"p012","doc":"docs/human/qa/q12_goal_and_auto_controls.md","raw":"/goal 이랑 /auto 차이가 뭐야","norm":"difference between goal command and auto mode autonomous execution controls"}
+{"id":"p013","doc":"docs/human/qa/q08_shell_truncation.md","raw":"셸 출력이 엄청 길면 모델한테 다 들어가?","norm":"shell stdout stderr truncation prefix suffix line limits before tool result"}
+{"id":"p014","doc":"docs/plans/2026/05/25/PLAN_ObsidianKnowledgeGraphRAG_2026-05-25-1514.md","raw":"옵시디언 스타일 지식 그래프 RAG 계획 있었지","norm":"Obsidian knowledge graph RAG design for the knowledge vault"}
+{"id":"p015","doc":"docs/plans/2026/07/16/PLAN_RuntimeAbruptTerminationHardening_2026-07-16.md","raw":"자율 세션이 갑자기 죽는 문제 분석한 거 찾아줘","norm":"long running autonomous session abrupt termination hardening panic hot loop"}
+{"id":"p016","doc":"docs/human/qa/q01_2_1_auto_loop.md","raw":"자동 루프가 스스로 다음 단계 진행하는 구조 설명해줘","norm":"autonomous loop self prompt injection continue and stop conditions"}
+{"id":"p017","doc":"docs/DEVELOPMENT.md","raw":"빌드하고 테스트하려면 뭐부터 해야 돼","norm":"contributor build test and release workflow"}
+{"id":"p018","doc":"docs/human/qa/q01_5_builtin_rules_and_doctrine.md","raw":"시스템 프롬프트에 기본으로 뭐가 들어가?","norm":"built-in behavior rules and penetration doctrine included in the system prompt"}
+{"id":"p019","doc":"docs/plans/2026/08/12/PLAN_RagDenseLegacyStability_2026-08-12.md","raw":"dense RAG 레거시 안정화 작업 뭐였지","norm":"RAG dense legacy stability plan"}
+{"id":"p020","doc":"docs/superpowers/specs/2026-08-19-rag-incremental-cache-hardening-design.md","raw":"RAG 캐시 hardening 설계 문서 어디","norm":"RAG incremental cache hardening design workspace index knowledge"}
+{"id":"p021","doc":"docs/plans/2026/07/10/minimal-core/03_TARGET_ARCHITECTURE.md","raw":"목표로 하는 최소 코어 아키텍처가 어떤 모양이야","norm":"target minimal core architecture InputPort AgentKernel ToolGateway TrajectoryStore"}
+{"id":"p022","doc":"docs/plans/2026/07/10/minimal-core/02_CURRENT_SYSTEM_AUDIT.md","raw":"현재 크레이트가 몇 개고 코드 규모가 어느 정도야","norm":"current system audit crate count Rust file count lines of code"}
+{"id":"p023","doc":"docs/plans/2026/08/04/PLAN_LegacyCodeRetirement_2026-08-04.md","raw":"안 쓰는 코드 걷어낸 작업 정리된 문서","norm":"remove code with no producer consumer or runtime ownership legacy retirement"}
+{"id":"p024","doc":"docs/plans/2026/07/11/HANDOFF_Amd64DockerRelease_2026-07-11.md","raw":"도커 이미지 어떤 플랫폼으로 내보내기로 했지","norm":"official Docker image platform linux/amd64 and musl release asset decision"}
+{"id":"p025","doc":"docs/superpowers/specs/2026-08-15-one-command-release-design.md","raw":"릴리즈를 명령어 하나로 하는 거 설계","norm":"npm run release single command publish patch release to four public surfaces"}
+{"id":"p026","doc":"docs/superpowers/specs/2026-08-15-resumable-one-command-release-design.md","raw":"릴리즈 중간에 끊기면 이어서 하는 거 어떻게 해","norm":"resume an interrupted release instead of calculating another patch version"}
+{"id":"p027","doc":"docs/plans/2026/07/16/PLAN_CtrlCClearWithoutTurnInterrupt_2026-07-16.md","raw":"Ctrl+C 눌렀을 때 턴이 안 죽고 입력만 지워지게 하려면","norm":"Ctrl+C clears queued input and draft without interrupting the active turn"}
+{"id":"p028","doc":"docs/plans/2026/08/17/PLAN_TuiStartupBannerAndClipping_2026-08-17.md","raw":"시작할 때 나오는 배너 정리한 계획","norm":"TUI startup welcome banner typography and clipping"}
+{"id":"p029","doc":"docs/superpowers/specs/2026-08-13-coral-terminal-palette-design.md","raw":"터미널 색상 팔레트 어떻게 정했어","norm":"terminal UI color palette primary coral secondary roles"}
+{"id":"p030","doc":"docs/plans/2026/07/01/002_1505_cognitive-agent-architecture.md","raw":"기억 구조를 인지과학 이론 기반으로 설계한 문서","norm":"cognitive agent architecture memory model based on Tulving Ebbinghaus Baddeley"}
+{"id":"p031","doc":"docs/plans/2026/06/19/MEMORY_MANAGEMENT_AND_RESEARCH_GROUNDING.md","raw":"장기 메모리를 왜 그렇게 저장하는지 논문 근거까지 정리된 거","norm":"local first long term memory storage and retrieval grounded in agent memory research"}
+{"id":"p032","doc":"docs/plans/2026/07/01/004_1511_storage-separation-architecture.md","raw":"knowledge 폴더를 인지 유형별로 나눈 이유","norm":"storage separation architecture split flat knowledge directory by cognitive type"}
+{"id":"p033","doc":"docs/plans/2026/07/08/DECISION_CtfFrontierExploration_2026-07-08.md","raw":"CTF 탐색 아키텍처 뭘로 정했어","norm":"decision on CTF frontier exploration architecture before implementation"}
+{"id":"p034","doc":"docs/plans/2026/07/01/009_1701_ctf-parallel-subagent-dispatch.md","raw":"서브에이전트를 병렬로 언제 띄우는지","norm":"CTF parallel subagent dispatch when to run agents concurrently"}
+{"id":"p035","doc":"docs/plans/2026/07/15/PLAN_CtfAutonomousPersistence_2026-07-15.md","raw":"auto 모드에서 CTF 하다가 멈추는 문제","norm":"CTF autonomous persistence auto mode stops before completion"}
+{"id":"p036","doc":"docs/plans/2026/07/07/001_0801_reverse_shell_pty_execution_audit.md","raw":"리버스쉘 PTY 실행 감사한 문서 찾아줘","norm":"reverse shell PTY execution audit authorized CTF scope"}
+{"id":"p037","doc":"docs/plans/2026/07/07/003_1930_autonomous_pty_upgrade_strategy.md","raw":"셸을 PTY로 승격시키는 전략","norm":"autonomous PTY upgrade strategy for shell sessions"}
+{"id":"p038","doc":"docs/plans/2026/07/16/PLAN_ReliablePayloadDeliveryAndInterpreter_2026-07-16.md","raw":"페이로드 전달이 자꾸 깨지는데 해결한 계획 있나","norm":"reliable payload delivery and interpreter selection verified on Docker Linux"}
+{"id":"p039","doc":"docs/plans/2026/05/24/PLAN_UbuntuMigration_2026-05-24-2210.md","raw":"우분투로 옮긴 작업","norm":"Ubuntu migration plan"}
+{"id":"p040","doc":"docs/plans/2026/07/10/PLAN_ResourceSafeBuildAndValidation_2026-07-10.md","raw":"빌드할 때 메모리 제한 거는 이유","norm":"resource safe build and validation Docker only containment gates"}
+{"id":"p041","doc":"docs/plans/2026/07/18/PLAN_DeepCodeReview_2026-07-18.md","raw":"코드 전체 리뷰한 결과 정리된 문서","norm":"deep code review plan P0 P1 P2 P3 landed on main"}
+{"id":"p042","doc":"docs/plans/2026/06/24/REFACTOR_AUDIT_100_ROUNDS_2026-06-24.md","raw":"100회 리팩터링 감사 기록","norm":"one hundred rounds of codebase audit refactoring and optimization"}
+{"id":"p043","doc":"docs/plans/2026/07/16/PLAN_CodebaseReliabilityAndComplexitySweep_2026-07-16.md","raw":"전 크레이트 훑어서 복잡도 줄이는 작업","norm":"static audit across all crates for abrupt termination defects and excessive complexity"}
+{"id":"p044","doc":"docs/plans/2026/04/21/2026-04-21-complexity-reduction-plan.md","raw":"복잡도 줄이는 계획 예전 것","norm":"complexity reduction plan orch separation SemanticCache integration"}
+{"id":"p045","doc":"docs/plans/2026/05/27/PLAN_QueuePrioritizationAndIntentClassifier_2026-05-27-1910.md","raw":"입력 큐 우선순위랑 의도 분류","norm":"queue prioritization and intent classifier"}
+{"id":"p046","doc":"docs/plans/2026/06/30/PLAN_TurnQueueHandoffRedesign_2026-06-30.md","raw":"턴 큐 핸드오프 다시 설계한 거","norm":"turn queue handoff redesign"}
+{"id":"p047","doc":"docs/plans/2026/07/21/RESULT_ActiveTurnInputTranscript_2026-07-21.md","raw":"턴 도는 중에 입력한 게 트랜스크립트에 안 남던 문제","norm":"active turn input key events queue interrupt replay and transcript scrollback"}
+{"id":"p048","doc":"docs/plans/2026/06/01/PLAN_BufferedInputSessionRefactor_2026-06-01-2338.md","raw":"입력 버퍼링 세션 리팩터링","norm":"buffered input session refactor"}
+{"id":"p049","doc":"docs/plans/2026/04/15/PLAN_EscInterruptSafeRefactor_2026-04-15-1435.md","raw":"ESC 눌러서 중단하는 거 안전하게 바꾼 작업","norm":"Esc interrupt safe refactor runtime interrupt broker status row hint"}
+{"id":"p050","doc":"docs/plans/2026/04/15/PLAN_RetryVisibility_2026-04-15-1820.md","raw":"재시도할 때 사용자한테 보이게 하는 수정","norm":"retry visibility bugfix"}
+{"id":"p051","doc":"docs/plans/2026/04/15/POSTMORTEM_spinner-freeze-current-status.md","raw":"스피너 멈춤 포스트모템","norm":"postmortem spinner stops animating while task still running"}
+{"id":"p052","doc":"docs/plans/2026/04/15/PLAN_InfoDisplayBoundary_2026-04-15-2358.md","raw":"Info 표시 책임 경계 어디로 정했지","norm":"ownership boundary for Info and Port display"}
+{"id":"p053","doc":"docs/plans/2026/06/12/PLAN_InteractiveTuiAuditBacklog_2026-06-12-0001.md","raw":"인터랙티브 TUI 남은 감사 항목","norm":"remaining interactive TUI live audit backlog"}
+{"id":"p054","doc":"docs/plans/2026/07/16/PLAN_TuiUxHardening_2026-07-16.md","raw":"TUI UX 다듬은 계획","norm":"TUI UX hardening plan"}
+{"id":"p055","doc":"docs/plans/2026/07/16/RESULT_TuiUxHardening_2026-07-16.md","raw":"TUI UX 작업 결과 푸터 패딩까지 본 거","norm":"TUI UX hardening result footer model name padding narrow terminal"}
+{"id":"p056","doc":"docs/plans/2026/07/17/PLAN_AutoGoalPersistence_Minimal_2026-07-17.md","raw":"goal 이 세션 넘어가도 유지되게 한 작업","norm":"auto goal persistence minimal implementation"}
+{"id":"p057","doc":"docs/plans/2026/06/27/roadmap/2026-06-27/07-agent-excellence.md","raw":"에이전트 전반을 강하게 만드는 코어 기법 로드맵","norm":"agent excellence roadmap core techniques from 2025 2026 agent research"}
+{"id":"p058","doc":"docs/plans/2026/06/27/roadmap/2026-06-27/06-context-architecture.md","raw":"컨텍스트 압축이랑 prune 구분한 로드맵","norm":"context architecture compaction versus prune model driven memory"}
+{"id":"p059","doc":"docs/plans/2026/06/27/roadmap/2026-06-27/08-reliability-verification.md","raw":"루프나 환각 예산 폭주 막는 항목","norm":"reliability verification block loops hallucination and budget runaway"}
+{"id":"p060","doc":"docs/plans/2026/06/27/roadmap/2026-06-27/03-core-unification.md","raw":"세 개로 갈라진 셸 평면 하나로 합치는 로드맵","norm":"core unification merge three shell planes into one uniform tool model"}
+{"id":"p061","doc":"docs/plans/2026/06/27/roadmap/2026-06-27/10-ctf-thin-layer.md","raw":"CTF는 얇은 레이어로 간다는 방침","norm":"CTF thin layer approach once core is strong"}
+{"id":"p062","doc":"docs/plans/2026/06/27/roadmap/2026-06-27/11-future-moat.md","raw":"장기 차별화 항목 뭐 있었지","norm":"future moat long term differentiation beyond parity"}
+{"id":"p063","doc":"docs/plans/2026/07/01/001_0546_competitive-analysis.md","raw":"경쟁 제품 분석한 거","norm":"competitive analysis of comparable agent systems and adoption value"}
+{"id":"p064","doc":"docs/plans/2026/07/02/001_1054_claude-code-parity-survey-and-plan.md","raw":"클로드 코드처럼 동작하게 하려면 뭐가 필요한지 전수조사한 문서","norm":"Claude Code parity survey and improvement plan with file line evidence"}
+{"id":"p065","doc":"docs/plans/2026/05/22/2026-05-22-general-agent-runtime-alignment-plan.md","raw":"CTF 전용이 아니라 범용 터미널 에이전트로 맞추는 계획","norm":"align runtime with general purpose terminal agent CLI not domain specific CTF"}
+{"id":"p066","doc":"docs/plans/2026/05/22/2026-05-22-workflow-visibility-adoption-plan.md","raw":"작업 흐름을 사용자한테 보여주는 방식 비교","norm":"workflow visibility surfaces compared against Claude style explanation"}
+{"id":"p067","doc":"docs/plans/2026/05/22/2026-05-22-forgecode-visibility-orchestration-plan.md","raw":"forgecode에서 가져올 만한 투명성 아이디어","norm":"absorb transparency and orchestration learnings from forgecode"}
+{"id":"p068","doc":"docs/plans/2026/05/22/2026-05-22-intent-handoff-recovery-plan.md","raw":"workflow phase 가 잘못 이어지는 문제","norm":"intent handoff recovery workflow phase carryover reuse defect"}
+{"id":"p069","doc":"docs/plans/2026/05/22/2026-05-22-adaptive-autonomy-upgrade-plan.md","raw":"자율성 수준을 상황에 맞게 바꾸는 계획","norm":"adaptive autonomy upgrade and recovery routing"}
+{"id":"p070","doc":"docs/plans/2026/04/18/2026-04-18-weak-model-harness-direction.md","raw":"약한 모델에서 환각 줄이는 방향 어떻게 정했어","norm":"reduce hallucination on weak models keep existing pre request routing"}
+{"id":"p071","doc":"docs/plans/2026/07/09/PLAN_P0_ToolCallReliability_2026-07-09.md","raw":"툴 호출이 실패하는 문제 P0로 잡은 계획","norm":"P0 tool call reliability plan implemented test driven"}
+{"id":"p072","doc":"docs/plans/2026/07/09/PLAN_ProjectImprovement_2026-07-09.md","raw":"지금 당장 뭐가 필요한지 정리한 문서","norm":"authoritative what is needed now plan from three parallel code audits"}
+{"id":"p073","doc":"docs/plans/2026/07/09/PLAN_LightweightCoreCtfUx_2026-07-09.md","raw":"라이브 CTF 부검하고 나온 경량 코어 계획","norm":"lightweight core CTF UX plan from parallel audits and live CTF postmortem"}
+{"id":"p074","doc":"docs/plans/2026/07/10/PLAN_LightweightAutonomousHarness_2026-07-10.md","raw":"경량 자율 하네스 전체 계획","norm":"lightweight autonomous harness core loop tool protocol mission lifecycle"}
+{"id":"p075","doc":"docs/plans/2026/07/10/ADR_LightweightHarnessBoundaries_2026-07-10.md","raw":"StreamTerminal TurnExit 경계 정한 ADR","norm":"ADR lightweight harness boundaries StreamTerminal TurnExit Mission"}
+{"id":"p076","doc":"docs/plans/2026/07/10/BASELINE_LightweightHarness_2026-07-10.md","raw":"하네스 구현 기준선 뭐였지","norm":"lightweight harness implementation baseline native tool precedence FIFO revision queue"}
+{"id":"p077","doc":"docs/plans/2026/07/10/MIDREPORT_ArchitectureChange_2026-07-10.md","raw":"아키텍처 변경 중간 보고","norm":"architecture change midpoint report"}
+{"id":"p078","doc":"docs/plans/2026/07/10/concept-unification/02_FRONTIER_AS_BUDGET.md","raw":"frontier 를 예산처럼 다루는 개념","norm":"frontier as budget max frontier nodes breadth depth dedup rules"}
+{"id":"p079","doc":"docs/plans/2026/07/10/concept-unification/03_MODEL_PROFILE_AUDIT.md","raw":"모델 프로필이랑 autonomy profile 정리한 표","norm":"model profile audit capability and autonomy profile presets"}
+{"id":"p080","doc":"docs/plans/2026/07/10/concept-unification/README.md","raw":"개념 통합 작업 인덱스","norm":"concept unification index architecture blueprint and completion audit links"}
+{"id":"p081","doc":"docs/plans/2026/07/10/minimal-core/05_PHASES_4_TO_7.md","raw":"minimal core 후반 페이즈","norm":"minimal core phases four to seven storage ports control plane repository"}
+{"id":"p082","doc":"docs/plans/2026/04/16/harness-program/PLAN_Phase5_VerificationAndAgentOrchestration_2026-04-15-2329.md","raw":"계획 실행 검증을 분리한 하네스 페이즈","norm":"harness phase five separate planning execution verification bounded scope agents"}
+{"id":"p083","doc":"docs/plans/2026/04/16/harness-program/PLAN_Phase3_ASTContextEngine_2026-04-15-2329.md","raw":"파일 단위 말고 심볼 단위로 맥락 잡는 엔진","norm":"AST context engine symbol aware dependency aware instead of line chunks"}
+{"id":"p084","doc":"docs/plans/2026/06/19/LOCAL_SEARCH_ENHANCEMENT_COMPLETION_REPORT.md","raw":"로컬 메모리 검색 작업 완료 보고서","norm":"local first memory search implementation audit and integration report"}
+{"id":"p085","doc":"docs/plans/2026/05/25/PLAN_UnifiedKnowledgeEcosystem_2026-05-25-1543.md","raw":"파편화된 지식 관리 통합하는 계획","norm":"unified knowledge ecosystem consolidate fragmented knowledge management"}
+{"id":"p086","doc":"docs/human/evidence_data_examples.md","raw":"EvidenceItem 이 실제로 어떻게 기록되는지 예시 보여줘","norm":"EvidenceItem Finding Lead Verification recorded data examples in runtime ledger"}
+{"id":"p087","doc":"docs/human/qa/q14_auto_state_and_theme.md","raw":"auto 상태랑 reasoning 문구 어디서 처리해","norm":"auto loop state goal changes and reasoning status text modules"}
+{"id":"p088","doc":"ARCHITECTURE.md","raw":"런타임 구조 전체를 상세하게 설명한 문서","norm":"detailed reference for how the runtime is structured on main"}
+{"id":"p089","doc":"README.md","raw":"이 프로젝트 소개 문서","norm":"project overview and introduction"}
+{"id":"p090","doc":"docs/BUILDER-CONSOLIDATED-DEEP-DIVE.md","raw":"요청이 프롬프트랑 도구 실행까지 어떻게 이어지는지 한 문서로 보고 싶어","norm":"how a user request flows into prompt and tool execution with subagent attachment"}
+{"id":"p091","doc":"docs/PUBLIC_GRAPHICS_GUIDELINES.md","raw":"3D 아키텍처 시각화 만드는 규격","norm":"explorable 3D architecture visualizer specification and design requirements"}
+{"id":"p092","doc":"docs/plans/2026/07/11/RELEASE_v0.100.7_2026-07-11.md","raw":"v0.100.7 릴리즈 때 뭐 나갔어","norm":"v0.100.7 published artifacts linux musl binary npm Docker"}
+{"id":"p093","doc":"docs/plans/2026/04/15/PLAN_BuilderRepoManifestRepair_2026-04-15-1800.md","raw":"매니페스트 깨진 거 고친 작업","norm":"builder repo manifest repair bugfix"}
+{"id":"p094","doc":"docs/plans/2026/06/27/NEXT_AGENT_HANDOFF_2026-06-28.md","raw":"다음 에이전트한테 넘길 기준점 정리","norm":"next agent handoff repo branch remote and code baseline HEAD"}
+{"id":"p095","doc":"docs/plans/2026/06/27/PLAN_Builder_Master_2026-06-27.md","raw":"마스터 계획 문서 어디 있어","norm":"builder master plan single authoritative planning document"}
+{"id":"p096","doc":"docs/plans/2026/07/15/REVIEW_AttentionBattlefieldWiring_2026-07-15.md","raw":"Lead 를 attention 으로 투영하는 배선 리뷰","norm":"attention battlefield wiring review Lead fold explore adapter API status projection"}
+{"id":"p097","doc":"docs/plans/2026/04/14/3-2-status-row-prompt-handoff-root-cause-plan.md","raw":"status row 랑 프롬프트 핸드오프 근본 원인","norm":"status row prompt handoff root cause composer reuse"}
+{"id":"p098","doc":"docs/plans/2026/04/14/4-terminal-ownership-verification-and-final-stabilization-plan.md","raw":"터미널 소유권 검증하고 안정화한 계획","norm":"terminal ownership verification and final stabilization"}
+{"id":"p099","doc":"docs/plans/2026/04/14/0-project-analysis-and-improvement-plan.md","raw":"프로젝트 초기 분석이랑 개선 계획","norm":"initial project analysis and improvement plan Rust CLI multi crate workspace"}
+{"id":"p100","doc":"docs/plans/2026/05/23/2026-05-23-phase6-prompt-absorption-report.md","raw":"증거 우선 리포팅 도입한 보고서","norm":"phase six prompt absorption timestamped evidence first reporting"}
+{"id":"p101","doc":"docs/plans/2026/06/12/PLAN_ShellListenerTuiMinorRelease_2026-06-12-2243.md","raw":"shell listener TUI 마이너 릴리즈","norm":"shell listener TUI minor release"}
+{"id":"p102","doc":"docs/superpowers/plans/2026-08-14-runtime-release-refactor.md","raw":"런타임 릴리즈 리팩터링 플랜","norm":"runtime release refactor plan"}
+{"id":"p103","doc":"docs/superpowers/plans/2026-08-19-runtime-safety-hardening.md","raw":"런타임 안전성 강화 플랜","norm":"runtime safety hardening plan"}
+{"id":"p104","doc":"docs/superpowers/plans/2026-08-19-rag-incremental-cache-hardening.md","raw":"RAG 증분 캐시 강화 구현 플랜","norm":"RAG incremental cache hardening implementation plan"}
+{"id":"p105","doc":"docs/plans/2026/07/08/002_0834_session_summary_ctf_reverse_shell_hardening.md","raw":"두 레포에 걸쳐 리버스쉘 강화한 세션 요약","norm":"session summary CTF reverse shell hardening across two repositories"}
+{"id":"p106","doc":"docs/plans/2026/07/08/001_1537_reverse_silver_rce_reverse_shell_agent_verification.md","raw":"리버싱 문제 만들고 리버스쉘 검증한 거","norm":"reversing challenge creation and reverse shell agent verification vulnerable repo"}
+{"id":"p107","doc":"docs/plans/2026/06/19/PLAN_DeepDiveDocsUpdate_2026-06-19-2350.md","raw":"딥다이브 문서 갱신 계획","norm":"deep dive documentation update plan"}
+{"id":"p108","doc":"docs/plans/2026/07/01/002_1505_cognitive-agent-architecture-implementation-plan.md","raw":"인지 아키텍처 17주 구현 일정","norm":"cognitive agent architecture implementation schedule seventeen weeks"}
+{"id":"p109","doc":"docs/superpowers/specs/2026-08-13-session-footer-velog-theme-design.md","raw":"푸터 테마 설계했다가 폐기된 거","norm":"session footer theme design superseded by coral palette"}
+{"id":"p110","doc":"docs/superpowers/plans/2026-08-13-session-footer-velog-theme.md","raw":"푸터 테마 실행 계획 폐기된 문서","norm":"session footer theme plan superseded do not execute"}
