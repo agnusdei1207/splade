@@ -336,3 +336,41 @@ for (const [name, fn] of Object.entries(variants)) {
   for (const q of queries) rank[q.id] = fn(q);
   console.log(`  ${name.padEnd(40)} ${f4(evaluate(queries, rank))}`);
 }
+
+// ── proposed configurations ──────────────────────────────────────────────────
+console.log("\n=== 개선안 측정 ===");
+function fuseScaled(rankings, weights, backBoost, pageBoost) {
+  const rrf = new Map();
+  for (const [engine, ranking] of Object.entries(rankings)) {
+    const w = weights[engine] ?? 1;
+    ranking.forEach(([id], index) => rrf.set(id, (rrf.get(id) || 0) + w / (CONFIG.rrfK + index + 1)));
+  }
+  const scored = [...rrf].map(([id, s]) => [
+    id, s + Math.log(backlinkCount(id) + 1) * backBoost + pagerank.get(id) * pageBoost,
+  ]);
+  scored.sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1));
+  return scored.slice(0, CONFIG.limit).map(e => e[0]);
+}
+function cascadeHits(primary, backfill, head, limit) {
+  const out = [], seen = new Set();
+  const push = ([id, score]) => { if (!seen.has(id) && out.length < limit) { seen.add(id); out.push([id, score]); } };
+  primary.slice(0, head).forEach(push); backfill.forEach(push); primary.slice(head).forEach(push);
+  return out;
+}
+const multi = sparseEngines["multi"], miniE = sparseEngines["mini"];
+const proposals = {
+  "현행": q => { const g = graphRanking(bmCache[q.id], denseCache[q.id]); return fuseScaled({ lexical: bmCache[q.id], semantic: denseCache[q.id], graph: g }, { lexical: 1, semantic: 1, graph: 1 }, 0.08, 0.10); },
+  "P1 가산항 1/10 정규화": q => { const g = graphRanking(bmCache[q.id], denseCache[q.id]); return fuseScaled({ lexical: bmCache[q.id], semantic: denseCache[q.id], graph: g }, { lexical: 1, semantic: 1, graph: 1 }, 0.008, 0.010); },
+  "P2 가산항 제거": q => { const g = graphRanking(bmCache[q.id], denseCache[q.id]); return fuseScaled({ lexical: bmCache[q.id], semantic: denseCache[q.id], graph: g }, { lexical: 1, semantic: 1, graph: 1 }, 0, 0); },
+  "P3 P2 + lexical=BM25₈+multi": q => { const lx = multi ? cascadeHits(bmCache[q.id], multi.search(q.id, CONFIG.lexicalLimit), 8, CONFIG.lexicalLimit) : bmCache[q.id]; const g = graphRanking(lx, denseCache[q.id]); return fuseScaled({ lexical: lx, semantic: denseCache[q.id], graph: g }, { lexical: 1, semantic: 1, graph: 1 }, 0, 0); },
+  "P4 P3 + graph 가중 0.5": q => { const lx = multi ? cascadeHits(bmCache[q.id], multi.search(q.id, CONFIG.lexicalLimit), 8, CONFIG.lexicalLimit) : bmCache[q.id]; const g = graphRanking(lx, denseCache[q.id]); return fuseScaled({ lexical: lx, semantic: denseCache[q.id], graph: g }, { lexical: 1, semantic: 1, graph: 0.5 }, 0, 0); },
+  "P5 P4 + sparse 별도 엔진 0.5": q => { const sp = multi ? multi.search(q.id, CONFIG.lexicalLimit) : []; const g = graphRanking(bmCache[q.id], denseCache[q.id]); return fuseScaled({ lexical: bmCache[q.id], semantic: denseCache[q.id], graph: g, sparse: sp }, { lexical: 1, semantic: 1, graph: 0.5, sparse: 0.5 }, 0, 0); },
+  "P6 lexical만 (BM25₈+multi)": q => { const lx = multi ? cascadeHits(bmCache[q.id], multi.search(q.id, CONFIG.lexicalLimit), 8, CONFIG.lexicalLimit) : bmCache[q.id]; return lx.slice(0, CONFIG.limit).map(h => h[0]); },
+};
+console.log("  구성                                 R@1     R@10    MRR@10  nDCG@10 | ko      en");
+for (const [name, fn] of Object.entries(proposals)) {
+  const rank = {};
+  for (const q of queries) rank[q.id] = fn(q);
+  const all = evaluate(queries, rank);
+  console.log(`  ${name.padEnd(34)} ${f4(all)} | ${evaluate(byLang.ko, rank)["nDCG@10"].toFixed(4)}  ${evaluate(byLang.en, rank)["nDCG@10"].toFixed(4)}`);
+}

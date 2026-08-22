@@ -7,3 +7,8 @@ __pycache__/
 *.pyc
 models/
 artifacts/exp/chunk-dump.json
+artifacts/dense/*.npy
+artifacts/models/*/document-vectors.json
+artifacts/models/*/query-vectors.json
+artifacts/scale/document-vectors.json
+artifacts/scale/query-vectors.json
