@@ -1,0 +1,42 @@
+{
+  "documents": 354,
+  "document_languages": {
+    "ko": 77,
+    "en": 277,
+    "other": 0
+  },
+  "queries": 5495,
+  "families": {
+    "heading": {
+      "total": 2262,
+      "ko": 1132,
+      "en": 1130,
+      "other": 0
+    },
+    "title": {
+      "total": 283,
+      "ko": 99,
+      "en": 184,
+      "other": 0
+    },
+    "sentence": {
+      "total": 1342,
+      "ko": 379,
+      "en": 963,
+      "other": 0
+    },
+    "identifier": {
+      "total": 920,
+      "ko": 0,
+      "en": 920,
+      "other": 0
+    },
+    "question": {
+      "total": 688,
+      "ko": 193,
+      "en": 495,
+      "other": 0
+    }
+  },
+  "seed": 20260822
+}
