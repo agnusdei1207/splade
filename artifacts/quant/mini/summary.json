@@ -1,0 +1,26 @@
+{
+  "label": "mini",
+  "model": "opensearch-project/opensearch-neural-sparse-encoding-doc-v2-mini",
+  "top_k": 512,
+  "threads": 8,
+  "batch_size": 8,
+  "documents": 354,
+  "fp32": {
+    "bytes": 137983254,
+    "encode_seconds": 78.61293012599344,
+    "documents_per_second": 4.5030760134833026,
+    "mean_active_dims": 331.53954802259886
+  },
+  "int8": {
+    "bytes": 34876779,
+    "encode_seconds": 40.51356632300303,
+    "documents_per_second": 8.737813827043999,
+    "mean_active_dims": 388.61581920903956
+  },
+  "size_ratio_int8_over_fp32": 0.25276095460105613,
+  "speedup_int8_over_fp32": 1.9404100221450544,
+  "query_weight_bytes": 122168,
+  "tokenizer_bytes": 711396,
+  "peak_rss_mib": 3178.66796875,
+  "shippable_int8_bytes": 35710343
+}

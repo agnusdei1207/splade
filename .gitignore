@@ -12,3 +12,6 @@ artifacts/models/*/document-vectors.json
 artifacts/models/*/query-vectors.json
 artifacts/scale/document-vectors.json
 artifacts/scale/query-vectors.json
+artifacts/quant/*/*.onnx
+artifacts/quant/*/document-vectors-*.json
+artifacts/prod/*/query-vectors-*.json
