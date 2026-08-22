@@ -1,0 +1,30 @@
+{
+  "model_id": "opensearch-project/opensearch-neural-sparse-encoding-doc-v2-mini",
+  "revision": "4af867a426867dfdd744097531046f4289a32fdd",
+  "license": "Apache-2.0",
+  "quantization": "int8 dynamic (onnxruntime QInt8, MatMulConstBOnly)",
+  "vocab_size": 30522,
+  "max_sequence_length": 512,
+  "pooling": "SPLADE max over relu(log1p(masked logits))",
+  "document_top_k": 512,
+  "query_top_k": 64,
+  "query_is_inference_free": true,
+  "files": {
+    "MODEL_CARD.md": {
+      "bytes": 11659,
+      "sha256": "ba88fc1db1662346352a9bc32a8ec2fc27a83b61f61743d337f690ba870887e0"
+    },
+    "document_quantized.onnx": {
+      "bytes": 34876779,
+      "sha256": "7dda071c0a9e21dcad21e9ea08adb7b3ae5a5cf704d1cf652565bb7567d6d0a3"
+    },
+    "query_weights.safetensors": {
+      "bytes": 122168,
+      "sha256": "711ec64837a7962d2ae106996079782b7ee87860089a0b2348bf7cb840f252d3"
+    },
+    "tokenizer.json": {
+      "bytes": 711396,
+      "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66"
+    }
+  }
+}
